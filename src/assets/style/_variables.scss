@@ -1,0 +1,113 @@
+:root {
+    --bs-primary: #007bff !important;
+    --bs-primary-rgb: 0, 123, 255 !important;
+    --bs-secondary: #707070 !important;
+    --bs-secondary-rgb: 112, 112, 112 !important;
+    --bs-success: #2fb182 !important;
+    --bs-success-rgb: 47, 177, 130 !important;
+    --bs-danger: #dc3545 !important;
+    --bs-danger-rgb: 220, 53, 69 !important;
+    --bs-warning: #f08300 !important;
+    --bs-warning-rgb: 240, 131, 0 !important;
+    --bs-info: #6768ab !important;
+    --bs-info-rgb: 103, 104, 171 !important;
+    --bs-yellow: #ffc107 !important;
+    --bs-yellow-rgb: 255, 193, 7 !important;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: #fff;
+    font-weight: bold;
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 1rem;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item.active {
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 1rem;
+    border: none;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item.active i[class*="bi"] {
+    color: var(--bs-info);
+}
+
+div#search-box input:hover,
+div#search-box input:active,
+div#search-box input:focus {
+    box-shadow: none;
+    border-color: #ced4da !important;
+}
+
+#search-left {
+    border-top-left-radius: 2rem !important;
+    border-bottom-left-radius: 2rem !important;
+    border-right: none;
+    background-color: #fff;
+}
+
+#search-right {
+    border-top-right-radius: 2rem !important;
+    border-bottom-right-radius: 2rem !important;
+    border-left: none;
+    background-color: #fff;
+}
+
+div#main-card div.card,
+div#sub-card div.card {
+    border-radius: 1rem;
+}
+
+div#sub-card div.card-header {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background: #fff;
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+}
+
+div#sub-card div.card-body {
+    padding: 0 1.5rem 1rem 1.5rem;
+}
+
+div#main-card div.card.active {
+    background: #202124;
+    color: #fff;
+}
+
+div.card.active span.card-icon {
+    background: rgba(103, 104, 171, 0.5);
+}
+
+div.card.active span.card-icon i[class*="bi"] {
+    color: #6768ab;
+}
+
+div#sub-card div.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+span.info-badge span.badge.bg-success {
+    background: rgba(var(--bs-success-rgb), 0.5) !important;
+}
+
+span.info-badge span.badge.bg-success i[class*="bi"] {
+    color: var(--bs-success);
+}
+
+span.info-badge span.badge.bg-secondary {
+    background: rgba(var(--bs-secondary-rgb), 0.5) !important;
+}
+
+span.info-badge span.badge.bg-secondary i[class*="bi"] {
+    color: var(--bs-secondary);
+}

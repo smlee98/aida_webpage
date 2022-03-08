@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridone - AI Portal</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style/master.css">
+
+</head>
+<body>
+    <main class="w-100 h-100">     
+        <section id="main">
+            <div class="sidebar h-100">
+                <div class="sidebar-nav mb-4">
+                    <a class="navbar-brand" href="./index.html">
+                        <img src="assets/images/logo.svg" alt="logo">
+                    </a>
+                    <span id="theme-select" class="text-white">
+                        <i class="bi bi-sun"></i>
+                    </span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item active">
+                        <i class="bi bi-pie-chart-fill fs-4"></i>
+                        <span class="ms-3">대시보드</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-robot fs-4"></i>
+                        <span class="ms-3">AI 서비스</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-chat-square-dots-fill fs-4"></i>
+                        <span class="ms-3">컨텐츠</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+                        <span class="ms-3">이슈</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-file-earmark-text-fill fs-4"></i>
+                        <span class="ms-3">도움말</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content w-100">
+                <div class="content-nav">
+                    <span class="fw-bold fs-2" id="page-title">대시보드</span>
+                    <div id="user-info" class="d-flex justify-content-end align-items-center">
+                        <form class="me-3" action="#">
+                            <div class="input-group" id="search-box">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="search-left">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="search-right" placeholder="검색">
+                            </div>
+                        </form>
+                        <span id="user-alert" class="position-relative me-3">
+                            <i class="bi bi-bell-fill fs-4"></i>
+                            <span id="alert-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                                <span>3</span>
+                            </span>
+                        </span>
+                        <span id="user-setting" class="me-3">
+                            <i class="bi bi-gear-fill fs-4"></i>
+                        </span>
+                        <span id="user-detail">
+                            <span id="user-picture" class="me-2">
+                                <img src="assets/images/publisher.png" alt="user-picture">
+                            </span>
+                            <span id="user-name" class="fw-bold me-2">
+                                관리자
+                            </span>
+                            <span id="user-more">
+                                <i class="bi bi-chevron-down"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="content-wrapper">
+                    <div id="clock" class="d-flex flex-column justify-content-center">
+                        <span id="dates" class="d-block fs-3 fw-bold"></span>
+                        <span id="time" class="d-block fs-3 fw-bold">
+                            <span id="amPm" class="fs-5 me-1"></span>
+                            <span id="nowTime"></span>
+                        </span>
+                    </div>
+                    <div id="main-card" class="mt-4">
+                        <div class="row row-cols-7 g-4">
+                            <div class="col">
+                                <div class="card active">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-stack fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">총 서비스 개수</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">99개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-check-lg fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">정상 서비스</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">99개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-exclamation-lg fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">비정상 서비스</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">0개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-arrow-left-right fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">대체 서비스</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">0개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-trash fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">폐기 서비스</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">0개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-file-earmark-code fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">DEVELOPMENT</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">0개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="card-icon">
+                                            <i class="bi bi-cloud-arrow-up fs-4"></i>
+                                        </span>
+                                        <h6 class="card-title opacity-50 mt-3 fw-bold">OPERATION</h6>
+                                        <h4 class="d-flex justify-content-end fw-bold">0개</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sub-card" class="mt-4">
+                        <div class="row row-cols-3 g-4">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
+                                        <div class="calendar">
+                                            <span id="calendar-prev">
+                                                <i class="bi bi-chevron-left"></i>
+                                            </span>
+                                            <span class="mx-2 opacity-50 fw-bold" id="calYear">
+                                                2022
+                                            </span>
+                                            <span id="calendar-next">
+                                                <i class="bi bi-chevron-right"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">16</span>
+                                                <span>명</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">1</span>
+                                                <span>명</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-success">
+                                                    <i class="bi bi-arrow-up-right me-1"></i>
+                                                    <span class="badge-num">1</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">APK 키 발급 요청 현황</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-success">
+                                                    <i class="bi bi-arrow-up-right me-1"></i>
+                                                    <span class="badge-num">2</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">권한 변경 요청 현황</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">10</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">1</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-success">
+                                                    <i class="bi bi-arrow-up-right me-1"></i>
+                                                    <span class="badge-num">1</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">전체 게시글 현황</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">16</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">1</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-secondary">
+                                                    <i class="bi bi-dash-lg me-1"></i>
+                                                    <span class="badge-num">0</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">상태별 사용자</span>
+                                        <div class="progress-legend">
+                                            <span class="legend-item bg-danger me-2"></span>
+                                            <span class="legend-name me-4">삭제</span>
+                                            <span class="legend-item bg-primary me-2"></span>
+                                            <span class="legend-name me-4">활성화</span>
+                                            <span class="legend-item bg-yellow me-2"></span>
+                                            <span class="legend-name">비활성화</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="progress-chart w-100">
+                                            <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                                                <span class="progress-num">3</span>
+                                            </div>
+                                            <div class="progress-active"  data-bs-toggle="tooltip" data-bs-placement="top" title="활성화">
+                                                <span class="progress-num">11</span>
+                                            </div>
+                                            <div class="progress-deactive"  data-bs-toggle="tooltip" data-bs-placement="top" title="비활성화">
+                                                <span class="progress-num">2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">권한별 사용자</span>
+                                        <div class="progress-legend">
+                                            <span class="legend-item bg-danger me-2"></span>
+                                            <span class="legend-name me-4">관리자</span>
+                                            <span class="legend-item bg-primary me-2"></span>
+                                            <span class="legend-name">사용자</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="progress-chart w-100">
+                                            <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top" title="관리자">
+                                                <span class="progress-num">1</span>
+                                            </div>
+                                            <div class="progress-user" data-bs-toggle="tooltip" data-bs-placement="top" title="사용자">
+                                                <span class="progress-num">15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">가입 승인 요청 현황</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">5</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">0</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-secondary">
+                                                    <i class="bi bi-dash-lg me-1"></i>
+                                                    <span class="badge-num">0</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">비밀번호 초기화 요청 현황</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">0</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">0</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-secondary">
+                                                    <i class="bi bi-dash-lg me-1"></i>
+                                                    <span class="badge-num">0</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">이슈 처리 현황</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">20</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-3">
+                                                <span class="me-2">처리</span>
+                                                <span class="info-num text-primary">15</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold">
+                                                <span class="me-2">미처리</span>
+                                                <span class="info-num text-danger">5</span>
+                                                <span>개</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/common.min.js"></script>
+    <script>
+        $(function () {
+            const fullDate = document.querySelector("#dates");
+            const amPm = document.querySelector("#amPm");
+            const clock = document.querySelector("#nowTime");
+
+            Date.prototype.amPm = function () {
+                let h = this.getHours() < 12 ? "오전" : "오후";
+                return h;
+            }
+
+            function getDate() {
+                const date = new Date();
+
+                let years = date.getFullYear();
+                let months = String(date.getMonth()).padStart(2, "0");
+                let dates = String(date.getDate()).padStart(2, "0");
+
+                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            }
+
+            function getAmPm() {
+                const date = new Date();
+                const nowStat = date.amPm();
+
+                amPm.innerText = `${nowStat} `;
+            }
+
+            function getTime() {
+                const date = new Date();
+                let hours = "";
+                if(date.getHours() > 12){
+                    hours = String(date.getHours() - 12).padStart(2, "0");
+                } else {
+                    hours = String(date.getHours()).padStart(2, "0");
+                }
+                let minutes = String(date.getMinutes()).padStart(2, "0");
+                let seconds = String(date.getSeconds()).padStart(2, "0");
+
+                clock.innerText = `${hours}:${minutes}:${seconds}`;
+            }
+
+            getDate();
+            getAmPm();
+            getTime();
+            setInterval(getDate, 1000);
+            setInterval(getAmPm, 1000);
+            setInterval(getTime, 1000);
+
+            const deleteBar = $("div.progress-delete");
+            const activeBar = $("div.progress-active");
+            const deactiveBar = $("div.progress-deactive");
+            const adminBar = $("div.progress-admin");
+            const userBar = $("div.progress-user");
+
+            const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
+            const activeNum = parseInt($("div.progress-active span.progress-num").html());
+            const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
+            const adminNum = parseInt($("div.progress-admin span.progress-num").html());
+            const userNum = parseInt($("div.progress-user span.progress-num").html());
+
+            const allUsers = deleteNum + activeNum + deactiveNum;
+
+            // console.log(`${deleteNum},${activeNum},${deactiveNum}`);
+
+            deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
+            activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
+            deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
+            adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
+            userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
+
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        const labels = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                responsive: true
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+</body>
+</html>

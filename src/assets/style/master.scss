@@ -1,0 +1,326 @@
+@charset "UTF-8";
+@import "variables";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
+
+body {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+        Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif;
+    background-color: #ffffff;
+    color: #323333;
+    word-break: keep-all;
+    word-wrap: break-word;
+    min-width: 1920px;
+    min-height: 969px;
+}
+
+* {
+    user-select: none;
+}
+
+*::selection {
+    background: rgba(255, 153, 0, 0.7);
+    color: #ffffff;
+}
+
+.vsc-controller {
+    display: none;
+}
+
+#back-to-top {
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    right: 0;
+}
+
+#back-to-top span {
+    transition: opacity 0.5s;
+}
+
+#back-to-top:hover,
+#back-to-top:hover span {
+    opacity: 1 !important;
+}
+
+a,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    background-color: #000;
+    height: 3.75rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 18px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+*[aria-expanded="true"] i.bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+a.navbar-brand img {
+    height: 3.25rem;
+    width: auto;
+}
+
+img#logo-gridone {
+    width: auto;
+    height: 2.25rem;
+}
+
+span.shortLine {
+    width: 1.25rem;
+    height: 2px;
+    display: block;
+    background: var(--bs-warning);
+}
+
+span.longLine {
+    width: 7rem;
+    height: 2px;
+    display: block;
+    background: var(--bs-warning);
+}
+
+.highlight {
+    position: relative;
+    z-index: 1;
+}
+
+.highlight::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(240, 131, 0, 0.5);
+    z-index: -1;
+}
+
+a.scrollNext {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 5rem;
+    left: 50%;
+    transform: translate(-50%, 0.5rem);
+    opacity: 0.2;
+    animation: elevate 0.7s infinite alternate;
+}
+
+@keyframes elevate {
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        flex-direction: column !important;
+        background-color: #000;
+        height: calc(100vh - 3.75rem);
+        width: 100vw;
+        transition: 0.3s all;
+        overflow-y: auto;
+        z-index: 99999;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        -webkit-transform: translateY(8px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        -webkit-transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+section#main {
+    display: flex;
+    height: 100vh;
+}
+
+div.sidebar {
+    width: 20rem;
+    background: #202124;
+    padding: 2rem 1rem;
+}
+
+div.sidebar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.content-nav {
+    height: 7.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+span#theme-select {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+span#theme-select:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+div.content-wrapper {
+    height: calc(100% - 7.25rem);
+    background: #f5f5f5;
+    padding: 1.5rem 2rem;
+}
+
+span#user-picture img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+span#alert-count {
+    background: #6768ab;
+}
+
+span.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(0, 0, 0, 0.13);
+    border-radius: 50%;
+    color: #fff;
+}
+
+div.calendar {
+    display: flex;
+    align-items: center;
+}
+
+span.info-num {
+    font-size: 1.5rem;
+    color: #6768ab;
+}
+
+span#calendar-prev,
+span#calendar-next {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.13);
+    border-radius: 5px;
+}
+
+span#calendar-prev i,
+span#calendar-next i {
+    font-weight: bold;
+    font-size: 10px;
+}
+
+span#calYear {
+    font-size: 12px;
+}
+
+div.progress-chart {
+    width: 100%;
+    height: 2.25rem;
+    display: flex;
+}
+
+div[class*="progress-"]:not(div.progress-chart) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+div.progress-delete,
+div.progress-admin {
+    background: rgba(var(--bs-danger-rgb), 0.5);
+}
+
+div.progress-active,
+div.progress-user {
+    background: rgba(var(--bs-primary-rgb), 0.5);
+}
+
+div.progress-deactive {
+    background: rgba(var(--bs-yellow-rgb), 0.5);
+}
+
+span.legend-item {
+    width: 14px;
+    height: 6px;
+    display: block;
+}
+
+span.legend-name {
+    color: #000;
+    font-size: 12px;
+}
+
+span.legend-item.bg-danger {
+    background: rgba(var(--bs-danger-rgb), 0.5) !important;
+    border: 1px solid var(--bs-danger);
+}
+
+span.legend-item.bg-primary {
+    background: rgba(var(--bs-primary-rgb), 0.5) !important;
+    border: 1px solid var(--bs-primary);
+}
+
+span.legend-item.bg-yellow {
+    background: rgba(var(--bs-yellow-rgb), 0.5) !important;
+    border: 1px solid var(--bs-yellow);
+}
