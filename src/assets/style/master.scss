@@ -224,6 +224,8 @@ span#theme-select:hover {
 }
 
 div.content-wrapper {
+    display: flex;
+    flex-direction: column;
     height: calc(100% - 5rem);
     background: #f5f5f5;
     padding: 1.5rem 2rem;
@@ -334,14 +336,6 @@ span.legend-item.bg-yellow {
     border: 1px solid var(--bs-yellow);
 }
 
-div#clock {
-    height: 5.25rem;
-}
-
-div#main-card {
-    height: 11rem;
-}
-
-div#sub-card {
-    height: calc(100% - 16.25rem);
+div#sub-card div.col {
+    height: 50%;
 }
