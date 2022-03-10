@@ -12,7 +12,7 @@ body {
     word-break: keep-all;
     word-wrap: break-word;
     min-width: 1920px;
-    min-height: 969px;
+    min-height: 940px;
 }
 
 * {
@@ -192,7 +192,7 @@ div.sidebar-nav {
 }
 
 div.content-nav {
-    height: 7.25rem;
+    height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -215,7 +215,7 @@ span#theme-select:hover {
 }
 
 div.content-wrapper {
-    height: calc(100% - 7.25rem);
+    height: calc(100% - 5rem);
     background: #f5f5f5;
     padding: 1.5rem 2rem;
 }
@@ -234,8 +234,8 @@ span.card-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background: rgba(0, 0, 0, 0.13);
     border-radius: 50%;
     color: #fff;
@@ -323,4 +323,16 @@ span.legend-item.bg-primary {
 span.legend-item.bg-yellow {
     background: rgba(var(--bs-yellow-rgb), 0.5) !important;
     border: 1px solid var(--bs-yellow);
+}
+
+div#clock {
+    height: 5.25rem;
+}
+
+div#main-card {
+    height: 11rem;
+}
+
+div#sub-card {
+    height: calc(100% - 16.25rem);
 }

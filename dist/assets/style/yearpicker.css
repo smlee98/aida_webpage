@@ -1,0 +1,76 @@
+:root {
+    --background-color: #fff;
+    --border-color: #ccc;
+    --text-color: #555;
+    --selected-text-color: var(--bs-info);
+    --hover-background-color: #eee;
+}
+
+.yearpicker-container {
+    position: absolute;
+    color: var(--text-color);
+    width: 280px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    font-size: 1rem;
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--background-color);
+    z-index: 10;
+    margin-top: 0.2rem;
+}
+
+.yearpicker-header {
+    display: flex;
+    width: 100%;
+    height: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+    justify-content: space-around;
+}
+
+.yearpicker-prev,
+.yearpicker-next {
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.yearpicker-prev:hover,
+.yearpicker-next:hover {
+    color: var(--selected-text-color);
+}
+
+.yearpicker-year {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.yearpicker-items {
+    list-style: none;
+    padding: 1rem 0.5rem;
+    flex: 0 0 33.3%;
+    width: 100%;
+}
+
+.yearpicker-items:hover {
+    background-color: var(--hover-background-color);
+    color: var(--selected-text-color);
+    cursor: pointer;
+}
+
+.yearpicker-items.selected {
+    color: var(--selected-text-color);
+}
+
+.hide {
+    display: none;
+}
+
+.yearpicker-items.disabled {
+    pointer-events: none;
+    color: #bbb;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInllYXJwaWNrZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJO0lBQ0E7SUFDQTtJQUNBO0lBQ0E7OztBQUdKO0lBQ0k7SUFDQTtJQUNBO0lBQ0E7SUFDQTtJQUNBO0lBQ0E7SUFDQTtJQUNBO0lBQ0E7OztBQUdKO0lBQ0k7SUFDQTtJQUNBO0lBQ0E7SUFDQTtJQUNBOzs7QUFHSjtBQUFBO0lBRUk7SUFDQTs7O0FBR0o7QUFBQTtJQUVJOzs7QUFHSjtJQUNJO0lBQ0E7SUFDQTtJQUNBO0lBQ0E7SUFDQTs7O0FBR0o7SUFDSTtJQUNBO0lBQ0E7SUFDQTs7O0FBR0o7SUFDSTtJQUNBO0lBQ0E7OztBQUdKO0lBQ0k7OztBQUdKO0lBQ0k7OztBQUdKO0lBQ0k7SUFDQSIsImZpbGUiOiJ5ZWFycGlja2VyLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpyb290IHtcbiAgICAtLWJhY2tncm91bmQtY29sb3I6ICNmZmY7XG4gICAgLS1ib3JkZXItY29sb3I6ICNjY2M7XG4gICAgLS10ZXh0LWNvbG9yOiAjNTU1O1xuICAgIC0tc2VsZWN0ZWQtdGV4dC1jb2xvcjogdmFyKC0tYnMtaW5mbyk7XG4gICAgLS1ob3Zlci1iYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xufVxuXG4ueWVhcnBpY2tlci1jb250YWluZXIge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBjb2xvcjogdmFyKC0tdGV4dC1jb2xvcik7XG4gICAgd2lkdGg6IDI4MHB4O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWJvcmRlci1jb2xvcik7XG4gICAgYm9yZGVyLXJhZGl1czogM3B4O1xuICAgIGZvbnQtc2l6ZTogMXJlbTtcbiAgICBib3gtc2hhZG93OiAxcHggMXB4IDhweCAwcHggcmdiYSgwLCAwLCAwLCAwLjIpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJhY2tncm91bmQtY29sb3IpO1xuICAgIHotaW5kZXg6IDEwO1xuICAgIG1hcmdpbi10b3A6IDAuMnJlbTtcbn1cblxuLnllYXJwaWNrZXItaGVhZGVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMi41cmVtO1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1ib3JkZXItY29sb3IpO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG59XG5cbi55ZWFycGlja2VyLXByZXYsXG4ueWVhcnBpY2tlci1uZXh0IHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgZm9udC1zaXplOiAycmVtO1xufVxuXG4ueWVhcnBpY2tlci1wcmV2OmhvdmVyLFxuLnllYXJwaWNrZXItbmV4dDpob3ZlciB7XG4gICAgY29sb3I6IHZhcigtLXNlbGVjdGVkLXRleHQtY29sb3IpO1xufVxuXG4ueWVhcnBpY2tlci15ZWFyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBwYWRkaW5nOiAwLjVyZW07XG59XG5cbi55ZWFycGlja2VyLWl0ZW1zIHtcbiAgICBsaXN0LXN0eWxlOiBub25lO1xuICAgIHBhZGRpbmc6IDFyZW0gMC41cmVtO1xuICAgIGZsZXg6IDAgMCAzMy4zJTtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuLnllYXJwaWNrZXItaXRlbXM6aG92ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWhvdmVyLWJhY2tncm91bmQtY29sb3IpO1xuICAgIGNvbG9yOiB2YXIoLS1zZWxlY3RlZC10ZXh0LWNvbG9yKTtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi55ZWFycGlja2VyLWl0ZW1zLnNlbGVjdGVkIHtcbiAgICBjb2xvcjogdmFyKC0tc2VsZWN0ZWQtdGV4dC1jb2xvcik7XG59XG5cbi5oaWRlIHtcbiAgICBkaXNwbGF5OiBub25lO1xufVxuXG4ueWVhcnBpY2tlci1pdGVtcy5kaXNhYmxlZCB7XG4gICAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gICAgY29sb3I6ICNiYmI7XG59XG4iXX0= */
