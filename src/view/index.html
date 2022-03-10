@@ -48,15 +48,20 @@
             </div>
             <div class="content w-100">
                 <div class="content-nav">
-                    <span class="fw-bold fs-3" id="page-title">대시보드</span>
+                    <div>
+                        <span id="toggle-bar" class="me-2">
+                            <i class="bi bi-list fs-3"></i>
+                        </span>
+                        <span class="fw-bold fs-3" id="page-title">대시보드</span>
+                    </div>
                     <div id="user-info" class="d-flex justify-content-end align-items-center">
-                        <span id="user-alert" class="position-relative me-3">
+                        <span id="user-alert" class="position-relative me-4">
                             <i class="bi bi-bell-fill fs-4"></i>
                             <span id="alert-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                                 <span>3</span>
                             </span>
                         </span>
-                        <span id="user-setting" class="me-3">
+                        <span id="user-setting" class="me-4">
                             <i class="bi bi-gear-fill fs-4"></i>
                         </span>
                         <span id="user-detail">
@@ -209,7 +214,7 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <canvas id="myChart" style="width: 100%; height: 100%;"></canvas>
+                                            <canvas id="myChart" style="width: 100%; height: 9.375rem;"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -519,6 +524,17 @@
     <script src="assets/script/common.min.js"></script>
     <script>
         $(function () {
+            const mainSection = document.getElementById("main");
+            const toggleBar = document.getElementById("toggle-bar");
+
+            toggleBar.addEventListener('click', function () {
+                if(!mainSection.classList.contains('active')){
+                    mainSection.classList.add("active");
+                } else {
+                    mainSection.classList.remove("active");
+                }
+            });
+
             /* YearPicker */
             $(".yearpicker").yearpicker();
 
@@ -646,7 +662,8 @@
                         display: false
                     }
                 },
-                responsive: false
+                responsive: true,
+                maintainAspectRatio: false
             }
         };
 

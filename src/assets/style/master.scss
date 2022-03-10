@@ -183,6 +183,13 @@ div.sidebar {
     width: 20rem;
     background: #202124;
     padding: 2rem 1rem;
+    transition: width 0.2s;
+}
+
+section#main.active div.sidebar {
+    visibility: hidden;
+    padding: 0;
+    width: 0;
 }
 
 div.sidebar-nav {
