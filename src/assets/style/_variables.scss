@@ -139,6 +139,11 @@ span.info-badge span.badge.bg-secondary i[class*="bi"] {
     padding: 0 0.5rem;
 }
 
+.table#dashboard-tables tbody tr {
+    border-radius: 0.25rem;
+    background: rgba(0, 0, 0, 0.13) !important;
+}
+
 .table#dashboard-tables tbody tr > * {
     --bs-table-accent-bg: transparent;
     color: var(--bs-info);
