@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gridone - AI Portal</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/style/yearpicker.css">
     <link rel="stylesheet" href="assets/style/master.css">
 
 </head>
@@ -178,49 +176,49 @@
                             </div>
                         </div>
                     </div>
-                    <div id="sub-card" class="flex-grow-1 pb-4">
-                        <div class="row row-cols-3 h-100 g-4">
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
-                                        <div class="calendar">
-                                            <span id="calendar-prev">
-                                                <i class="bi bi-chevron-left"></i>
-                                            </span>
-                                            <span class="mx-2 opacity-50 fw-bold yearpicker" id="calYear"></span>
-                                            <span id="calendar-next">
-                                                <i class="bi bi-chevron-right"></i>
-                                            </span>
-                                        </div>
+                    <div id="sub-card">
+                        <div class="item">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
+                                    <div class="calendar">
+                                        <span id="calendar-prev">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </span>
+                                        <span class="mx-2 opacity-50 fw-bold yearpicker" id="calYear"></span>
+                                        <span id="calendar-next">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </span>
                                     </div>
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="card-info d-flex align-items-center">
-                                            <span class="info-all fw-bold me-3">
-                                                <span class="me-2">총</span>
-                                                <span class="info-num">16</span>
-                                                <span>명</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="card-info d-flex align-items-center">
+                                        <span class="info-all fw-bold me-3">
+                                            <span class="me-2">총</span>
+                                            <span class="info-num">16</span>
+                                            <span>명</span>
+                                        </span>
+                                        <span class="info-new fw-bold me-2">
+                                            <span class="me-2">신규</span>
+                                            <span class="info-num">1</span>
+                                            <span>명</span>
+                                        </span>
+                                        <span class="info-badge">
+                                            <span class="badge rounded-pill bg-success">
+                                                <i class="bi bi-arrow-up-right me-1"></i>
+                                                <span class="badge-num">1</span>
                                             </span>
-                                            <span class="info-new fw-bold me-2">
-                                                <span class="me-2">신규</span>
-                                                <span class="info-num">1</span>
-                                                <span>명</span>
-                                            </span>
-                                            <span class="info-badge">
-                                                <span class="badge rounded-pill bg-success">
-                                                    <i class="bi bi-arrow-up-right me-1"></i>
-                                                    <span class="badge-num">1</span>
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <canvas id="myChart" style="width: 100%; height: 9.375rem;"></canvas>
-                                        </div>
+                                        </span>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <canvas id="myChart" style="width: 100%; height: 9.375rem;"></canvas>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col d-flex flex-column">
-                                <div class="card flex-grow-1 mb-4">
+                        </div>
+                        <div class="item">
+                            <div id="status-card" class="h-100">
+                                <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">API 키 발급 요청 현황</span>
                                     </div>
@@ -245,7 +243,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card flex-grow-1">
+                                <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">권한 변경 요청 현황</span>
                                     </div>
@@ -270,128 +268,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        <span class="card-header-text fw-bold opacity-50 d-block">전체 게시글 현황</span>
-                                        <div class="card-info d-flex align-items-center">
-                                            <span class="info-all fw-bold me-3">
-                                                <span class="me-2">총</span>
-                                                <span class="info-num">16</span>
-                                                <span>개</span>
-                                            </span>
-                                            <span class="info-new fw-bold me-2">
-                                                <span class="me-2">총</span>
-                                                <span class="info-num">1</span>
-                                                <span>개</span>
-                                            </span>
-                                            <span class="info-badge">
-                                                <span class="badge rounded-pill bg-secondary">
-                                                    <i class="bi bi-dash-lg me-1"></i>
-                                                    <span class="badge-num">0</span>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <table class="table table-striped mb-0" id="dashboard-tables">
-                                            <colgroup>
-                                                <col width="70%">
-                                                <col width="20%">
-                                                <col width="10%">
-                                            </colgroup>
-                                            <thead>
-                                                <tr>
-                                                    <th>제목</th>
-                                                    <th>종류</th>
-                                                    <th>링크</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-truncate">별 된 덮어 내일 별 잠, 듯합니다. 라이너 하나에 잔디가 까닭이요, 지나가는 별 멀듯이, 써 거외다.</td>
-                                                    <td>AI 스토리</td>
-                                                    <td>
-                                                        <span>
-                                                            <i class="bi bi-link-45deg"></i>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-truncate">별 된 덮어 내일 별 잠, 듯합니다. 라이너 하나에 잔디가 까닭이요, 지나가는 별 멀듯이, 써 거외다.</td>
-                                                    <td>공지사항</td>
-                                                    <td>
-                                                        <span>
-                                                            <i class="bi bi-link-45deg"></i>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-truncate">별 된 덮어 내일 별 잠, 듯합니다. 라이너 하나에 잔디가 까닭이요, 지나가는 별 멀듯이, 써 거외다.</td>
-                                                    <td>커뮤니티</td>
-                                                    <td>
-                                                        <span>
-                                                            <i class="bi bi-link-45deg"></i>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex flex-column">
-                                <div class="card flex-grow-1 mb-4">
-                                    <div class="card-header">
-                                        <span class="card-header-text fw-bold opacity-50 d-block">상태별 사용자</span>
-                                        <div class="progress-legend">
-                                            <span class="legend-item bg-danger me-2"></span>
-                                            <span class="legend-name me-4">삭제</span>
-                                            <span class="legend-item bg-primary me-2"></span>
-                                            <span class="legend-name me-4">활성화</span>
-                                            <span class="legend-item bg-yellow me-2"></span>
-                                            <span class="legend-name">비활성화</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="progress-chart w-100">
-                                            <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
-                                                <span class="progress-num">3</span>
-                                            </div>
-                                            <div class="progress-active"  data-bs-toggle="tooltip" data-bs-placement="top" title="활성화">
-                                                <span class="progress-num">11</span>
-                                            </div>
-                                            <div class="progress-deactive"  data-bs-toggle="tooltip" data-bs-placement="top" title="비활성화">
-                                                <span class="progress-num">2</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card flex-grow-1">
-                                    <div class="card-header">
-                                        <span class="card-header-text fw-bold opacity-50 d-block">권한별 사용자</span>
-                                        <div class="progress-legend">
-                                            <span class="legend-item bg-danger me-2"></span>
-                                            <span class="legend-name me-4">관리자</span>
-                                            <span class="legend-item bg-primary me-2"></span>
-                                            <span class="legend-name">사용자</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="progress-chart w-100">
-                                            <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top" title="관리자">
-                                                <span class="progress-num">1</span>
-                                            </div>
-                                            <div class="progress-user" data-bs-toggle="tooltip" data-bs-placement="top" title="사용자">
-                                                <span class="progress-num">15</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex flex-column">
-                                <div class="card flex-grow-1 mb-4">
+                                <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">가입 승인 요청 현황</span>
                                     </div>
@@ -416,7 +293,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card flex-grow-1">
+                                <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">비밀번호 초기화 요청 현황</span>
                                     </div>
@@ -442,72 +319,357 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        <span class="card-header-text fw-bold opacity-50 d-block">이슈 처리 현황</span>
-                                        <div class="card-info d-flex align-items-center">
-                                            <span class="info-all fw-bold me-3">
-                                                <span class="me-2">총</span>
-                                                <span class="info-num">20</span>
-                                                <span>개</span>
-                                            </span>
-                                            <span class="info-new fw-bold me-3">
-                                                <span class="me-2">처리</span>
-                                                <span class="info-num text-primary">15</span>
-                                                <span>개</span>
-                                            </span>
-                                            <span class="info-new fw-bold">
-                                                <span class="me-2">미처리</span>
-                                                <span class="info-num text-danger">5</span>
-                                                <span>개</span>
-                                            </span>
+                        </div>
+                        <div class="item h-100">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <span class="card-header-text fw-bold opacity-50 d-block">이슈 처리 현황</span>
+                                    <div class="card-info d-flex align-items-center">
+                                        <span class="info-all fw-bold me-3">
+                                            <span class="me-2">총</span>
+                                            <span class="info-num">20</span>
+                                            <span>개</span>
+                                        </span>
+                                        <span class="info-new fw-bold me-3">
+                                            <span class="me-2">처리</span>
+                                            <span class="info-num text-primary">15</span>
+                                            <span>개</span>
+                                        </span>
+                                        <span class="info-new fw-bold">
+                                            <span class="me-2">미처리</span>
+                                            <span class="info-num text-danger">5</span>
+                                            <span>개</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row row-cols-3">
+                                        <div class="col">
+                                            <div class="issue-header">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fs-5 fw-bold">처리 대상</span>
+                                                    <span class="more-task">
+                                                        <i class="bi bi-three-dots opacity-50"></i>
+                                                    </span>
+                                                </div>
+                                                <small class="opacity-50">2개의 태스크</small>
+                                            </div>
+                                            <div class="issue-body">
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="issue-header">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fs-5 fw-bold">처리 진행중</span>
+                                                    <span class="more-task">
+                                                        <i class="bi bi-three-dots opacity-50"></i>
+                                                    </span>
+                                                </div>
+                                                <small class="opacity-50">2개의 태스크</small>
+                                            </div>
+                                            <div class="issue-body">
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="issue-header">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fs-5 fw-bold">처리 완료</span>
+                                                    <span class="more-task">
+                                                        <i class="bi bi-three-dots opacity-50"></i>
+                                                    </span>
+                                                </div>
+                                                <small class="opacity-50">2개의 태스크</small>
+                                            </div>
+                                            <div class="issue-body">
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                    <p class="issues">
+                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="hashtag">
+                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                        </div>
+                                                        <span class="d-flex align-items-center text-muted">
+                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                            <span class="comment-num">12</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <table class="table table-striped mb-0" id="dashboard-tables">
-                                            <colgroup>
-                                                <col width="70%">
-                                                <col width="20%">
-                                                <col width="10%">
-                                            </colgroup>
-                                            <thead>
-                                                <tr>
-                                                    <th>제목</th>
-                                                    <th>처리현황</th>
-                                                    <th>링크</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-truncate">별 된 덮어 내일 별 잠, 듯합니다. 라이너 하나에 잔디가 까닭이요, 지나가는 별 멀듯이, 써 거외다.</td>
-                                                    <td>처리</td>
-                                                    <td>
-                                                        <span>
-                                                            <i class="bi bi-link-45deg"></i>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-truncate">별 된 덮어 내일 별 잠, 듯합니다. 라이너 하나에 잔디가 까닭이요, 지나가는 별 멀듯이, 써 거외다.</td>
-                                                    <td>처리</td>
-                                                    <td>
-                                                        <span>
-                                                            <i class="bi bi-link-45deg"></i>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-truncate">별 된 덮어 내일 별 잠, 듯합니다. 라이너 하나에 잔디가 까닭이요, 지나가는 별 멀듯이, 써 거외다.</td>
-                                                    <td>미처리</td>
-                                                    <td>
-                                                        <span>
-                                                            <i class="bi bi-link-45deg"></i>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="user-card" class="item h-100">
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-header-text fw-bold opacity-50 d-block">상태별 사용자</span>
+                                    <div class="progress-legend">
+                                        <span class="legend-item bg-danger me-2"></span>
+                                        <span class="legend-name me-4">삭제</span>
+                                        <span class="legend-item bg-primary me-2"></span>
+                                        <span class="legend-name me-4">활성화</span>
+                                        <span class="legend-item bg-yellow me-2"></span>
+                                        <span class="legend-name">비활성화</span>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="progress-chart w-100">
+                                        <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                                            <span class="progress-num">3</span>
+                                        </div>
+                                        <div class="progress-active" data-bs-toggle="tooltip" data-bs-placement="top" title="활성화">
+                                            <span class="progress-num">11</span>
+                                        </div>
+                                        <div class="progress-deactive" data-bs-toggle="tooltip" data-bs-placement="top" title="비활성화">
+                                            <span class="progress-num">2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-header-text fw-bold opacity-50 d-block">권한별 사용자</span>
+                                    <div class="progress-legend">
+                                        <span class="legend-item bg-danger me-2"></span>
+                                        <span class="legend-name me-4">관리자</span>
+                                        <span class="legend-item bg-primary me-2"></span>
+                                        <span class="legend-name">사용자</span>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="progress-chart w-100">
+                                        <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top" title="관리자">
+                                            <span class="progress-num">1</span>
+                                        </div>
+                                        <div class="progress-user" data-bs-toggle="tooltip" data-bs-placement="top" title="사용자">
+                                            <span class="progress-num">15</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <span class="card-header-text fw-bold opacity-50 d-block">전체 게시글 현황</span>
+                                    <div class="card-info d-flex align-items-center">
+                                        <span class="info-all fw-bold me-3">
+                                            <span class="me-2">총</span>
+                                            <span class="info-num">16</span>
+                                            <span>개</span>
+                                        </span>
+                                        <span class="info-new fw-bold me-2">
+                                            <span class="me-2">신규</span>
+                                            <span class="info-num">0</span>
+                                            <span>개</span>
+                                        </span>
+                                        <span class="info-badge">
+                                            <span class="badge rounded-pill bg-secondary">
+                                                <i class="bi bi-dash-lg me-1"></i>
+                                                <span class="badge-num">0</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row row-cols-2 h-100">
+                                        <div class="col h-100">
+                                            <canvas id="boardChart" style="width: 100%; height: 100%;"></canvas>
+                                        </div>
+                                        <div class="col h-100">
+                                            <div class="board-item">
+                                                <span class="board-legend bg-danger"></span>
+                                                <div class="board-info">
+                                                    <span class="fw-bold text-truncate board-name" title="Automate 3.0 Trainer와의 연동">
+                                                        Automate 3.0 Trainer와의 연동
+                                                    </span>
+                                                    <span class="opacity-50">
+                                                        AI 스토리
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="board-item">
+                                                <span class="board-legend bg-danger"></span>
+                                                <div class="board-info">
+                                                    <span class="fw-bold text-truncate board-name" title="AIDA와의 연동">
+                                                        AIDA와의 연동
+                                                    </span>
+                                                    <span class="opacity-50">
+                                                        AI 스토리
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="board-item">
+                                                <span class="board-legend bg-primary"></span>
+                                                <div class="board-info">
+                                                    <span class="fw-bold text-truncate board-name" title="Automate 3.0 Trainer와의 연동">
+                                                        동해물과 백두산이
+                                                    </span>
+                                                    <span class="opacity-50">
+                                                        공지사항
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="board-item">
+                                                <span class="board-legend bg-yellow"></span>
+                                                <div class="board-info">
+                                                    <span class="fw-bold text-truncate board-name" title="Automate 3.0 Trainer와의 연동">
+                                                        회원가입이 되지 않아요
+                                                    </span>
+                                                    <span class="opacity-50">
+                                                        질문과 답변
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -518,9 +680,7 @@
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/script/yearpicker.js"></script>
     <script src="assets/script/common.min.js"></script>
     <script>
         $(function () {
@@ -536,7 +696,7 @@
             });
 
             /* YearPicker */
-            $(".yearpicker").yearpicker();
+            // $(".yearpicker").yearpicker();
 
             const dateToYear = new Date();
             let forNowYear = dateToYear.getFullYear();
@@ -624,10 +784,11 @@
             adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
             userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
 
-            $('[data-bs-toggle="tooltip"]').tooltip();
+            // $('[data-bs-toggle="tooltip"]').tooltip();
         });
     </script>
     <script>
+        // 전체 가입 현황 그래프
         const labels = [
             'Jan',
             'Feb',
@@ -663,7 +824,7 @@
                     }
                 },
                 responsive: true,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
             }
         };
 
@@ -671,6 +832,44 @@
             document.getElementById('myChart'),
             config
         );
+    </script>
+    <script>
+        const boardLabels = [
+                'AI 스토리',
+                '공지사항',
+                '질문과 답변'
+            ];
+
+            const boardData = {
+                labels: boardLabels,
+                datasets: [{
+                    data: [8, 5, 3],
+                    backgroundColor: [
+                        'rgb(220, 53, 69)',
+                        'rgb(0, 123, 255)',
+                        'rgb(255, 193, 7)'
+                    ]
+                }],
+            };
+
+            const boardConfig = {
+                type: 'doughnut',
+                data: boardData,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            };
+
+            const boardChart = new Chart(
+                document.getElementById('boardChart'),
+                boardConfig
+            );
     </script>
 </body>
 </html>

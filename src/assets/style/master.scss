@@ -1,7 +1,9 @@
 @charset "UTF-8";
-@import "variables";
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
+@import "pretendard.css";
+
+@import "custom";
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-icons/font/bootstrap-icons.scss";
 
 body {
     font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
@@ -11,8 +13,6 @@ body {
     color: #323333;
     word-break: keep-all;
     word-wrap: break-word;
-    min-width: 1920px;
-    min-height: 940px;
 }
 
 * {
@@ -26,23 +26,6 @@ body {
 
 .vsc-controller {
     display: none;
-}
-
-#back-to-top {
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    z-index: 99;
-    right: 0;
-}
-
-#back-to-top span {
-    transition: opacity 0.5s;
-}
-
-#back-to-top:hover,
-#back-to-top:hover span {
-    opacity: 1 !important;
 }
 
 a,
@@ -93,14 +76,14 @@ span.shortLine {
     width: 1.25rem;
     height: 2px;
     display: block;
-    background: var(--bs-warning);
+    background: var(--gridone-warning);
 }
 
 span.longLine {
     width: 7rem;
     height: 2px;
     display: block;
-    background: var(--bs-warning);
+    background: var(--gridone-warning);
 }
 
 .highlight {
@@ -298,16 +281,16 @@ div[class*="progress-"]:not(div.progress-chart) {
 
 div.progress-delete,
 div.progress-admin {
-    background: rgba(var(--bs-danger-rgb), 0.5);
+    background: rgba(var(--gridone-danger-rgb), 0.5);
 }
 
 div.progress-active,
 div.progress-user {
-    background: rgba(var(--bs-primary-rgb), 0.5);
+    background: rgba(var(--gridone-primary-rgb), 0.5);
 }
 
 div.progress-deactive {
-    background: rgba(var(--bs-yellow-rgb), 0.5);
+    background: rgba(var(--gridone-yellow-rgb), 0.5);
 }
 
 span.legend-item {
@@ -322,20 +305,116 @@ span.legend-name {
 }
 
 span.legend-item.bg-danger {
-    background: rgba(var(--bs-danger-rgb), 0.5) !important;
-    border: 1px solid var(--bs-danger);
+    background: rgba(var(--gridone-danger-rgb), 0.5) !important;
+    border: 1px solid var(--gridone-danger);
 }
 
 span.legend-item.bg-primary {
-    background: rgba(var(--bs-primary-rgb), 0.5) !important;
-    border: 1px solid var(--bs-primary);
+    background: rgba(var(--gridone-primary-rgb), 0.5) !important;
+    border: 1px solid var(--gridone-primary);
 }
 
 span.legend-item.bg-yellow {
-    background: rgba(var(--bs-yellow-rgb), 0.5) !important;
-    border: 1px solid var(--bs-yellow);
+    background: rgba(var(--gridone-yellow-rgb), 0.5) !important;
+    border: 1px solid var(--gridone-yellow);
 }
 
-div#sub-card div.col {
-    height: 50%;
+div#sub-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+    height: 100%;
+}
+
+div#sub-card div.item:nth-child(1) {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+
+div#sub-card div.item:nth-child(2) {
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+}
+
+div#sub-card div.item:nth-child(3) {
+    grid-column: 3 / 3;
+    grid-row: 1 / 3;
+}
+
+div#sub-card div.item:nth-child(4) {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+}
+
+div#sub-card div.item:nth-child(5) {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+}
+
+div#status-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+div#user-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+div.board-item {
+    height: 3rem;
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+span.board-legend {
+    width: 4px;
+    height: 100%;
+    display: block;
+}
+
+div.board-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5rem;
+    width: calc(100% - 0.75rem);
+}
+
+span.more-task {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.8);
+}
+
+div.issue-item {
+    padding: 0.75rem 0;
+}
+
+div.issue-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+div.issue-header {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+}
+
+span.issue-info {
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+p.issues {
+    font-size: 14px;
 }

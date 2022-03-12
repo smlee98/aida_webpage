@@ -5,6 +5,7 @@ var del = require("del");
 
 // CSS
 var scss = require("gulp-sass")(require("sass"));
+var replace = require("gulp-replace");
 
 // JS
 var gulp = require("gulp");
@@ -31,7 +32,8 @@ https: var PATH = {
     DEST_PATH = {
         HTML: "./dist/",
         ASSETS: {
-            FONTS: "./dist/assets/fonts",
+            MAIN: "./dist/assets",
+            FONTS: "./dist/assets/style/fonts",
             IMAGES: "./dist/assets/images",
             VIDEO: "./dist/assets/videos",
             STYLE: "./dist/assets/style",
@@ -80,6 +82,17 @@ gulp.task("imagemin", () => {
     });
 });
 
+gulp.task("replace", () => {
+    return new Promise((resolve) => {
+        return src(DEST_PATH.ASSETS.STYLE)
+            .pipe(replace("./woff", "./fonts"))
+            .pipe(replace("./woff2", "./fonts"))
+            .pipe(dest("build/"));
+
+        resolve();
+    });
+});
+
 https: gulp.task("clean", () => {
     return new Promise((resolve) => {
         del.sync(DEST_PATH.HTML);
@@ -116,6 +129,11 @@ gulp.task("scss:compile", () => {
             sourceComments: true, // 코멘트 제거 여부
         };
         gulp.src(PATH.ASSETS.STYLE + "/*.scss")
+            .pipe(
+                scss({
+                    includePaths: ["node_modules"],
+                })
+            )
             .pipe(sourcemaps.init())
             .pipe(scss(options))
             .pipe(sourcemaps.write())
@@ -138,8 +156,20 @@ gulp.task("html", () => {
 
 gulp.task("fonts", () => {
     return new Promise((resolve) => {
-        gulp.src(PATH.ASSETS.FONTS + "/*.*").pipe(
+        // Bootstrap Icons
+        gulp.src("node_modules/bootstrap-icons/font/fonts/*").pipe(
             gulp.dest(DEST_PATH.ASSETS.FONTS)
+        );
+
+        // Pretendard Fonts
+        gulp.src("node_modules/pretendard/dist/web/static/pretendard.css").pipe(
+            gulp.dest(DEST_PATH.ASSETS.STYLE)
+        );
+        gulp.src("node_modules/pretendard/dist/web/static/woff/*").pipe(
+            gulp.dest(DEST_PATH.ASSETS.STYLE + "/woff")
+        );
+        gulp.src("node_modules/pretendard/dist/web/static/woff2/*").pipe(
+            gulp.dest(DEST_PATH.ASSETS.STYLE + "/woff2")
         );
 
         resolve();
@@ -190,6 +220,7 @@ https: gulp.task(
         "script:build",
         "imagemin",
         "fonts",
+        // "replace",
         "video",
         "library",
         "nodemon:start",
