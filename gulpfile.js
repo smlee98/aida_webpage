@@ -5,7 +5,7 @@ var del = require("del");
 
 // CSS
 var scss = require("gulp-sass")(require("sass"));
-var replace = require("gulp-replace");
+var urlAdjuster = require("gulp-css-replace-url");
 
 // JS
 var gulp = require("gulp");
@@ -82,17 +82,6 @@ gulp.task("imagemin", () => {
     });
 });
 
-gulp.task("replace", () => {
-    return new Promise((resolve) => {
-        return src(DEST_PATH.ASSETS.STYLE)
-            .pipe(replace("./woff", "./fonts"))
-            .pipe(replace("./woff2", "./fonts"))
-            .pipe(dest("build/"));
-
-        resolve();
-    });
-});
-
 https: gulp.task("clean", () => {
     return new Promise((resolve) => {
         del.sync(DEST_PATH.HTML);
@@ -157,19 +146,29 @@ gulp.task("html", () => {
 gulp.task("fonts", () => {
     return new Promise((resolve) => {
         // Bootstrap Icons
-        gulp.src("node_modules/bootstrap-icons/font/fonts/*").pipe(
+        const bootstrapPath = "node_modules/bootstrap-icons/font/fonts/";
+
+        gulp.src(bootstrapPath + "*").pipe(
             gulp.dest(DEST_PATH.ASSETS.FONTS)
         );
 
         // Pretendard Fonts
-        gulp.src("node_modules/pretendard/dist/web/static/pretendard.css").pipe(
-            gulp.dest(DEST_PATH.ASSETS.STYLE)
+        const pretendardPath = "node_modules/pretendard/dist/web/static/";
+
+        gulp.src(pretendardPath + "pretendard.css")
+            .pipe(urlAdjuster({
+                replace: ['./woff2','./fonts']
+            }))
+            .pipe(urlAdjuster({
+                replace: ['./woff','./fonts']
+            }))
+            .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE)
         );
-        gulp.src("node_modules/pretendard/dist/web/static/woff/*").pipe(
-            gulp.dest(DEST_PATH.ASSETS.STYLE + "/woff")
+        gulp.src(pretendardPath + "woff2/*").pipe(
+            gulp.dest(DEST_PATH.ASSETS.FONTS)
         );
-        gulp.src("node_modules/pretendard/dist/web/static/woff2/*").pipe(
-            gulp.dest(DEST_PATH.ASSETS.STYLE + "/woff2")
+        gulp.src(pretendardPath + "woff/*").pipe(
+            gulp.dest(DEST_PATH.ASSETS.FONTS)
         );
 
         resolve();
@@ -220,7 +219,6 @@ https: gulp.task(
         "script:build",
         "imagemin",
         "fonts",
-        // "replace",
         "video",
         "library",
         "nodemon:start",
