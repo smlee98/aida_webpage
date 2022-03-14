@@ -1,6 +1,7 @@
 var sourcemaps = require("gulp-sourcemaps");
 var nodemon = require("gulp-nodemon");
 var browserSync = require("browser-sync");
+var fileinclude = require("gulp-file-include");
 var del = require("del");
 
 // CSS
@@ -20,6 +21,7 @@ var imagemin = require("gulp-imagemin");
 https: var PATH = {
         HTML: "./src/view",
         ASSETS: {
+            INCLUDE: "./src/include",
             FONTS: "./src/assets/fonts",
             IMAGES: "./src/assets/images",
             VIDEO: "./src/assets/videos",
@@ -138,6 +140,12 @@ gulp.task("scss:compile", () => {
 gulp.task("html", () => {
     return new Promise((resolve) => {
         gulp.src(PATH.HTML + "/*.html")
+            .pipe(
+                fileinclude({
+                    prefix: "@gridone-",
+                    basepath: "@file",
+                })
+            )
             .pipe(gulp.dest(DEST_PATH.HTML))
             .pipe(browserSync.reload({ stream: true }));
 
@@ -192,6 +200,7 @@ https: gulp.task("nodemon:start", () => {
 gulp.task("watch", () => {
     return new Promise((resolve) => {
         gulp.watch(PATH.HTML + "/**/*.html", gulp.series(["html"]));
+        gulp.watch(PATH.ASSETS.INCLUDE + "/**/*.html", gulp.series(["html"]));
         gulp.watch(
             PATH.ASSETS.STYLE + "/**/*.scss",
             gulp.series(["scss:compile"])

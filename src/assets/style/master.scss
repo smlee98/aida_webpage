@@ -123,7 +123,8 @@ a.scrollNext {
 
 @media only screen and (max-width: 990px) {
     div.sidebar,
-    span#toggle-bar {
+    span#toggle-bar,
+    div#clock {
         display: none !important;
     }
 

@@ -1,0 +1,58 @@
+<style>
+    .dropdown-toggle::after{
+        display: none;
+    }
+    .date-wrap,
+    .time-wrap{
+        background-color: rgba(0,0,0,0.13);
+        border-radius: 5px;
+        padding: 0.5rem 0.75rem;
+    }
+</style>
+<div class="content-nav">
+    <div>
+        <span id="toggle-bar" class="me-2">
+            <i class="bi bi-list fs-3"></i>
+        </span>
+        <span class="fw-bold fs-3" id="page-title">대시보드</span>
+    </div>
+    <div id="user-info" class="d-flex justify-content-end align-items-center">
+        <div id="clock" class="d-flex me-4">
+            <div class="date-wrap">
+                <i class="bi bi-calendar3 me-2"></i>
+                <span id="dates"></span>
+            </div>
+        </div>
+        <span id="user-alert" class="position-relative me-4">
+            <i class="bi bi-bell-fill fs-4"></i>
+            <span id="alert-count" class="position-absolute top-0 start-100 translate-middle p-1 rounded-circle">
+                <span class="visually-hidden">New alerts</span>
+            </span>
+        </span>
+        <span id="user-setting" class="me-4">
+            <i class="bi bi-gear-fill fs-4"></i>
+        </span>
+        <span id="user-detail" class="d-flex align-items-center">
+            <span id="user-picture" class="me-2">
+                <img src="assets/images/publisher.png" alt="user-picture">
+            </span>
+            <span id="user-name" class="fw-bold me-2">
+                관리자
+            </span>
+            <div class="dropdown">
+                <span id="user-more" class="dropdown-toggle" id="dropdown-btn" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="dropdown-btn">
+                    <li><a class="dropdown-item" href="#">설정 #1</a></li>
+                    <li><a class="dropdown-item" href="#">설정 #2</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item fw-bold" href="#">로그아웃</a></li>
+                </ul>
+            </div>
+        </span>
+    </div>
+</div>
