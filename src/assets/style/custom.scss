@@ -1,4 +1,5 @@
 $variable-prefix: gridone- !default;
+$enable-cssgrid: true;
 $font-family-sans-serif: Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
     "Noto Sans KR", "Malgun Gothic", sans-serif !default;
@@ -24,22 +25,48 @@ $font-family-sans-serif: Pretendard, -apple-system, BlinkMacSystemFont,
     background: var(--gridone-yellow);
 }
 
-div.sidebar ul.list-group-flush li.list-group-item {
+div.mobile-bar ul {
+    list-style: none;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item,
+div.mobile-bar a.mb-link {
     display: flex;
     align-items: center;
     background: transparent;
     color: #fff;
     font-weight: bold;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item {
     padding: 1.5rem 1.25rem;
     margin-bottom: 0.75rem;
 }
 
-div.sidebar ul.list-group-flush li.list-group-item:hover {
+div.mobile-bar li.mb-item {
+    padding: 1rem 0.5rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+div.mobile-bar a.mb-link {
+    flex-direction: column;
+}
+
+div.mobile-bar a.mb-link span {
+    margin: 0 !important;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+div.sidebar ul.list-group-flush li.list-group-item:hover,
+div.mobile-bar li.mb-item:hover {
     background: rgba(255, 255, 255, 0.13);
     border-radius: 1rem;
 }
 
-div.sidebar ul.list-group-flush li.list-group-item.active {
+div.sidebar ul.list-group-flush li.list-group-item.active,
+div.mobile-bar li.mb-item.active {
     background: rgba(255, 255, 255, 0.13);
     border-radius: 1rem;
     border: none;

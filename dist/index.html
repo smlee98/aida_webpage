@@ -10,9 +10,9 @@
 
 </head>
 <body>
-    <main class="w-100 h-100">     
+    <main>     
         <section id="main">
-            <div class="sidebar h-100">
+            <div class="sidebar">
                 <div class="sidebar-nav mb-4">
                     <a class="navbar-brand" href="./index.html">
                         <img src="assets/images/logo.svg" alt="logo">
@@ -54,7 +54,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="content w-100">
+            <div class="content">
                 <div class="content-nav">
                     <div>
                         <span id="toggle-bar" class="me-2">
@@ -72,20 +72,28 @@
                         <span id="user-setting" class="me-4">
                             <i class="bi bi-gear-fill fs-4"></i>
                         </span>
-                        <span id="user-detail">
+                        <span id="user-detail" class="d-flex">
                             <span id="user-picture" class="me-2">
                                 <img src="assets/images/publisher.png" alt="user-picture">
                             </span>
                             <span id="user-name" class="fw-bold me-2">
                                 관리자
                             </span>
-                            <span id="user-more">
-                                <i class="bi bi-chevron-down"></i>
-                            </span>
+                            <div class="dropdown">
+                                <span id="user-more" class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="bi bi-chevron-down"></i>
+                                </span>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>
-                <div class="content-wrapper d-flex flex-column">
+                <div class="content-wrapper">
                     <!-- <div class="d-flex justify-content-between align-items-center">
                         <div id="clock" class="d-flex flex-column justify-content-center">
                             <span id="dates" class="d-block fs-3 fw-bold"></span>
@@ -96,7 +104,7 @@
                         </div>
                     </div> -->
                     <div id="main-card" class="mb-4">
-                        <div class="row row-cols-7 h-100 g-4">
+                        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 h-100 g-4">
                             <div class="col">
                                 <div class="card active">
                                     <div class="card-body">
@@ -126,17 +134,6 @@
                                             <i class="bi bi-exclamation-lg fs-5"></i>
                                         </span>
                                         <h6 class="card-title opacity-50 mt-3 fw-bold mb-0">비정상 서비스</h6>
-                                        <h4 class="d-flex justify-content-end fw-bold mb-0">0개</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <span class="card-icon">
-                                            <i class="bi bi-arrow-left-right fs-5"></i>
-                                        </span>
-                                        <h6 class="card-title opacity-50 mt-3 fw-bold mb-0">대체 서비스</h6>
                                         <h4 class="d-flex justify-content-end fw-bold mb-0">0개</h4>
                                     </div>
                                 </div>
@@ -177,7 +174,7 @@
                         </div>
                     </div>
                     <div id="sub-card">
-                        <div class="item">
+                        <div id="card-grid" class="grid" style="--gridone-columns: 2; --gridone-rows: 2;">
                             <div class="card h-100">
                                 <div class="card-header">
                                     <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
@@ -215,9 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div id="status-card" class="h-100">
+                            <div id="status-card" class="grid h-100" style="--gridone-columns: 2; --gridone-rows: 2;">
                                 <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">API 키 발급 요청 현황</span>
@@ -319,286 +314,57 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item h-100">
+                            <div id="user-card" class="grid h-100" style="--gridone-columns: 1; --gridone-rows: 2;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">상태별 사용자</span>
+                                        <div class="progress-legend">
+                                            <span class="legend-item bg-danger me-2"></span>
+                                            <span class="legend-name me-4">삭제</span>
+                                            <span class="legend-item bg-primary me-2"></span>
+                                            <span class="legend-name me-4">활성화</span>
+                                            <span class="legend-item bg-yellow me-2"></span>
+                                            <span class="legend-name">비활성화</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="progress-chart w-100">
+                                            <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                                                <span class="progress-num">3</span>
+                                            </div>
+                                            <div class="progress-active" data-bs-toggle="tooltip" data-bs-placement="top" title="활성화">
+                                                <span class="progress-num">11</span>
+                                            </div>
+                                            <div class="progress-deactive" data-bs-toggle="tooltip" data-bs-placement="top" title="비활성화">
+                                                <span class="progress-num">2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">권한별 사용자</span>
+                                        <div class="progress-legend">
+                                            <span class="legend-item bg-danger me-2"></span>
+                                            <span class="legend-name me-4">관리자</span>
+                                            <span class="legend-item bg-primary me-2"></span>
+                                            <span class="legend-name">사용자</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="progress-chart w-100">
+                                            <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top" title="관리자">
+                                                <span class="progress-num">1</span>
+                                            </div>
+                                            <div class="progress-user" data-bs-toggle="tooltip" data-bs-placement="top" title="사용자">
+                                                <span class="progress-num">15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card h-100">
-                                <div class="card-header">
-                                    <span class="card-header-text fw-bold opacity-50 d-block">이슈 처리 현황</span>
-                                    <div class="card-info d-flex align-items-center">
-                                        <span class="info-all fw-bold me-3">
-                                            <span class="me-2">총</span>
-                                            <span class="info-num">20</span>
-                                            <span>개</span>
-                                        </span>
-                                        <span class="info-new fw-bold me-3">
-                                            <span class="me-2">처리</span>
-                                            <span class="info-num text-primary">15</span>
-                                            <span>개</span>
-                                        </span>
-                                        <span class="info-new fw-bold">
-                                            <span class="me-2">미처리</span>
-                                            <span class="info-num text-danger">5</span>
-                                            <span>개</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row row-cols-3">
-                                        <div class="col">
-                                            <div class="issue-header">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span class="fs-5 fw-bold">처리 대상</span>
-                                                    <span class="more-task">
-                                                        <i class="bi bi-three-dots opacity-50"></i>
-                                                    </span>
-                                                </div>
-                                                <small class="opacity-50">2개의 태스크</small>
-                                            </div>
-                                            <div class="issue-body">
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="issue-header">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span class="fs-5 fw-bold">처리 진행중</span>
-                                                    <span class="more-task">
-                                                        <i class="bi bi-three-dots opacity-50"></i>
-                                                    </span>
-                                                </div>
-                                                <small class="opacity-50">2개의 태스크</small>
-                                            </div>
-                                            <div class="issue-body">
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="issue-header">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span class="fs-5 fw-bold">처리 완료</span>
-                                                    <span class="more-task">
-                                                        <i class="bi bi-three-dots opacity-50"></i>
-                                                    </span>
-                                                </div>
-                                                <small class="opacity-50">2개의 태스크</small>
-                                            </div>
-                                            <div class="issue-body">
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="issue-item">
-                                                    <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
-                                                    <span class="issue-info">Seungmin Lee, 2시간 전</span>
-                                                    <p class="issues">
-                                                        희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="hashtag">
-                                                            <span class="badge rounded-pill bg-primary">#Publishing</span>
-                                                        </div>
-                                                        <span class="d-flex align-items-center text-muted">
-                                                            <i class="bi bi-chat-left-fill lh-1 me-2"></i>
-                                                            <span class="comment-num">12</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="user-card" class="item h-100">
-                            <div class="card">
-                                <div class="card-header">
-                                    <span class="card-header-text fw-bold opacity-50 d-block">상태별 사용자</span>
-                                    <div class="progress-legend">
-                                        <span class="legend-item bg-danger me-2"></span>
-                                        <span class="legend-name me-4">삭제</span>
-                                        <span class="legend-item bg-primary me-2"></span>
-                                        <span class="legend-name me-4">활성화</span>
-                                        <span class="legend-item bg-yellow me-2"></span>
-                                        <span class="legend-name">비활성화</span>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="progress-chart w-100">
-                                        <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
-                                            <span class="progress-num">3</span>
-                                        </div>
-                                        <div class="progress-active" data-bs-toggle="tooltip" data-bs-placement="top" title="활성화">
-                                            <span class="progress-num">11</span>
-                                        </div>
-                                        <div class="progress-deactive" data-bs-toggle="tooltip" data-bs-placement="top" title="비활성화">
-                                            <span class="progress-num">2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <span class="card-header-text fw-bold opacity-50 d-block">권한별 사용자</span>
-                                    <div class="progress-legend">
-                                        <span class="legend-item bg-danger me-2"></span>
-                                        <span class="legend-name me-4">관리자</span>
-                                        <span class="legend-item bg-primary me-2"></span>
-                                        <span class="legend-name">사용자</span>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="progress-chart w-100">
-                                        <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top" title="관리자">
-                                            <span class="progress-num">1</span>
-                                        </div>
-                                        <div class="progress-user" data-bs-toggle="tooltip" data-bs-placement="top" title="사용자">
-                                            <span class="progress-num">15</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card h-100">
-                                <div class="card-header">
+                                <div class="card-header d-block d-lg-flex">
                                     <span class="card-header-text fw-bold opacity-50 d-block">전체 게시글 현황</span>
                                     <div class="card-info d-flex align-items-center">
                                         <span class="info-all fw-bold me-3">
@@ -674,13 +440,296 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="issue-board" class="mt-4">
+                            <div class="card">
+                                <div class="card-header d-block d-lg-flex">
+                                    <span class="card-header-text fw-bold opacity-50 d-block">이슈 처리 현황</span>
+                                    <div class="card-info d-block align-items-center">
+                                        <span class="info-all fw-bold me-3">
+                                            <span class="me-2">총</span>
+                                            <span class="info-num">20</span>
+                                            <span>개</span>
+                                        </span>
+                                        <span class="info-new fw-bold me-3">
+                                            <span class="me-2">처리</span>
+                                            <span class="info-num text-primary">15</span>
+                                            <span>개</span>
+                                        </span>
+                                        <span class="info-new fw-bold">
+                                            <span class="me-2">미처리</span>
+                                            <span class="info-num text-danger">5</span>
+                                            <span>개</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row row-cols-1 row-cols-lg-3">
+                                        <div class="col mb-3 mb-lg-0">
+                                            <div class="issue-header">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fs-5 fw-bold">처리 대상</span>
+                                                    <div class="d-flex">
+                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt1" role="button" aria-expanded="false" aria-controls="issue-opt1">
+                                                            <i class="bi bi-chevron-down opacity-50"></i>
+                                                        </span>
+                                                        <span class="more-task">
+                                                            <i class="bi bi-three-dots opacity-50"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <small class="opacity-50">5개의 태스크</small>
+                                            </div>
+                                            <div class="issue-body">
+                                                <div class="collapse" id="issue-opt1">
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col mb-3 mb-lg-0">
+                                            <div class="issue-header">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fs-5 fw-bold">처리 진행중</span>
+                                                    <div class="d-flex">
+                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt2" role="button" aria-expanded="false" aria-controls="issue-opt2">
+                                                            <i class="bi bi-chevron-down opacity-50"></i>
+                                                        </span>
+                                                        <span class="more-task">
+                                                            <i class="bi bi-three-dots opacity-50"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <small class="opacity-50">5개의 태스크</small>
+                                            </div>
+                                            <div class="issue-body">
+                                                <div class="collapse" id="issue-opt2">
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col mb-3 mb-lg-0">
+                                            <div class="issue-header">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fs-5 fw-bold">처리 완료</span>
+                                                    <div class="d-flex">
+                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt3" role="button" aria-expanded="false" aria-controls="issue-opt3">
+                                                            <i class="bi bi-chevron-down opacity-50"></i>
+                                                        </span>
+                                                        <span class="more-task">
+                                                            <i class="bi bi-three-dots opacity-50"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <small class="opacity-50">10개의 태스크</small>
+                                            </div>
+                                            <div class="issue-body">
+                                                <div class="collapse" id="issue-opt3">
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="issue-item">
+                                                        <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
+                                                        <span class="issue-info">Seungmin Lee, 2시간 전</span>
+                                                        <p class="issues">
+                                                            희망의 없으면, 같이, 청춘 길을 피다. 실로 긴지라 꽃이 용기가 곳으로 얼음이 풍부하게 봄바람이다.
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="hashtag">
+                                                                <span class="badge rounded-pill bg-primary">#Publishing</span>
+                                                            </div>
+                                                            <span class="d-flex align-items-center text-muted">
+                                                                <i class="bi bi-chat-left-fill lh-1 me-2"></i>
+                                                                <span class="comment-num">12</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="mobile-bar">
+                    <ul class="row w-100 mb-0 ps-0 g-0">
+                        <li class="mb-item col active">
+                            <a href="#" class="mb-link">
+                                <i class="bi bi-pie-chart-fill"></i>
+                                <span class="ms-3">대시보드</span>
+                            </a>
+                        </li>
+                        <li class="mb-item col">
+                            <a href="#" class="mb-link">
+                                <i class="bi bi-robot"></i>
+                                <span class="ms-3">AI 서비스</span>
+                            </a>
+                        </li>
+                        <li class="mb-item col">
+                            <a href="#" class="mb-link">
+                                <i class="bi bi-chat-square-dots-fill"></i>
+                                <span class="ms-3">컨텐츠</span>
+                            </a>
+                        </li>
+                        <li class="mb-item col">
+                            <a href="#" class="mb-link">
+                                <i class="bi bi-exclamation-triangle-fill"></i>
+                                <span class="ms-3">이슈</span>
+                            </a>
+                        </li>
+                        <li class="mb-item col">
+                            <a href="#" class="mb-link">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                                <span class="ms-3">도움말</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/bootstrap.bundle.js"></script>
     <script src="assets/script/common.min.js"></script>
     <script>
         $(function () {
@@ -696,8 +745,7 @@
             });
 
             /* YearPicker */
-            // $(".yearpicker").yearpicker();
-
+            
             const dateToYear = new Date();
             let forNowYear = dateToYear.getFullYear();
             $("#calYear").html(forNowYear);
@@ -858,7 +906,7 @@
                 options: {
                     plugins: {
                         legend: {
-                            display: true
+                            display: false
                         }
                     },
                     responsive: true,

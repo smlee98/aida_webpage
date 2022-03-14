@@ -44,9 +44,11 @@ https: var PATH = {
 
 gulp.task("library", () => {
     return new Promise((resolve) => {
-        gulp.src(PATH.ASSETS.LIB + "/*.js").pipe(
-            gulp.dest(DEST_PATH.ASSETS.LIB)
-        );
+        // Bootstrap
+        const bootstrapPath =
+            "node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+
+        gulp.src(bootstrapPath).pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT));
         resolve();
     });
 });
@@ -148,22 +150,23 @@ gulp.task("fonts", () => {
         // Bootstrap Icons
         const bootstrapPath = "node_modules/bootstrap-icons/font/fonts/";
 
-        gulp.src(bootstrapPath + "*").pipe(
-            gulp.dest(DEST_PATH.ASSETS.FONTS)
-        );
+        gulp.src(bootstrapPath + "*").pipe(gulp.dest(DEST_PATH.ASSETS.FONTS));
 
         // Pretendard Fonts
         const pretendardPath = "node_modules/pretendard/dist/web/static/";
 
         gulp.src(pretendardPath + "pretendard.css")
-            .pipe(urlAdjuster({
-                replace: ['./woff2','./fonts']
-            }))
-            .pipe(urlAdjuster({
-                replace: ['./woff','./fonts']
-            }))
-            .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE)
-        );
+            .pipe(
+                urlAdjuster({
+                    replace: ["./woff2", "./fonts"],
+                })
+            )
+            .pipe(
+                urlAdjuster({
+                    replace: ["./woff", "./fonts"],
+                })
+            )
+            .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE));
         gulp.src(pretendardPath + "woff2/*").pipe(
             gulp.dest(DEST_PATH.ASSETS.FONTS)
         );
