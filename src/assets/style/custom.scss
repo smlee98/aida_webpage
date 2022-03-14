@@ -84,17 +84,18 @@ div#search-box input:focus {
 }
 
 #search-left {
-    border-top-left-radius: 2rem !important;
-    border-bottom-left-radius: 2rem !important;
     border: none;
     background-color: #fff;
 }
 
 #search-right {
-    border-top-right-radius: 2rem !important;
-    border-bottom-right-radius: 2rem !important;
+    border-radius: 5px;
     border: none;
     background-color: #fff;
+}
+
+div#search-box input:-internal-autofill-selected {
+    background-color: #fff !important;
 }
 
 div#main-card div.card,

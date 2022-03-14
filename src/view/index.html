@@ -7,7 +7,6 @@
     <title>Gridone - AI Portal</title>
 
     <link rel="stylesheet" href="assets/style/master.css">
-
 </head>
 <body>
     <main>     
@@ -597,42 +596,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="mobile-bar">
-                    <ul class="row w-100 mb-0 ps-0 g-0">
-                        <li class="mb-item col active">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-pie-chart-fill"></i>
-                                <span class="ms-3">대시보드</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-robot"></i>
-                                <span class="ms-3">AI 서비스</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-chat-square-dots-fill"></i>
-                                <span class="ms-3">컨텐츠</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-exclamation-triangle-fill"></i>
-                                <span class="ms-3">이슈</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-file-earmark-text-fill"></i>
-                                <span class="ms-3">도움말</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                @gridone-include('../include/mobile-bar.html')
             </div>
         </section>
+        @gridone-include('../include/modal.html')
     </main>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -786,6 +753,11 @@
             dateDropdown.add(dateOption);
             currentYear -= 1;
         }
+    </script>
+    <script>
+        document.getElementsByName("sidebar-dashboard")[0].classList.add("active");
+        document.getElementsByName("mbar-dashboard")[0].classList.add("active");
+        document.getElementById("page-title").innerHTML = "대시보드";
     </script>
 </body>
 </html>

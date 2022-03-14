@@ -7,7 +7,6 @@
     <title>Gridone - AI Portal</title>
 
     <link rel="stylesheet" href="assets/style/master.css">
-
 </head>
 <body>
     <main>     
@@ -21,34 +20,28 @@
             <i class="bi bi-sun"></i>
         </span>
     </div>
-    <form action="#" class="mb-4">
-        <div class="input-group" id="search-box">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="search-left">
-                    <i class="bi bi-search"></i>
-                </span>
-            </div>
-            <input type="text" class="form-control" id="search-right" placeholder="검색">
-        </div>
-    </form>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item active">
-            <i class="bi bi-pie-chart-fill fs-4"></i>
-            <span class="ms-3">대시보드</span>
+        <li class="list-group-item" name="sidebar-dashboard">
+            <a class="d-flex align-items-center" href="./index.html">
+                <i class="bi bi-pie-chart-fill fs-4"></i>
+                <span class="ms-3">대시보드</span>
+            </a>
         </li>
-        <li class="list-group-item">
-            <i class="bi bi-robot fs-4"></i>
-            <span class="ms-3">AI 서비스</span>
+        <li class="list-group-item" name="sidebar-ai">
+            <a class="d-flex align-items-center" href="./ai-service.html">
+                <i class="bi bi-robot fs-4"></i>
+                <span class="ms-3">AI 서비스</span>
+            </a>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item" name="sidebar-contents">
             <i class="bi bi-chat-square-dots-fill fs-4"></i>
             <span class="ms-3">컨텐츠</span>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item" name="sidebar-issue">
             <i class="bi bi-exclamation-triangle-fill fs-4"></i>
             <span class="ms-3">이슈</span>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item" name="sidebar-help">
             <i class="bi bi-file-earmark-text-fill fs-4"></i>
             <span class="ms-3">도움말</span>
         </li>
@@ -71,7 +64,7 @@
         <span id="toggle-bar" class="me-2">
             <i class="bi bi-list fs-3"></i>
         </span>
-        <span class="fw-bold fs-3" id="page-title">대시보드</span>
+        <span class="fw-bold fs-3" id="page-title">-</span>
     </div>
     <div id="user-info" class="d-flex justify-content-end align-items-center">
         <div id="clock" class="d-flex me-4">
@@ -80,6 +73,9 @@
                 <span id="dates"></span>
             </div>
         </div>
+        <span id="search" class="me-4" data-bs-toggle="modal" data-bs-target="#search-modal">
+            <i class="bi bi-search fs-4"></i>
+        </span>
         <span id="user-alert" class="position-relative me-4">
             <i class="bi bi-bell-fill fs-4"></i>
             <span id="alert-count" class="position-absolute top-0 start-100 translate-middle p-1 rounded-circle">
@@ -696,41 +692,65 @@
                     </div>
                 </div>
                 <div class="mobile-bar">
-                    <ul class="row w-100 mb-0 ps-0 g-0">
-                        <li class="mb-item col active">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-pie-chart-fill"></i>
-                                <span class="ms-3">대시보드</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-robot"></i>
-                                <span class="ms-3">AI 서비스</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-chat-square-dots-fill"></i>
-                                <span class="ms-3">컨텐츠</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-exclamation-triangle-fill"></i>
-                                <span class="ms-3">이슈</span>
-                            </a>
-                        </li>
-                        <li class="mb-item col">
-                            <a href="#" class="mb-link">
-                                <i class="bi bi-file-earmark-text-fill"></i>
-                                <span class="ms-3">도움말</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    <ul class="row w-100 mb-0 ps-0 g-0">
+        <li class="mb-item col" name="mbar-dashboard">
+            <a href="#" class="mb-link">
+                <i class="bi bi-pie-chart-fill"></i>
+                <span class="ms-3">대시보드</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-ai">
+            <a href="#" class="mb-link">
+                <i class="bi bi-robot"></i>
+                <span class="ms-3">AI 서비스</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-contents">
+            <a href="#" class="mb-link">
+                <i class="bi bi-chat-square-dots-fill"></i>
+                <span class="ms-3">컨텐츠</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-issue">
+            <a href="#" class="mb-link">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <span class="ms-3">이슈</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-help">
+            <a href="#" class="mb-link">
+                <i class="bi bi-file-earmark-text-fill"></i>
+                <span class="ms-3">도움말</span>
+            </a>
+        </li>
+    </ul>
+</div>
             </div>
         </section>
+        <div class="modal" id="search-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex align-items-center w-100">
+                    <form class="w-100" action="#">
+                        <div class="input-group" id="search-box">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text ps-0" id="search-left">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="search-right" placeholder="검색">
+                        </div>
+                    </form>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0">...</p>
+            </div>
+        </div>
+    </div>
+</div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -884,6 +904,11 @@
             dateDropdown.add(dateOption);
             currentYear -= 1;
         }
+    </script>
+    <script>
+        document.getElementsByName("sidebar-dashboard")[0].classList.add("active");
+        document.getElementsByName("mbar-dashboard")[0].classList.add("active");
+        document.getElementById("page-title").innerHTML = "대시보드";
     </script>
 </body>
 </html>
