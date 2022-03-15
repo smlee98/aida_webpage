@@ -15,8 +15,8 @@ $font-family-sans-serif: Pretendard, -apple-system, BlinkMacSystemFont,
     --gridone-danger-rgb: 220, 53, 69 !important;
     --gridone-warning: #f08300 !important;
     --gridone-warning-rgb: 240, 131, 0 !important;
-    --gridone-info: #6768ab !important;
-    --gridone-info-rgb: 103, 104, 171 !important;
+    --gridone-info: #6c63ff !important;
+    --gridone-info-rgb: 108, 99, 255 !important;
     --gridone-yellow: #ffc107 !important;
     --gridone-yellow-rgb: 255, 193, 7 !important;
 }
@@ -39,8 +39,19 @@ div.mobile-bar a.mb-link {
 }
 
 div.sidebar ul.list-group-flush li.list-group-item {
-    padding: 1.5rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     margin-bottom: 0.75rem;
+}
+
+div.collapse ul.list-unstyled li,
+div.collapsing ul.list-unstyled li {
+    padding: 0.5rem 1.25rem;
+}
+
+ul.list-unstyled li a.active,
+ul.list-unstyled li ul.list-unstyled li.active {
+    font-weight: bold;
+    color: #6768ab;
 }
 
 div.mobile-bar li.mb-item {

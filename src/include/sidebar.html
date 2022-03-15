@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="sidebar-nav mb-4">
-        <a class="navbar-brand" href="./index.html">
+        <a class="navbar-brand" href="../index.html">
             <img src="assets/images/logo.svg" alt="logo">
         </a>
         <span id="theme-select" class="text-white">
@@ -9,16 +9,62 @@
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item" name="sidebar-dashboard">
-            <a class="d-flex align-items-center" href="./index.html">
-                <i class="bi bi-pie-chart-fill fs-4"></i>
-                <span class="ms-3">대시보드</span>
-            </a>
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-pie-chart-fill fs-4"></i>
+                    <span class="ms-3">대시보드</span>
+                </span>
+                <span class="fw-normal" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" role="button" aria-expanded="true" aria-controls="dashboard-collapse">
+                    <i class="bi bi-chevron-down text-white opacity-50"></i>
+                </span>
+            </div>
         </li>
+        <div class="collapse show" id="dashboard-collapse">
+            <ul class="list-unstyled text-white small">
+                <li>
+                    <a id="microservice" href="../microservice.html">
+                        <span>Microservice</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="admin-dashboard" href="../admin-dashboard.html">
+                        <span>관리자 대시보드</span>
+                    </a>
+                    <ul class="list-unstyled text-white mb-0">
+                        <li id="setting-ai">
+                            <a href="../setting-ai.html">
+                                <span>AI 서비스 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-user">
+                            <a href="../setting-user.html">
+                                <span>사용자 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-request">
+                            <a href="../setting-request.html">
+                                <span>요청 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-board">
+                            <a href="../setting-board.html">
+                                <span>게시판 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-system">
+                            <a href="../setting-system.html">
+                                <span>시스템 관리</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <li class="list-group-item" name="sidebar-ai">
-            <a class="d-flex align-items-center" href="./ai-service.html">
+            <span class="d-flex align-items-center" href="../ai-service.html">
                 <i class="bi bi-robot fs-4"></i>
                 <span class="ms-3">AI 서비스</span>
-            </a>
+            </span>
         </li>
         <li class="list-group-item" name="sidebar-contents">
             <i class="bi bi-chat-square-dots-fill fs-4"></i>

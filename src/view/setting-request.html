@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridone - AI Portal</title>
+
+    <link rel="stylesheet" href="assets/style/master.css">
+</head>
+<body>
+    <main>     
+        <section id="main">
+            @gridone-include('../include/sidebar.html')
+            <div class="content">
+                @gridone-include('../include/nav.html')
+                <div class="content-wrapper">
+                    <div id="sub-card" class="mb-4">
+                        <div class="row row-cols-1 row-cols-lg-4 h-100 g-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">API 키 발급 요청 현황</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-success">
+                                                    <i class="bi bi-arrow-up-right me-1"></i>
+                                                    <span class="badge-num">2</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">권한 변경 요청 현황</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">10</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">1</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-success">
+                                                    <i class="bi bi-arrow-up-right me-1"></i>
+                                                    <span class="badge-num">1</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">가입 승인 요청 현황</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">5</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">0</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-secondary">
+                                                    <i class="bi bi-dash-lg me-1"></i>
+                                                    <span class="badge-num">0</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">비밀번호 초기화 요청 현황</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">0</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">0</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-badge">
+                                                <span class="badge rounded-pill bg-secondary">
+                                                    <i class="bi bi-dash-lg me-1"></i>
+                                                    <span class="badge-num">0</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main-card" class="bg-white">
+                        <ul class="nav nav-pills mb-3 row row-cols-2 row-cols-lg-4 g-0" id="pills-tab" role="tablist">
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link active w-100" id="pills-regist-tab" data-bs-toggle="pill" data-bs-target="#pills-regist"
+                                    type="button" role="tab" aria-controls="pills-regist" aria-selected="true">가입 승인 요청</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-apikey-tab" data-bs-toggle="pill" data-bs-target="#pills-apikey"
+                                    type="button" role="tab" aria-controls="pills-apikey" aria-selected="false">API Key 발급 요청</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-auth-tab" data-bs-toggle="pill" data-bs-target="#pills-auth"
+                                    type="button" role="tab" aria-controls="pills-auth" aria-selected="false">권한 변경 요청</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-password-tab" data-bs-toggle="pill" data-bs-target="#pills-password" type="button"
+                                    role="tab" aria-controls="pills-password" aria-selected="false">비밀번호 변경 요청</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-regist" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">요청자</th>
+                                            <th scope="col">요청자 이메일</th>
+                                            <th scope="col">요청내용</th>
+                                            <th scope="col">요청일자</th>
+                                            <th scope="col">처리여부</th>
+                                            <th scope="col">처리일자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="pills-apikey" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">요청자</th>
+                                            <th scope="col">요청자 이메일</th>
+                                            <th scope="col">요청내용</th>
+                                            <th scope="col">요청일자</th>
+                                            <th scope="col">처리여부</th>
+                                            <th scope="col">처리일자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="pills-auth" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">요청자</th>
+                                            <th scope="col">요청자 이메일</th>
+                                            <th scope="col">요청내용</th>
+                                            <th scope="col">요청일자</th>
+                                            <th scope="col">처리여부</th>
+                                            <th scope="col">처리일자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">요청자</th>
+                                            <th scope="col">요청자 이메일</th>
+                                            <th scope="col">요청내용</th>
+                                            <th scope="col">요청일자</th>
+                                            <th scope="col">처리여부</th>
+                                            <th scope="col">처리일자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @gridone-include('../include/mobile-bar.html')
+            </div>
+        </section>
+        @gridone-include('../include/modal.html')
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/bootstrap.bundle.js"></script>
+    <script src="assets/script/common.min.js"></script>
+    <script>
+        $(function () {
+            const mainSection = document.getElementById("main");
+            const toggleBar = document.getElementById("toggle-bar");
+
+            toggleBar.addEventListener('click', function () {
+                if(!mainSection.classList.contains('active')){
+                    mainSection.classList.add("active");
+                } else {
+                    mainSection.classList.remove("active");
+                }
+            });
+
+            const deleteBar = $("div.progress-delete");
+            const activeBar = $("div.progress-active");
+            const deactiveBar = $("div.progress-deactive");
+            const adminBar = $("div.progress-admin");
+            const userBar = $("div.progress-user");
+
+            const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
+            const activeNum = parseInt($("div.progress-active span.progress-num").html());
+            const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
+            const adminNum = parseInt($("div.progress-admin span.progress-num").html());
+            const userNum = parseInt($("div.progress-user span.progress-num").html());
+
+            const allUsers = deleteNum + activeNum + deactiveNum;
+
+            // console.log(`${deleteNum},${activeNum},${deactiveNum}`);
+
+            deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
+            activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
+            deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
+            adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
+            userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
+
+            const fullDate = document.querySelector("#dates");
+
+            function getDate() {
+                const date = new Date();
+
+                let years = date.getFullYear();
+                let months = String(date.getMonth()).padStart(2, "0");
+                let dates = String(date.getDate()).padStart(2, "0");
+
+                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            }
+
+            getDate();
+            setInterval(getDate, 300000);
+        });
+    </script>
+    <script>
+        // 전체 가입 현황 그래프
+        const labels = [
+            '1월',
+            '2월',
+            '3월',
+            '4월',
+            '5월',
+            '6월',
+            '7월',
+            '8월',
+            '9월',
+            '10월',
+            '11월',
+            '12월'
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: '가입 수',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [8, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+    <script>
+        const boardLabels = [
+                'AI 스토리',
+                '공지사항',
+                '질문과 답변'
+            ];
+
+            const boardData = {
+                labels: boardLabels,
+                datasets: [{
+                    data: [8, 5, 3],
+                    backgroundColor: [
+                        'rgb(220, 53, 69)',
+                        'rgb(0, 123, 255)',
+                        'rgb(255, 193, 7)'
+                    ]
+                }],
+            };
+
+            const boardConfig = {
+                type: 'doughnut',
+                data: boardData,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            };
+
+            const boardChart = new Chart(
+                document.getElementById('boardChart'),
+                boardConfig
+            );
+    </script>
+    <script>
+        let dateDropdown = document.getElementById('yearpicker');
+
+        let currentYear = new Date().getFullYear();
+        let earliestYear = 2000;
+
+        while (currentYear >= earliestYear) {
+            let dateOption = document.createElement('option');
+            dateOption.text = currentYear;
+            dateOption.value = currentYear;
+            dateDropdown.add(dateOption);
+            currentYear -= 1;
+        }
+    </script>
+    <script>
+        document.getElementsByName("sidebar-dashboard")[0].classList.add("active");
+        document.getElementsByName("mbar-dashboard")[0].classList.add("active");
+        document.getElementById("setting-request").classList.add("active");
+        document.getElementById("page-title").innerHTML = "요청 관리";
+    </script>
+</body>
+</html>

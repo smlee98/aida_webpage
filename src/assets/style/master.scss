@@ -23,6 +23,28 @@ body {
     color: #ffffff;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #525965;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
 .vsc-controller {
     display: none;
 }
@@ -57,7 +79,7 @@ a:active {
     display: none;
 }
 
-*[aria-expanded="true"] i.bi-chevron-down {
+*[aria-expanded="true"] i.bi-chevron-down::before {
     transform: rotate(180deg);
 }
 
@@ -399,4 +421,10 @@ div.main-card {
 
 p.blockquote-footer cite {
     font-size: 0.75rem;
+}
+
+ul#pills-tab {
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 0.25rem;
+    padding: 0.25rem;
 }

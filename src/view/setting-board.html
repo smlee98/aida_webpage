@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridone - AI Portal</title>
+
+    <link rel="stylesheet" href="assets/style/master.css">
+</head>
+<body>
+    <main>     
+        <section id="main">
+            @gridone-include('../include/sidebar.html')
+            <div class="content">
+                @gridone-include('../include/nav.html')
+                <div class="content-wrapper">
+                    <div id="sub-card" class="mb-4">
+                        <div class="row row-cols-1 row-cols-lg-6 h-100 g-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">공지사항</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">AI 스토리</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">AI 강의</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">질문과 답변</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-header-text fw-bold opacity-50 d-block">이슈</span>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="card-info d-flex align-items-center">
+                                            <span class="info-all fw-bold me-3">
+                                                <span class="me-2">총</span>
+                                                <span class="info-num">18</span>
+                                                <span>개</span>
+                                            </span>
+                                            <span class="info-new fw-bold me-2">
+                                                <span class="me-2">신규</span>
+                                                <span class="info-num">2</span>
+                                                <span>개</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main-card" class="bg-white">
+                        <ul class="nav nav-pills mb-3 row row-cols-2 row-cols-lg-5 g-0" id="pills-tab" role="tablist">
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link active w-100" id="pills-notice-tab" data-bs-toggle="pill" data-bs-target="#pills-notice"
+                                    type="button" role="tab" aria-controls="pills-notice" aria-selected="true">공지사항</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-aistory-tab" data-bs-toggle="pill" data-bs-target="#pills-aistory"
+                                    type="button" role="tab" aria-controls="pills-aistory" aria-selected="false">AI 스토리</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-aiclass-tab" data-bs-toggle="pill" data-bs-target="#pills-aiclass"
+                                    type="button" role="tab" aria-controls="pills-aiclass" aria-selected="false">AI 강의</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-qna-tab" data-bs-toggle="pill" data-bs-target="#pills-qna" type="button"
+                                    role="tab" aria-controls="pills-qna" aria-selected="false">질문과 답변</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-issue-tab" data-bs-toggle="pill" data-bs-target="#pills-issue"
+                                    type="button" role="tab" aria-controls="pills-issue" aria-selected="false">이슈</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="d-flex justify-content-end align-items-end px-3 mb-3">
+                                <form class="me-3" action="#">
+                                    <input type="text" class="form-control" placeholder="검색">
+                                </form>
+                                <button class="btn btn-primary me-3">글쓰기</button>
+                                <button class="btn btn-danger">삭제</button>
+                            </div>
+                            <div class="tab-pane fade show active" id="pills-notice" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">제목</th>
+                                            <th scope="col">작성자</th>
+                                            <th scope="col">작성일</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="area-pagenation" class="d-flex justify-content-center">
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-aistory" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">제목</th>
+                                            <th scope="col">작성자</th>
+                                            <th scope="col">작성일</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="area-pagenation" class="d-flex justify-content-center">
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-aiclass" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">제목</th>
+                                            <th scope="col">작성자</th>
+                                            <th scope="col">작성일</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="area-pagenation" class="d-flex justify-content-center">
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-qna" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">제목</th>
+                                            <th scope="col">작성자</th>
+                                            <th scope="col">작성일</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="area-pagenation" class="d-flex justify-content-center">
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-issue" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">제목</th>
+                                            <th scope="col">작성자</th>
+                                            <th scope="col">작성일</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="area-pagenation" class="d-flex justify-content-center">
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @gridone-include('../include/mobile-bar.html')
+            </div>
+        </section>
+        @gridone-include('../include/modal.html')
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/bootstrap.bundle.js"></script>
+    <script src="assets/script/common.min.js"></script>
+    <script>
+        $(function () {
+            const mainSection = document.getElementById("main");
+            const toggleBar = document.getElementById("toggle-bar");
+
+            toggleBar.addEventListener('click', function () {
+                if(!mainSection.classList.contains('active')){
+                    mainSection.classList.add("active");
+                } else {
+                    mainSection.classList.remove("active");
+                }
+            });
+
+            const deleteBar = $("div.progress-delete");
+            const activeBar = $("div.progress-active");
+            const deactiveBar = $("div.progress-deactive");
+            const adminBar = $("div.progress-admin");
+            const userBar = $("div.progress-user");
+
+            const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
+            const activeNum = parseInt($("div.progress-active span.progress-num").html());
+            const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
+            const adminNum = parseInt($("div.progress-admin span.progress-num").html());
+            const userNum = parseInt($("div.progress-user span.progress-num").html());
+
+            const allUsers = deleteNum + activeNum + deactiveNum;
+
+            // console.log(`${deleteNum},${activeNum},${deactiveNum}`);
+
+            deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
+            activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
+            deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
+            adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
+            userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
+
+            const fullDate = document.querySelector("#dates");
+
+            function getDate() {
+                const date = new Date();
+
+                let years = date.getFullYear();
+                let months = String(date.getMonth()).padStart(2, "0");
+                let dates = String(date.getDate()).padStart(2, "0");
+
+                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            }
+
+            getDate();
+            setInterval(getDate, 300000);
+        });
+    </script>
+    <script>
+        // 전체 가입 현황 그래프
+        const labels = [
+            '1월',
+            '2월',
+            '3월',
+            '4월',
+            '5월',
+            '6월',
+            '7월',
+            '8월',
+            '9월',
+            '10월',
+            '11월',
+            '12월'
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: '가입 수',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [8, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+    <script>
+        const boardLabels = [
+                'AI 스토리',
+                '공지사항',
+                '질문과 답변'
+            ];
+
+            const boardData = {
+                labels: boardLabels,
+                datasets: [{
+                    data: [8, 5, 3],
+                    backgroundColor: [
+                        'rgb(220, 53, 69)',
+                        'rgb(0, 123, 255)',
+                        'rgb(255, 193, 7)'
+                    ]
+                }],
+            };
+
+            const boardConfig = {
+                type: 'doughnut',
+                data: boardData,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            };
+
+            const boardChart = new Chart(
+                document.getElementById('boardChart'),
+                boardConfig
+            );
+    </script>
+    <script>
+        let dateDropdown = document.getElementById('yearpicker');
+
+        let currentYear = new Date().getFullYear();
+        let earliestYear = 2000;
+
+        while (currentYear >= earliestYear) {
+            let dateOption = document.createElement('option');
+            dateOption.text = currentYear;
+            dateOption.value = currentYear;
+            dateDropdown.add(dateOption);
+            currentYear -= 1;
+        }
+    </script>
+    <script>
+        document.getElementsByName("sidebar-dashboard")[0].classList.add("active");
+        document.getElementsByName("mbar-dashboard")[0].classList.add("active");
+        document.getElementById("setting-board").classList.add("active");
+        document.getElementById("page-title").innerHTML = "게시판";
+    </script>
+</body>
+</html>
