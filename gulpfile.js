@@ -62,7 +62,7 @@ const image = async () =>
         .pipe(
             imagemin([
                 imagemin.gifsicle({ interlaced: false }),
-                // imagemin.jpegtran({ progressive: true }),
+                imagemin.mozjpeg({ progressive: true }),
                 imagemin.optipng({ optimizationLevel: 5 }),
                 imagemin.svgo({
                     plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
