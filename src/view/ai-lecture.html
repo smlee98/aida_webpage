@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridone - AI Portal</title>
+
+    <link rel="stylesheet" href="assets/style/master.css">
+</head>
+<body>
+    <main>     
+        <section id="main">
+            @gridone-include('../include/sidebar.html')
+            <div class="content">
+                @gridone-include('../include/nav.html')
+                <div class="content-wrapper">
+                    <div class="bg-white p-4 flex-grow-1">
+                        <div class="d-flex justify-content-end">
+                            <form action="#">
+                                <input type="text" class="form-control" placeholder="검색">
+                            </form>
+                            <button class="btn btn-custom ms-3">글쓰기</button>
+                        </div>
+                        <div class="row row-cols-1 row-cols-lg-3 g-4 my-4">
+                            <div class="col">
+                                <div class="card p-3">
+                                    <div class="card-body">
+                                        <div class="thumbnail">
+                                            <img src="assets/images/thumbnail.png" alt="thumbnail">
+                                        </div>
+                                        <h5 class="mt-3 fw-bold">재미있는 AI 스토리 #1</h5>
+                                        <small class="mt-3 d-block">
+                                            <div>
+                                                <span class="fw-bold me-2">작성자</span>
+                                                <span>gridone</span>
+                                            </div>
+                                            <div>
+                                                <span class="fw-bold me-2">작성일</span>
+                                                <span>2022-03-16</span>
+                                            </div>
+                                        </small>
+                                    </div>
+                                    <button class="mt-2 btn btn-light btn-sm p-2 fw-bold fs-6">자세히 보기</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card p-3">
+                                    <div class="card-body">
+                                        <div class="thumbnail">
+                                            <img src="assets/images/thumbnail.png" alt="thumbnail">
+                                        </div>
+                                        <h5 class="mt-3 fw-bold">재미있는 AI 스토리 #2</h5>
+                                        <small class="mt-3 d-block">
+                                            <div>
+                                                <span class="fw-bold me-2">작성자</span>
+                                                <span>gridone</span>
+                                            </div>
+                                            <div>
+                                                <span class="fw-bold me-2">작성일</span>
+                                                <span>2022-03-16</span>
+                                            </div>
+                                        </small>
+                                    </div>
+                                    <button class="mt-2 btn btn-light btn-sm p-2 fw-bold fs-6">자세히 보기</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card p-3">
+                                    <div class="card-body">
+                                        <div class="thumbnail">
+                                            <img src="assets/images/thumbnail.png" alt="thumbnail">
+                                        </div>
+                                        <h5 class="mt-3 fw-bold">재미있는 AI 스토리 #3</h5>
+                                        <small class="mt-3 d-block">
+                                            <div>
+                                                <span class="fw-bold me-2">작성자</span>
+                                                <span>gridone</span>
+                                            </div>
+                                            <div>
+                                                <span class="fw-bold me-2">작성일</span>
+                                                <span>2022-03-16</span>
+                                            </div>
+                                        </small>
+                                    </div>
+                                    <button class="mt-2 btn btn-light btn-sm p-2 fw-bold fs-6">자세히 보기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="area-pagenation" class="d-flex justify-content-center">
+                            <nav aria-label="pagination">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">
+                                                <i class="bi bi-chevron-left"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">
+                                                <i class="bi bi-chevron-right"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                @gridone-include('../include/mobile-bar.html')
+            </div>
+        </section>
+        @gridone-include('../include/modal.html')
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/bootstrap.bundle.js"></script>
+    <script src="assets/script/common.min.js"></script>
+    <script>
+        $(function () {
+            const mainSection = document.getElementById("main");
+            const toggleBar = document.getElementById("toggle-bar");
+
+            toggleBar.addEventListener('click', function () {
+                if(!mainSection.classList.contains('active')){
+                    mainSection.classList.add("active");
+                } else {
+                    mainSection.classList.remove("active");
+                }
+            });
+
+            const fullDate = document.querySelector("#dates");
+
+            function getDate() {
+                const date = new Date();
+
+                let years = date.getFullYear();
+                let months = String(date.getMonth()).padStart(2, "0");
+                let dates = String(date.getDate()).padStart(2, "0");
+
+                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            }
+
+            getDate();
+            setInterval(getDate, 300000);
+        });
+    </script>
+    <script>
+        document.getElementsByName("sidebar-contents")[0].classList.add("active");
+        document.getElementsByName("mbar-contents")[0].classList.add("active");
+        document.getElementById("ai-lecture").classList.add("active");
+        document.getElementById("page-title").innerHTML = "AI 강의";
+    </script>
+</body>
+</html>

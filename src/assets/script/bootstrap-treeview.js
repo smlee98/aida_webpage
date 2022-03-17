@@ -29,7 +29,7 @@
     _default.settings = {
         injectStyle: true,
 
-        levels: 2,
+        levels: 3,
 
         expandIcon: "bi bi-caret-right-square-fill",
         collapseIcon: "bi bi-caret-down-square-fill",
@@ -44,7 +44,7 @@
         borderColor: undefined, // '#dddddd',
         onhoverColor: "#F5F5F5",
         selectedColor: "#FFFFFF",
-        selectedBackColor: "#000000",
+        selectedBackColor: "#6c63ff",
         searchResultColor: "#D9534F",
         searchResultBackColor: undefined, //'#FFFFFF',
 

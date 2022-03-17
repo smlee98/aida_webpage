@@ -3,31 +3,29 @@
         <a class="navbar-brand" href="../index.html">
             <img src="assets/images/logo.svg" alt="logo">
         </a>
-        <span id="theme-select" class="text-white">
+        <!-- <span id="theme-select" class="text-white">
             <i class="bi bi-sun"></i>
-        </span>
+        </span> -->
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" name="sidebar-dashboard">
+        <li class="list-group-item mb-0" name="sidebar-dashboard" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" role="button" aria-expanded="true" aria-controls="dashboard-collapse">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <span class="d-flex align-items-center">
                     <i class="bi bi-pie-chart-fill fs-4"></i>
                     <span class="ms-3">대시보드</span>
                 </span>
-                <span class="fw-normal" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" role="button" aria-expanded="true" aria-controls="dashboard-collapse">
-                    <i class="bi bi-chevron-down text-white opacity-50"></i>
-                </span>
+                <i class="bi bi-chevron-down text-white opacity-50"></i>
             </div>
         </li>
         <div class="collapse show" id="dashboard-collapse">
             <ul class="list-unstyled text-white small">
                 <li>
-                    <a id="microservice" href="../microservice.html">
+                    <a class="d-block" id="microservice" href="../microservice.html">
                         <span>Microservice</span>
                     </a>
                 </li>
                 <li>
-                    <a id="admin-dashboard" href="../admin-dashboard.html">
+                    <a class="d-block mb-1" id="admin-dashboard" href="../admin-dashboard.html">
                         <span>관리자 대시보드</span>
                     </a>
                     <ul class="list-unstyled text-white mb-0">
@@ -61,18 +59,50 @@
             </ul>
         </div>
         <li class="list-group-item" name="sidebar-ai">
-            <span class="d-flex align-items-center" href="../ai-service.html">
+            <a class="d-flex align-items-center w-100" href="../ai-service.html">
                 <i class="bi bi-robot fs-4"></i>
-                <span class="ms-3">AI 서비스</span>
-            </span>
+                <span class="ms-3 flex-grow-1">AI 서비스</span>
+            </a>
         </li>
-        <li class="list-group-item" name="sidebar-contents">
-            <i class="bi bi-chat-square-dots-fill fs-4"></i>
-            <span class="ms-3">컨텐츠</span>
+        <li class="list-group-item mb-0" name="sidebar-contents" data-bs-toggle="collapse" data-bs-target="#contents-collapse" role="button"
+                    aria-expanded="true" aria-controls="contents-collapse">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-chat-square-dots-fill fs-4"></i>
+                    <span class="ms-3">컨텐츠</span>
+                </span>
+                <i class="bi bi-chevron-down text-white opacity-50"></i>
+            </div>
         </li>
+        <div class="collapse show" id="contents-collapse">
+            <ul class="list-unstyled text-white small">
+                <li>
+                    <a class="d-block" id="notice" href="../notice.html">
+                        <span>공지사항</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="ai-story" href="../ai-story.html">
+                        <span>AI 스토리</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="ai-lecture" href="../ai-lecture.html">
+                        <span>AI 강의</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="qna" href="../qna.html">
+                        <span>질문과 답변</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <li class="list-group-item" name="sidebar-issue">
-            <i class="bi bi-exclamation-triangle-fill fs-4"></i>
-            <span class="ms-3">이슈</span>
+            <a class="d-flex align-items-center w-100" href="../issue.html">
+                <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+                <span class="ms-3 flex-grow-1">이슈</span>
+            </a>
         </li>
         <li class="list-group-item" name="sidebar-help">
             <i class="bi bi-file-earmark-text-fill fs-4"></i>
