@@ -1,11 +1,18 @@
 {
   "dependencies": {
-    "autoprefixer": "^10.4.3",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.8.1",
+    "pretendard": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.7",
+    "autoprefixer": "^10.4.3",
     "browser-sync": "^2.27.9",
     "del": "^6.0.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -13,22 +20,19 @@
     "gulp-css-replace-url": "^0.2.4",
     "gulp-file-include": "^2.3.0",
     "gulp-imagemin": "^7.1.0",
-    "gulp-livereload": "^4.0.2",
-    "gulp-nodemon": "^2.5.0",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
-    "pretendard": "^1.2.1",
+    "nodemon": "^2.0.15",
     "sass": "^1.49.9"
   },
   "name": "aiportal_webpage",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "gulp": "nodemon --watch gulpfile.js --exec gulp"
+    "gulp": "nodemon --watch ./gulpfile.js --exec babel-node ./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
@@ -40,5 +44,6 @@
     "url": "https://github.com/smlee98/aiportal_webpage/issues"
   },
   "homepage": "https://github.com/smlee98/aiportal_webpage#readme",
-  "description": ""
+  "description": "",
+  "browserslist": "last 2 versions"
 }

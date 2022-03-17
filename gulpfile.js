@@ -1,170 +1,118 @@
-var sourcemaps = require("gulp-sourcemaps");
-var browserSync = require("browser-sync").create();
-var fileinclude = require("gulp-file-include");
-var del = require("del");
+import browserSync from "browser-sync";
+import fileinclude from "gulp-file-include";
+import del from "del";
 
 // CSS
-var scss = require("gulp-sass")(require("sass"));
-var postcss = require("gulp-postcss");
-var autoprefixer = require("autoprefixer");
-var urlAdjuster = require("gulp-css-replace-url");
+import gulpSass from "gulp-sass";
+import dartSass from "sass";
+const scss = gulpSass(dartSass);
+import autoprefixer from "autoprefixer";
+import urlAdjuster from "gulp-css-replace-url";
+import postCss from "gulp-postcss";
 
 // JS
-var gulp = require("gulp");
-concat = require("gulp-concat");
-uglify = require("gulp-uglify");
-rename = require("gulp-rename");
+import { src, dest, series, watch } from "gulp";
+import concat from "gulp-concat";
+import uglify from "gulp-uglify";
+import rename from "gulp-rename";
 
 // IMAGE
-var imagemin = require("gulp-imagemin");
+import imagemin from "gulp-imagemin";
 
 // 소스 파일 경로
-var PATH = {
-        HTML: "./src/view",
-        ASSETS: {
-            INCLUDE: "./src/include",
-            FONTS: "./src/assets/fonts",
-            IMAGES: "./src/assets/images",
-            VIDEO: "./src/assets/videos",
-            STYLE: "./src/assets/style",
-            SCRIPT: "./src/assets/script",
-            LIB: "./src/assets/lib",
-        },
+const PATH = {
+    HTML: "./src/view",
+    ASSETS: {
+        INCLUDE: "./src/include",
+        FONTS: "./src/assets/fonts",
+        IMAGES: "./src/assets/images",
+        VIDEO: "./src/assets/videos",
+        STYLE: "./src/assets/style",
+        SCRIPT: "./src/assets/script",
+        LIB: "./src/assets/lib",
     },
-    // 산출물 경로
-    DEST_PATH = {
-        HTML: "./dist/",
-        ASSETS: {
-            FONTS: "./dist/assets/style/fonts",
-            IMAGES: "./dist/assets/images",
-            VIDEO: "./dist/assets/videos",
-            STYLE: "./dist/assets/style",
-            SCRIPT: "./dist/assets/script",
-            LIB: "./dist/assets/lib",
-        },
-    };
+};
+// 산출물 경로
+const DEST_PATH = {
+    HTML: "./dist/",
+    ASSETS: {
+        FONTS: "./dist/assets/style/fonts",
+        IMAGES: "./dist/assets/images",
+        VIDEO: "./dist/assets/videos",
+        STYLE: "./dist/assets/style",
+        SCRIPT: "./dist/assets/script",
+        LIB: "./dist/assets/lib",
+    },
+};
 
-gulp.task("library", () => {
-    return new Promise((resolve) => {
-        // Bootstrap
-        const bootstrapPath =
-            "node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+const bootstrapPath = "node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+const bootstrapFontPath = "node_modules/bootstrap-icons/font/fonts/";
+const pretendardPath = "node_modules/pretendard/dist/web/static/";
 
-        gulp.src(bootstrapPath).pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT));
-        resolve();
-    });
-});
+const library = async () =>
+    await src(bootstrapPath).pipe(dest(DEST_PATH.ASSETS.SCRIPT));
 
-gulp.task("video", () => {
-    return new Promise((resolve) => {
-        gulp.src(PATH.ASSETS.VIDEO + "/*")
-            .pipe(gulp.dest(DEST_PATH.ASSETS.VIDEO))
-            .pipe(browserSync.reload({ stream: true }));
-        resolve();
-    });
-});
+const video = async () =>
+    await src(PATH.ASSETS.VIDEO + "/*")
+        .pipe(dest(DEST_PATH.ASSETS.VIDEO))
+        .pipe(browserSync.stream());
 
-gulp.task("imagemin", () => {
-    return new Promise((resolve) => {
-        gulp.src(PATH.ASSETS.IMAGES + "/*.*")
-            .pipe(
-                imagemin([
-                    imagemin.gifsicle({ interlaced: false }),
-                    // imagemin.jpegtran({ progressive: true }),
-                    imagemin.optipng({ optimizationLevel: 5 }),
-                    imagemin.svgo({
-                        plugins: [
-                            { removeViewBox: true },
-                            { cleanupIDs: false },
-                        ],
-                    }),
-                ])
-            )
-            .pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES))
-            .pipe(browserSync.reload({ stream: true }));
-        resolve();
-    });
-});
+const image = async () =>
+    await src(PATH.ASSETS.IMAGES + "/*.*")
+        .pipe(
+            imagemin([
+                imagemin.gifsicle({ interlaced: false }),
+                // imagemin.jpegtran({ progressive: true }),
+                imagemin.optipng({ optimizationLevel: 5 }),
+                imagemin.svgo({
+                    plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+                }),
+            ])
+        )
+        .pipe(dest(DEST_PATH.ASSETS.IMAGES))
+        .pipe(browserSync.stream());
 
-gulp.task("clean", () => {
-    return new Promise((resolve) => {
-        del.sync(DEST_PATH.HTML);
+const clean = async () => await del.sync(DEST_PATH.HTML);
 
-        resolve();
-    });
-});
+const build = async () =>
+    await src(PATH.ASSETS.SCRIPT + "/*.js")
+        .pipe(concat("common.js"))
+        .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
+        .pipe(
+            uglify({
+                mangle: true, // 알파벳 한글자 압축
+            })
+        )
+        .pipe(rename("common.min.js"))
+        .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
+        .pipe(browserSync.stream());
 
-gulp.task("script:build", () => {
-    return new Promise((resolve) => {
-        gulp.src(PATH.ASSETS.SCRIPT + "/*.js")
-            .pipe(concat("common.js"))
-            .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
-            .pipe(
-                uglify({
-                    mangle: true, // 알파벳 한글자 압축
-                })
-            )
-            .pipe(rename("common.min.js"))
-            .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
-            .pipe(browserSync.reload({ stream: true }));
+const scssCompile = async () =>
+    await src(PATH.ASSETS.STYLE + "/*.scss")
+        .pipe(
+            scss({
+                includePaths: ["node_modules"],
+                outputStyle: "expanded",
+            })
+        )
+        .pipe(postCss([autoprefixer()]))
+        .pipe(dest(DEST_PATH.ASSETS.STYLE))
+        .pipe(browserSync.stream());
 
-        resolve();
-    });
-});
+const html = async () =>
+    await src(PATH.HTML + "/*.html")
+        .pipe(
+            fileinclude({
+                prefix: "@gridone-",
+                basepath: "@file",
+            })
+        )
+        .pipe(dest(DEST_PATH.HTML))
+        .pipe(browserSync.stream());
 
-gulp.task("scss:compile", () => {
-    return new Promise((resolve) => {
-        var options = {
-            outputStyle: "expanded", // nested, expanded, compact, compressed
-            indentType: "space", // space, tab
-            indentWidth: 4, //
-            precision: 8,
-            sourceComments: true, // 코멘트 제거 여부
-        };
-        gulp.src(PATH.ASSETS.STYLE + "/*.scss")
-            .pipe(
-                scss({
-                    includePaths: ["node_modules"],
-                })
-            )
-            .pipe(sourcemaps.init())
-            .pipe(scss(options))
-            .pipe(sourcemaps.write())
-            .pipe(postcss([autoprefixer({ browsers: ["last 2 versions"] })]))
-            .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
-            .pipe(browserSync.reload({ stream: true }));
-
-        resolve();
-    });
-});
-
-gulp.task("html", () => {
-    return new Promise((resolve) => {
-        gulp.src(PATH.HTML + "/*.html")
-            .pipe(
-                fileinclude({
-                    prefix: "@gridone-",
-                    basepath: "@file",
-                })
-            )
-            .pipe(gulp.dest(DEST_PATH.HTML))
-            .pipe(browserSync.reload({ stream: true }));
-
-        resolve();
-    });
-});
-
-gulp.task("fonts", () => {
-    return new Promise((resolve) => {
-        // Bootstrap Icons
-        const bootstrapPath = "node_modules/bootstrap-icons/font/fonts/";
-
-        gulp.src(bootstrapPath + "*").pipe(gulp.dest(DEST_PATH.ASSETS.FONTS));
-
-        // Pretendard Fonts
-        const pretendardPath = "node_modules/pretendard/dist/web/static/";
-
-        gulp.src(pretendardPath + "pretendard.css")
+const fonts = {
+    publicCss: async () =>
+        await src(pretendardPath + "pretendard.css")
             .pipe(
                 urlAdjuster({
                     replace: ["./woff2", "./fonts"],
@@ -175,57 +123,36 @@ gulp.task("fonts", () => {
                     replace: ["./woff", "./fonts"],
                 })
             )
-            .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE));
-        gulp.src(pretendardPath + "woff2/*").pipe(
-            gulp.dest(DEST_PATH.ASSETS.FONTS)
-        );
-        gulp.src(pretendardPath + "woff/*").pipe(
-            gulp.dest(DEST_PATH.ASSETS.FONTS)
-        );
+            .pipe(dest(DEST_PATH.ASSETS.STYLE)),
+    publicFonts: async () =>
+        await src([
+            bootstrapFontPath + "*",
+            pretendardPath + "woff2/*",
+            pretendardPath + "woff/*",
+        ]).pipe(dest(DEST_PATH.ASSETS.FONTS)),
+};
 
-        resolve();
+const watcher = () => {
+    watch(DEST_PATH.HTML).on("add", () => browserSync.reload());
+};
+
+const server = async () =>
+    await browserSync.init({
+        server: { baseDir: "./dist", index: "admin-dashboard.html" },
     });
-});
 
-gulp.task("watch", () => {
-    return new Promise((resolve) => {
-        gulp.watch(PATH.HTML + "/**/*.html", gulp.series(["html"]));
-        gulp.watch(PATH.ASSETS.INCLUDE + "/**/*.html", gulp.series(["html"]));
-        gulp.watch(
-            PATH.ASSETS.STYLE + "/**/*.scss",
-            gulp.series(["scss:compile"])
-        );
-        gulp.watch(
-            PATH.ASSETS.SCRIPT + "/**/*.js",
-            gulp.series(["script:build"])
-        );
-        gulp.watch(PATH.ASSETS.IMAGES + "/**/*.*", gulp.series(["imagemin"]));
-
-        resolve();
-    });
-});
-
-gulp.task("browserSync", () => {
-    return new Promise((resolve) => {
-        browserSync.init({
-            server: { baseDir: "./dist", index: "admin-dashboard.html" },
-        });
-        resolve();
-    });
-});
-
-var tasks = gulp.series([
-    "clean",
-    "scss:compile",
-    "html",
-    "script:build",
-    "imagemin",
-    "fonts",
-    "video",
-    "library",
-    // "nodemon:start",
-    "watch",
-    "browserSync",
-]);
+const tasks = series(
+    [clean],
+    [scssCompile],
+    [html],
+    [build],
+    [fonts.publicCss],
+    [fonts.publicFonts],
+    [image],
+    [video],
+    [library],
+    [server],
+    [watcher]
+);
 
 exports.default = tasks;
