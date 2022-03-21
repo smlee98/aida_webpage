@@ -12,6 +12,7 @@ import postCss from "gulp-postcss";
 
 // JS
 import { src, dest, series, watch } from "gulp";
+import gutil from "gulp-util";
 import concat from "gulp-concat";
 import uglify from "gulp-uglify";
 import rename from "gulp-rename";
@@ -133,6 +134,22 @@ const fonts = {
 };
 
 const watcher = () => {
+    watch(PATH.HTML).on("change", (e) => {
+        html();
+        gutil.log(`Source Changed: ${e}`);
+    });
+    watch(PATH.ASSETS.INCLUDE).on("change", (e) => {
+        html();
+        gutil.log(`Source Changed: ${e}`);
+    });
+    watch(PATH.ASSETS.STYLE).on("change", (e) => {
+        scssCompile();
+        gutil.log(`Source Changed: ${e}`);
+    });
+    watch(PATH.ASSETS.SCRIPT).on("change", (e) => {
+        library();
+        gutil.log(`Source Changed: ${e}`);
+    });
     watch(DEST_PATH.HTML).on("add", () => browserSync.reload());
 };
 

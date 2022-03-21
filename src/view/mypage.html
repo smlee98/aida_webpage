@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridone - AI Portal</title>
+
+    <link rel="stylesheet" href="assets/style/master.css">
+</head>
+<body>
+    <main>     
+        <section id="main">
+            @gridone-include('../include/sidebar.html')
+            <div class="content">
+                @gridone-include('../include/nav.html')
+                <div class="content-wrapper">
+                    <div class="bg-white p-4 flex-grow-1">
+                        <div class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
+                            <ul class="nav nav-pills" id="alerts-tab" role="tablist">
+                                <li class="nav-item d-flex justify-content-center" role="presentation">
+                                    <button class="nav-link active w-100 d-flex align-items-center" id="pills-apikey-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-apikey" type="button" role="tab" aria-controls="pills-apikey"
+                                        aria-selected="true">API 키 요청 내역</button>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center" role="presentation">
+                                    <button class="nav-link w-100 d-flex align-items-center" id="pills-profile-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                        aria-selected="false">프로필</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content mt-3" id="pills-tabContent">
+                            <div class="tab-pane fade show active overflow-auto" id="pills-apikey" role="tabpanel"
+                                aria-labelledby="pills-apikey-tab">
+                                <table class="table table-custom table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">요청타입</th>
+                                            <th scope="col">요청내용</th>
+                                            <th scope="col">요청일</th>
+                                            <th scope="col">처리여부</th>
+                                            <th scope="col">승인자</th>
+                                            <th scope="col">승인날짜</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="area-pagenation" class="d-flex justify-content-center mt-3">
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination mb-0">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade px-3" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="row g-4">
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">이름</label>
+                                        <input type="text" class="form-control" id="user-name" placeholder="" value="어드민">
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">아이디(E-mail)</label>
+                                        <input type="text" class="form-control" id="user-id" placeholder="" value="admin@gridone.co.kr" readonly>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">전화번호</label>
+                                        <input type="text" class="form-control" id="user-name" placeholder="" value="010-1234-5678">
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">권한</label>
+                                        <input type="text" class="form-control" id="user-auth" placeholder="" value="ADMIN" readonly>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">부서</label>
+                                        <input type="text" class="form-control" id="user-department" placeholder="" value="솔루션개발본부" readonly>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">직급</label>
+                                        <input type="text" class="form-control" id="user-position" placeholder="" value="주임" readonly>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">가입일</label>
+                                        <input type="text" class="form-control" id="user-regdate" placeholder="" value="2020-03-02" readonly>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="firstName" class="form-label">비밀번호 변경일</label>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <input type="text" class="form-control" id="user-pwdate" placeholder="" value="2022-03-17" readonly>
+                                            <button class="btn btn-custom ms-3">변경</button>
+                                        </div>
+                                        <small class="text-muted d-flex align-items-center mt-1"><i class="bi bi-exclamation-triangle-fill me-1"></i>최근 비밀번호는&nbsp;<strong>28일 전</strong>에 변경되었습니다.</small>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mt-4 mt-lg-3">
+                                        <label for="firstName" class="form-label">API 발급현황</label>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <input type="text" class="form-control" id="user-position" placeholder="" value="발급" readonly>
+                                            <button class="btn btn-custom ms-3" disabled>요청</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0">
+                                    <button class="btn btn-custom ms-3">변경내용 저장</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @gridone-include('../include/mobile-bar.html')
+            </div>
+        </section>
+        @gridone-include('../include/modal.html')
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/script/bootstrap.bundle.js"></script>
+    <script src="assets/script/common.min.js"></script>
+    <script>
+        $(function () {
+            const mainSection = document.getElementById("main");
+            const toggleBar = document.getElementById("toggle-bar");
+
+            toggleBar.addEventListener('click', function () {
+                if(!mainSection.classList.contains('active')){
+                    mainSection.classList.add("active");
+                } else {
+                    mainSection.classList.remove("active");
+                }
+            });
+
+            const fullDate = document.querySelector("#dates");
+
+            function getDate() {
+                const date = new Date();
+
+                let years = date.getFullYear();
+                let months = String(date.getMonth()).padStart(2, "0");
+                let dates = String(date.getDate()).padStart(2, "0");
+
+                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            }
+
+            getDate();
+            setInterval(getDate, 300000);
+        });
+    </script>
+    <script>
+        document.getElementById("page-title").innerHTML = "마이페이지";
+    </script>
+</body>
+</html>
