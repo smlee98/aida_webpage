@@ -1,5 +1,6 @@
 $variable-prefix: gridone- !default;
 $enable-cssgrid: true;
+$enable-negative-margins: true;
 $font-family-sans-serif: Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
     "Noto Sans KR", "Malgun Gothic", sans-serif !default;
@@ -84,7 +85,7 @@ div.mobile-bar li.mb-item.active {
 }
 
 div.sidebar ul.list-group-flush li.list-group-item.active i[class*="bi"] {
-    color: var(--gridone-info);
+    color: #6c63ff;
 }
 
 div#search-box input:hover,
@@ -170,11 +171,11 @@ span.info-badge span.badge.bg-secondary i[class*="bi"] {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: #fff !important;
-    background-color: var(--gridone-info) !important;
+    background-color: #6c63ff !important;
 }
 
 .nav-link {
-    color: var(--gridone-info) !important;
+    color: #6c63ff !important;
     font-weight: bold;
 }
 
@@ -191,11 +192,12 @@ span.info-badge span.badge.bg-secondary i[class*="bi"] {
 }
 
 .table-custom > :not(:first-child) {
-    border-top: 2px solid var(--gridone-info) !important;
+    border-top: 2px solid #6c63ff !important;
 }
 
 .table-custom th {
-    color: var(--gridone-info) !important;
+    color: #6c63ff !important;
+    white-space: nowrap;
 }
 
 .page-link {
@@ -263,4 +265,9 @@ span.info-badge span.badge.bg-secondary i[class*="bi"] {
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.25rem rgb(108 99 255 / 25%);
     box-shadow: 0 0 0 0.25rem rgb(108 99 255 / 25%);
+}
+
+.issue-title .text-info,
+.issue-info .text-info {
+    color: #6c63ff !important;
 }

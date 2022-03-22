@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+@gridone-include('../include/header.html')
+<body>
+    <main>     
+        <section id="main">
+            @gridone-include('../include/sidebar.html')
+            <div class="content">
+                @gridone-include('../include/nav.html')
+                <div class="content-wrapper db-wrapper">
+                    <!-- <div id="introduction" class="d-flex flex-column justify-content-center bg-white p-5">
+                        <div>
+                            <h1 class="fw-bold">최신의 AI기술을<br>원하는 방식대로</h1>
+                            <p class="opacity-50 mb-4">
+                                비즈니스에 즉시 적용 가능한 솔루션,<br class="d-none d-lg-block">
+                                경쟁력 있는 인공지능 구축의 기반이 되는 강력한 AI 인프라,<br class="d-none d-lg-block">
+                                그리드원의 풍부한 데이터를 기반으로 학습된 최신 인공지능 서비스를 이용해<br class="d-none d-lg-block">
+                                경쟁력있는 AI서비스를 쉽고 편리하게 구축할 수 있습니다.
+                            </p>
+                        </div>
+                        <div class="row g-0 mt-4">
+                            <div class="col-12 col-lg main-card mb-4 mb-lg-0">
+                                <span class="fw-bold fs-4">
+                                    세계 최고 수준의<br>
+                                    AI 기술과 솔루션
+                                </span>
+                            </div>
+                            <div class="col-12 col-lg main-card mb-4 mb-lg-0">
+                                <span class="fw-bold fs-4">
+                                    최첨단 AI 기술과<br>
+                                    아이디어의 시너지
+                                </span>
+                            </div>
+                            <div class="col-12 col-lg main-card">
+                                <span class="fw-bold fs-4">
+                                    비즈니스 맞춤형<br>
+                                    AI 솔루션
+                                </span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <ul class="nav nav-pills row row-cols-2 row-cols-lg-4 g-0 bg-white" id="pills-tab" role="tablist">
+                        <li class="nav-item col d-flex justify-content-center" role="presentation">
+                            <button class="nav-link active w-100" id="pills-407-tab" data-bs-toggle="pill" data-bs-target="#pills-407"
+                                type="button" role="tab" aria-controls="pills-407" aria-selected="true">407</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active overflow-auto p-4 mx-n4" id="pills-407" role="tabpanel"
+                            aria-labelledby="pills-home-tab">
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <div class="col">
+                                    <div class="card border-light">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold">textextractor-preproc-dev:10159</h5>
+                                            <p>Test Service</p>
+                                            <div class="d-flex justify-content-end align-items-center mt-2 pt-2 border-top">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+                                                    <label class="form-check-label visually-hidden d-none" for="flexSwitchCheckDefault">Default switch checkbox
+                                                        input</label>
+                                                </div>
+                                                <span class="delete-service text-danger">
+                                                    <i class="bi bi-x-lg"></i>
+                                                </span>
+                                                <button class="btn btn-custom ms-auto">
+                                                    <span class="text-nowrap">체험하기</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @gridone-include('../include/mobile-bar.html')
+            </div>
+        </section>
+        @gridone-include('../include/modal.html')
+    </main>
+    @gridone-include('../include/script.html')
+    <script>
+        document.getElementsByName("sidebar-ai")[0].classList.add("active");
+        document.getElementsByName("mbar-ai")[0].classList.add("active");
+        document.getElementById("ai-demo").classList.add("active");
+        document.getElementById("page-title").innerHTML = "서비스 체험";
+    </script>
+</body>
+</html>

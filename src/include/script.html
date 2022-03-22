@@ -1,0 +1,79 @@
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+<script>
+    if (!(window.MSInputMethodContext && document.documentMode)) {
+        document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
+    }
+</script>
+<!-- <script src="assets/script/common.min.js"></script> -->
+<script>
+    $(function () {
+        if (!String.prototype.padStart) {
+            String.prototype.padStart = function padStart(targetLength, padString) {
+                if (this.length >= targetLength) {
+                    return String(this);
+                } else {
+                    if (padString == null || padString == " ") {
+                        padString = " ";
+                    } else if (padString.length > 1) {
+                        padString = padString.substring(0, 1);
+                    }
+                    targetLength = targetLength - this.length;
+                    var prefix = "";
+                    for (var i = 0; i < targetLength; i++) {
+                        prefix += padString;
+                    }
+                    return prefix + String(this);
+                }
+            };
+        }
+
+        const mainSection = document.getElementById("main");
+        const toggleBar = document.getElementById("toggle-bar");
+
+        toggleBar.addEventListener('click', function () {
+            if (!mainSection.classList.contains('active')) {
+                mainSection.classList.add("active");
+            } else {
+                mainSection.classList.remove("active");
+            }
+        });
+
+        const deleteBar = $("div.progress-delete");
+        const activeBar = $("div.progress-active");
+        const deactiveBar = $("div.progress-deactive");
+        const adminBar = $("div.progress-admin");
+        const userBar = $("div.progress-user");
+
+        const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
+        const activeNum = parseInt($("div.progress-active span.progress-num").html());
+        const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
+        const adminNum = parseInt($("div.progress-admin span.progress-num").html());
+        const userNum = parseInt($("div.progress-user span.progress-num").html());
+
+        const allUsers = deleteNum + activeNum + deactiveNum;
+
+        // console.log(`${deleteNum},${activeNum},${deactiveNum}`);
+
+        deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
+        activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
+        deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
+        adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
+        userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
+
+        const fullDate = document.querySelector("#dates");
+
+        function getDate() {
+            const date = new Date();
+
+            let years = date.getFullYear();
+            let months = String(date.getMonth()).padStart(2, "0");
+            let dates = String(date.getDate()).padStart(2, "0");
+
+            fullDate.innerText = years + "년 " + months + "월 " + dates + "일"
+        }
+
+        getDate();
+        setInterval(getDate, 300000);
+    });
+</script>

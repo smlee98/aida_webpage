@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gridone - AI Portal</title>
-
-    <link rel="stylesheet" href="assets/style/master.css">
-</head>
+@gridone-include('../include/header.html')
 <body>
     <main>     
         <section id="main">
@@ -16,25 +9,25 @@
                 @gridone-include('../include/nav.html')
                 <div class="content-wrapper">
                     <div class="bg-white p-4 flex-grow-1">
-                        <div class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
-                            <ul class="nav nav-pills row g-0" id="pills-tab" role="tablist">
-                                <li class="nav-item col d-flex justify-content-center" role="presentation">
-                                    <button class="nav-link active w-100" id="pills-opened-tab" data-bs-toggle="pill" data-bs-target="#pills-opened"
-                                        type="button" role="tab" aria-controls="pills-opened" aria-selected="true">열림</button>
-                                </li>
-                                <li class="nav-item col d-flex justify-content-center" role="presentation">
-                                    <button class="nav-link w-100" id="pills-closed-tab" data-bs-toggle="pill" data-bs-target="#pills-closed"
-                                        type="button" role="tab" aria-controls="pills-closed" aria-selected="false">닫힘</button>
-                                </li>
-                            </ul>
+                        <ul class="nav nav-pills row g-0" id="pills-tab" role="tablist">
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link active w-100" id="pills-opened-tab" data-bs-toggle="pill" data-bs-target="#pills-opened"
+                                    type="button" role="tab" aria-controls="pills-opened" aria-selected="true">열림</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="pills-closed-tab" data-bs-toggle="pill" data-bs-target="#pills-closed"
+                                    type="button" role="tab" aria-controls="pills-closed" aria-selected="false">닫힘</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content py-4" id="pills-tabContent">
                             <div class="d-flex align-items-center justify-content-end mt-3 mt-lg-0">
                                 <form class="ms-3" action="#">
                                     <input type="text" class="form-control" placeholder="검색">
                                 </form>
-                                <button class="btn btn-custom ms-3">새 이슈 등록</button>
+                                <button class="btn btn-custom ms-3 w-auto">
+                                    <span class="text-nowrap">새 이슈 등록</span>
+                                </button>
                             </div>
-                        </div>
-                        <div class="tab-content py-4" id="pills-tabContent">
                             <div class="tab-pane fade show active overflow-auto" id="pills-opened" role="tabpanel"
                                 aria-labelledby="pills-opened-tab">
                                 <ul class="list-group list-group-flush">
@@ -318,39 +311,7 @@
         </section>
         @gridone-include('../include/modal.html')
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/script/bootstrap.bundle.js"></script>
-    <script src="assets/script/common.min.js"></script>
-    <script>
-        $(function () {
-            const mainSection = document.getElementById("main");
-            const toggleBar = document.getElementById("toggle-bar");
-
-            toggleBar.addEventListener('click', function () {
-                if(!mainSection.classList.contains('active')){
-                    mainSection.classList.add("active");
-                } else {
-                    mainSection.classList.remove("active");
-                }
-            });
-
-            const fullDate = document.querySelector("#dates");
-
-            function getDate() {
-                const date = new Date();
-
-                let years = date.getFullYear();
-                let months = String(date.getMonth()).padStart(2, "0");
-                let dates = String(date.getDate()).padStart(2, "0");
-
-                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
-            }
-
-            getDate();
-            setInterval(getDate, 300000);
-        });
-    </script>
+    @gridone-include('../include/script.html')
     <script>
         document.getElementsByName("sidebar-issue")[0].classList.add("active");
         document.getElementsByName("mbar-issue")[0].classList.add("active");

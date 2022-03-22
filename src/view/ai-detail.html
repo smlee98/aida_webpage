@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+@gridone-include('../include/header.html')
+<body>
+    <main>     
+        <section id="main">
+            @gridone-include('../include/sidebar.html')
+            <div class="content">
+                @gridone-include('../include/nav.html')
+                <div class="content-wrapper db-wrapper">
+                    <div class="d-flex flex-column align-items-center bg-white mb-4 p-4">
+                        <div class="row row-cols-1 row-cols-lg-2 g-0 w-100">
+                            <div class="col">
+                                <p class="fw-bold fs-3 mb-0">SERVICE#001</p>
+                            </div>
+                            <div class="col mt-3 mt-lg-0">
+                                <div class="d-flex align-items-center">
+                                    <select class="form-select" id="model-select" aria-label="model-select">
+                                        <option value="service01">INSTANCE#001</option>
+                                        <option value="service02">INSTANCE#002</option>
+                                        <option value="service03">INSTANCE#003</option>
+                                    </select>
+                                    <button class="btn btn-custom ms-3">
+                                        <span class="text-nowrap">선택</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start w-100 mt-2">
+                            <p class="opacity-50 mb-0">나랏말이 중국과 달라 문자와 서로 통하지 아니하므로 이런 까닭으로 어리석은 백성이 이르고자 하는 바가 있어도 마침내 제 뜻을 능히 펴지 못하는 사람이 많다.</p>
+                        </div>
+                        <div class="border-top mt-3 pt-3 w-100">
+                            <ul class="d-flex align-items-center ps-0 mb-0">
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-success me-2"></span>
+                                    <span class="index-text me-2">정상</span>
+                                    <span class="index-count">40</span>
+                                </li>
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-danger me-2"></span>
+                                    <span class="index-text me-2">에러</span>
+                                    <span class="index-count">7</span>
+                                </li>
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-warning me-2"></span>
+                                    <span class="index-text me-2">대체</span>
+                                    <span class="index-count">18</span>
+                                </li>
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-secondary me-2"></span>
+                                    <span class="index-text me-2">폐기</span>
+                                    <span class="index-count">6</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="instance-wrapper">
+                        <div id="instance-info" class="d-flex flex-column w-100 bg-white p-4 mb-4">
+                            <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
+                                <span class="badge rounded-pill bg-success me-2">정상</span>
+                                <p class="fw-bold mb-0">INSTANCE#001</p>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <span id="instance-modify" class="col d-flex align-items-center">
+                                    <span class="badge rounded-pill bg-secondary me-2">수정일</span>
+                                    <span>2022/03/22 17:50:00</span>
+                                </span>
+                                <span id="instance-check" class="col d-flex align-items-center">
+                                    <span class="badge rounded-pill bg-secondary me-2">체크일</span>
+                                    <span>2022/03/22 17:50:00</span>
+                                </span>
+                                <span id="instance-register" class="col d-flex align-items-center">
+                                    <span class="badge rounded-pill bg-secondary me-2">등록일</span>
+                                    <span>2022/03/22 17:50:00</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="sub-card">
+                            <div class="row row-cols-1 row-cols-lg-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">정보</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="mb-3">
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold">설명</label>
+                                                <textarea class="form-control" id="info-explain" rows="2" disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold">INPUT</label>
+                                                <textarea class="form-control" id="info-explain" rows="1" disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
+                                            </div>
+                                            <div>
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold">OUTPUT</label>
+                                                <textarea class="form-control" id="info-explain" rows="1" disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row row-cols-1 row-cols-lg-2 g-4">
+                                        <div class="card h-100">
+                                            <div class="card-header border-bottom">
+                                                <span class="card-header-text fw-bold d-block">정보</span>
+                                            </div>
+                                            <div class="card-body p-4">
+                                                <div class="mb-3">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">설명</label>
+                                                    <textarea class="form-control" id="info-explain" rows="2"
+                                                        disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">INPUT</label>
+                                                    <textarea class="form-control" id="info-explain" rows="1"
+                                                        disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
+                                                </div>
+                                                <div>
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">OUTPUT</label>
+                                                    <textarea class="form-control" id="info-explain" rows="1"
+                                                        disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card h-100">
+                                            <div class="card-header border-bottom">
+                                                <span class="card-header-text fw-bold d-block">정보</span>
+                                            </div>
+                                            <div class="card-body p-4">
+                                                <div class="mb-3">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">설명</label>
+                                                    <textarea class="form-control" id="info-explain" rows="2"
+                                                        disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">INPUT</label>
+                                                    <textarea class="form-control" id="info-explain" rows="1"
+                                                        disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
+                                                </div>
+                                                <div>
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">OUTPUT</label>
+                                                    <textarea class="form-control" id="info-explain" rows="1"
+                                                        disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @gridone-include('../include/mobile-bar.html')
+            </div>
+        </section>
+        @gridone-include('../include/modal.html')
+    </main>
+    @gridone-include('../include/script.html')
+    <script>
+        // 전체 가입 현황 그래프
+        const labels = [
+            '1월',
+            '2월',
+            '3월',
+            '4월',
+            '5월',
+            '6월',
+            '7월',
+            '8월',
+            '9월',
+            '10월',
+            '11월',
+            '12월'
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: '가입 수',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [8, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+    <script>
+        const boardLabels = [
+            'AI 스토리',
+            '공지사항',
+            '질문과 답변'
+        ];
+
+        const boardData = {
+            labels: boardLabels,
+            datasets: [{
+                data: [8, 5, 3],
+                backgroundColor: [
+                    'rgb(220, 53, 69)',
+                    'rgb(0, 123, 255)',
+                    'rgb(255, 193, 7)'
+                ]
+            }],
+        };
+
+        const boardConfig = {
+            type: 'doughnut',
+            data: boardData,
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        };
+
+        const boardChart = new Chart(
+            document.getElementById('boardChart'),
+            boardConfig
+        );
+    </script>
+    <script>
+        let dateDropdown = document.getElementById('yearpicker');
+
+        let currentYear = new Date().getFullYear();
+        let earliestYear = 2000;
+
+        while (currentYear >= earliestYear) {
+            let dateOption = document.createElement('option');
+            dateOption.text = currentYear;
+            dateOption.value = currentYear;
+            dateDropdown.add(dateOption);
+            currentYear -= 1;
+        }
+    </script>
+    <script>
+        document.getElementsByName("sidebar-ai")[0].classList.add("active");
+        document.getElementsByName("mbar-ai")[0].classList.add("active");
+        document.getElementById("ai-list").classList.add("active");
+        document.getElementById("page-title").innerHTML = "서비스 목록";
+    </script>
+</body>
+</html>

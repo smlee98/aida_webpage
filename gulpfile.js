@@ -13,7 +13,7 @@ import postCss from "gulp-postcss";
 // JS
 import { src, dest, series, watch } from "gulp";
 import gutil from "gulp-util";
-import concat from "gulp-concat";
+// import concat from "gulp-concat";
 import uglify from "gulp-uglify";
 import rename from "gulp-rename";
 
@@ -77,15 +77,14 @@ const clean = async () => await del.sync(DEST_PATH.HTML);
 
 const build = async () =>
     await src(PATH.ASSETS.SCRIPT + "/*.js")
-        .pipe(concat("common.js"))
+        // .pipe(concat("common.js"))
         .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
-        .pipe(
-            uglify({
-                mangle: true, // 알파벳 한글자 압축
-            })
-        )
-        .pipe(rename("common.min.js"))
-        .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
+        // .pipe(
+        //     uglify({
+        //         mangle: true, // 알파벳 한글자 압축
+        //     })
+        // )
+        // .pipe(rename("common.min.js"))
         .pipe(browserSync.stream());
 
 const scssCompile = async () =>

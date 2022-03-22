@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gridone - AI Portal</title>
-
-    <link rel="stylesheet" href="assets/style/master.css">
-</head>
+@gridone-include('../include/header.html')
 <body>
     <main>     
         <section id="main">
@@ -78,39 +71,7 @@
         </section>
         @gridone-include('../include/modal.html')
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/script/bootstrap.bundle.js"></script>
-    <script src="assets/script/common.min.js"></script>
-    <script>
-        $(function () {
-            const mainSection = document.getElementById("main");
-            const toggleBar = document.getElementById("toggle-bar");
-
-            toggleBar.addEventListener('click', function () {
-                if(!mainSection.classList.contains('active')){
-                    mainSection.classList.add("active");
-                } else {
-                    mainSection.classList.remove("active");
-                }
-            });
-
-            const fullDate = document.querySelector("#dates");
-
-            function getDate() {
-                const date = new Date();
-
-                let years = date.getFullYear();
-                let months = String(date.getMonth()).padStart(2, "0");
-                let dates = String(date.getDate()).padStart(2, "0");
-
-                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
-            }
-
-            getDate();
-            setInterval(getDate, 300000);
-        });
-    </script>
+    @gridone-include('../include/script.html')
     <script>
         document.getElementsByName("sidebar-contents")[0].classList.add("active");
         document.getElementsByName("mbar-contents")[0].classList.add("active");

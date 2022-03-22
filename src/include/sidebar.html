@@ -58,12 +58,29 @@
                 </li>
             </ul>
         </div>
-        <li class="list-group-item" name="sidebar-ai">
-            <a class="d-flex align-items-center w-100" href="../ai-service.html">
-                <i class="bi bi-robot fs-4"></i>
-                <span class="ms-3 flex-grow-1">AI 서비스</span>
-            </a>
+        <li class="list-group-item mb-0" name="sidebar-ai" name="sidebar-aiservice" data-bs-toggle="collapse" data-bs-target="#aiservice-collapse" role="button" aria-expanded="true" aria-controls="aiservice-collapse">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-robot fs-4"></i>
+                    <span class="ms-3">AI 서비스</span>
+                </span>
+                <i class="bi bi-chevron-down text-white opacity-50"></i>
+            </div>
         </li>
+        <div class="collapse show" id="aiservice-collapse">
+            <ul class="list-unstyled text-white small">
+                <li>
+                    <a class="d-block" id="ai-demo" href="../ai-demo.html">
+                        <span>서비스 체험</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="ai-list" href="../ai-list.html">
+                        <span>서비스 목록</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <li class="list-group-item mb-0" name="sidebar-contents" data-bs-toggle="collapse" data-bs-target="#contents-collapse" role="button"
                     aria-expanded="true" aria-controls="contents-collapse">
             <div class="d-flex justify-content-between align-items-center w-100">
