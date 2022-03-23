@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+@gridone-include('../include/header.html')
+</style>
+<body>
+    <main>     
+        <section id="main">
+            <div class="login-wrapper">
+                <div>
+                    <div class="brand-logo mx-auto mb-4">
+                        <img class="w-100 h-100" src="assets/images/logo-symbol.svg" alt="logo">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input type="email" class="form-control rounded-0 rounded-top" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating" style="margin-top: -1px;">
+                            <input type="password" class="form-control rounded-0 rounded-bottom" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex form-check form-switch">
+                            <input class="form-check-input me-2" type="checkbox" role="switch" id="saveAccount" checked>
+                            <label class="form-check-label" for="saveAccount">계정정보 저장</label>
+                        </div>
+                    </div>
+                    <a href="../admin-dashboard.html">
+                        <button class="w-100 btn btn-lg btn-primary bg-info" type="button">로그인</button>
+                    </a>
+                </div>
+                <ul class="find_wrap" id="find_wrap">
+                    <li>
+                        <a target="_blank" href="#" class="find_text">아이디 찾기</a></li>
+                    <li>
+                        <a target="_blank" href="#" class="find_text">비밀번호 찾기</a></li>
+                    <li>
+                        <a target="_blank" href="#" class="find_text">회원가입</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

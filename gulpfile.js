@@ -154,7 +154,7 @@ const watcher = () => {
 
 const server = async () =>
     await browserSync.init({
-        server: { baseDir: "./dist", index: "admin-dashboard.html" },
+        server: { baseDir: "./dist", index: "index.html" },
     });
 
 const tasks = series(

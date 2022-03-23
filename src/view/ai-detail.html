@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div id="sub-card">
-                            <div class="row row-cols-1 row-cols-lg-2 g-4">
+                            <div class="row row-cols-1 row-cols-lg-2 g-4 mb-4">
                                 <div class="col">
                                     <div class="card h-100">
                                         <div class="card-header border-bottom">
@@ -84,64 +84,155 @@
                                         </div>
                                         <div class="card-body p-4">
                                             <div class="mb-3">
-                                                <label for="info-explain" class="form-label opacity-50 fw-bold">설명</label>
-                                                <textarea class="form-control" id="info-explain" rows="2" disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold small">설명</label>
+                                                <textarea class="form-control" id="info-explain" rows="3" disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="info-explain" class="form-label opacity-50 fw-bold">INPUT</label>
-                                                <textarea class="form-control" id="info-explain" rows="1" disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold small">INPUT</label>
+                                                <textarea class="form-control" id="info-explain" rows="2" disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
                                             </div>
                                             <div>
-                                                <label for="info-explain" class="form-label opacity-50 fw-bold">OUTPUT</label>
-                                                <textarea class="form-control" id="info-explain" rows="1" disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold small">OUTPUT</label>
+                                                <textarea class="form-control" id="info-explain" rows="2" disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="row row-cols-1 row-cols-lg-2 g-4">
-                                        <div class="card h-100">
-                                            <div class="card-header border-bottom">
-                                                <span class="card-header-text fw-bold d-block">정보</span>
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">상태</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="row row-cols-1 row-cols-lg-2">
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Instance</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Hystrix</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Ping</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
                                             </div>
-                                            <div class="card-body p-4">
-                                                <div class="mb-3">
-                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">설명</label>
-                                                    <textarea class="form-control" id="info-explain" rows="2"
-                                                        disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
+                                            <hr>
+                                            <div class="row row-cols-1 row-cols-lg-3">
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">INPUT</label>
-                                                    <textarea class="form-control" id="info-explain" rows="1"
-                                                        disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
                                                 </div>
-                                                <div>
-                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">OUTPUT</label>
-                                                    <textarea class="form-control" id="info-explain" rows="1"
-                                                        disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row row-cols-1 row-cols-lg-2">
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card h-100">
-                                            <div class="card-header border-bottom">
-                                                <span class="card-header-text fw-bold d-block">정보</span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">프로세스</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <table class="table table-custom table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">프로세스 CPU 사용량</th>
+                                                        <th class="text-center">시스템 CPU 사용량</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">-%</td>
+                                                        <td class="text-center">-%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">가비지 컬렉션 유휴기간</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <table class="table table-custom table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">횟수</th>
+                                                        <th class="text-center">전체 소요 시간</th>
+                                                        <th class="text-center">최대 소요 시간</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">-회</td>
+                                                        <td class="text-center">-시간</td>
+                                                        <td class="text-center">-시간</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-3" id="service-charts">
+                                <div class="col mb-4 mb-lg-0">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">Thread</span>
+                                        </div>
+                                        <div class="card-body pt-4">
+                                            <div class="w-100 h-100">
+                                                <canvas id="chart-thread" style="width: 100%; height: 100%;"></canvas>
                                             </div>
-                                            <div class="card-body p-4">
-                                                <div class="mb-3">
-                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">설명</label>
-                                                    <textarea class="form-control" id="info-explain" rows="2"
-                                                        disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">INPUT</label>
-                                                    <textarea class="form-control" id="info-explain" rows="1"
-                                                        disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
-                                                </div>
-                                                <div>
-                                                    <label for="info-explain" class="form-label opacity-50 fw-bold">OUTPUT</label>
-                                                    <textarea class="form-control" id="info-explain" rows="1"
-                                                        disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
-                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4 mb-lg-0">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">Memory Heap</span>
+                                        </div>
+                                        <div class="card-body pt-4">
+                                            <div class="w-100 h-100">
+                                                <canvas id="chart-heap" style="width: 100%; height: 100%;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">Memory Non-Heap</span>
+                                        </div>
+                                        <div class="card-body pt-4">
+                                            <div class="w-100 h-100">
+                                                <canvas id="chart-nonheap" style="width: 100%; height: 100%;"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -157,98 +248,151 @@
     </main>
     @gridone-include('../include/script.html')
     <script>
-        // 전체 가입 현황 그래프
-        const labels = [
-            '1월',
-            '2월',
-            '3월',
-            '4월',
-            '5월',
-            '6월',
-            '7월',
-            '8월',
-            '9월',
-            '10월',
-            '11월',
-            '12월'
-        ];
-
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: '가입 수',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [8, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            }]
-        };
-
-        const config = {
+        const threadConfig = {
             type: 'bar',
-            data: data,
+            data: {
+                labels: [
+                    'DEMON',
+                    'LIVE',
+                    'PEAK'
+                ],
+                datasets: [{
+                    label: [
+                        'Thread'
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 123, 255, 0.75)',
+                        'rgba(47, 177, 130, 0.75)',
+                        'rgba(220, 53, 69, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgb(0, 123, 255)',
+                        'rgb(47, 177, 130)',
+                        'rgb(220, 53, 69)'
+                    ],
+                    borderWidth: '1',
+                    data: ['12','19','3']
+                }]
+            },
             options: {
                 legend: {
                     display: false
                 },
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
         };
 
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
+        const threadChart = new Chart(
+            document.getElementById('chart-thread'),
+            threadConfig
         );
     </script>
     <script>
-        const boardLabels = [
-            'AI 스토리',
-            '공지사항',
-            '질문과 답변'
-        ];
-
-        const boardData = {
-            labels: boardLabels,
-            datasets: [{
-                data: [8, 5, 3],
-                backgroundColor: [
-                    'rgb(220, 53, 69)',
-                    'rgb(0, 123, 255)',
-                    'rgb(255, 193, 7)'
-                ]
-            }],
-        };
-
-        const boardConfig = {
-            type: 'doughnut',
-            data: boardData,
+        const heapConfig = {
+            type: 'bar',
+            data: {
+                labels: [
+                    '사용됨',
+                    '사이즈',
+                    '최대'
+                ],
+                datasets: [{
+                    label: [
+                        'Heap'
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 123, 255, 0.75)',
+                        'rgba(47, 177, 130, 0.75)',
+                        'rgba(220, 53, 69, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgb(0, 123, 255)',
+                        'rgb(47, 177, 130)',
+                        'rgb(220, 53, 69)'
+                    ],
+                    borderWidth: '1',
+                    data: ['19', '3', '12']
+                }]
+            },
             options: {
                 legend: {
                     display: false
                 },
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
         };
 
-        const boardChart = new Chart(
-            document.getElementById('boardChart'),
-            boardConfig
+        const heapChart = new Chart(
+            document.getElementById('chart-heap'),
+            heapConfig
         );
     </script>
     <script>
-        let dateDropdown = document.getElementById('yearpicker');
+        const nonheapConfig = {
+            type: 'bar',
+            data: {
+                labels: [
+                    '메타스페이스',
+                    '사용됨',
+                    '사이즈',
+                    '최대'
+                ],
+                datasets: [{
+                    label: [
+                        'NonHeap'
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 193, 7 , 0.75)',
+                        'rgba(0, 123, 255, 0.75)',
+                        'rgba(47, 177, 130, 0.75)',
+                        'rgba(220, 53, 69, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 193, 7)',
+                        'rgb(0, 123, 255)',
+                        'rgb(47, 177, 130)',
+                        'rgb(220, 53, 69)'
+                    ],
+                    borderWidth: '1',
+                    data: ['2', '3', '12', '15']
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        };
 
-        let currentYear = new Date().getFullYear();
-        let earliestYear = 2000;
-
-        while (currentYear >= earliestYear) {
-            let dateOption = document.createElement('option');
-            dateOption.text = currentYear;
-            dateOption.value = currentYear;
-            dateDropdown.add(dateOption);
-            currentYear -= 1;
-        }
+        const nonheapChart = new Chart(
+            document.getElementById('chart-nonheap'),
+            nonheapConfig
+        );
     </script>
     <script>
         document.getElementsByName("sidebar-ai")[0].classList.add("active");
