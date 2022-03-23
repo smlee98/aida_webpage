@@ -168,6 +168,13 @@ span.info-badge span.badge.bg-secondary i[class*="bi"] {
     top: 0.75rem !important;
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #6c63ff !important;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: #fff !important;

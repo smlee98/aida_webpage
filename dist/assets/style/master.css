@@ -176,6 +176,13 @@ span.info-badge span.badge.bg-secondary i[class*=bi] {
   top: 0.75rem !important;
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #6c63ff !important;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff !important;
@@ -21697,27 +21704,20 @@ span#theme-select:hover {
 }
 
 div.login-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-div.login-wrapper input:focus,
-div.login-wrapper input:active {
+div.login-inner input,
+div.login-inner button {
+  width: 22rem;
+}
+
+div.login-inner input:focus,
+div.login-inner input:active {
   border-color: #ced4da;
   -webkit-box-shadow: none;
           box-shadow: none;
