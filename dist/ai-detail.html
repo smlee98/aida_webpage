@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridone - AI Portal</title>
+
+    <link rel="stylesheet" href="assets/style/master.css">
+    <link rel="stylesheet" href="assets/style/bootstrap-treeview.css">
+    <link rel="stylesheet" href="assets/style/summernote-bs5.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css">
+    <script>
+        if (window.MSInputMethodContext && document.documentMode) {
+            document.write('<script src="assets/script/polyfill.opt.min.js"><\/script>');
+            document.write('<script src="assets/script/bs-ie.js"><\/script>');
+        }
+    </script>
+</head>
+<body>
+    <main>     
+        <section id="main">
+            <div class="sidebar">
+    <div class="sidebar-nav mb-4">
+        <a class="navbar-brand" href="../admin-dashboard.html">
+            <img src="assets/images/logo.svg" alt="logo">
+        </a>
+        <!-- <span id="theme-select" class="text-white">
+            <i class="bi bi-sun"></i>
+        </span> -->
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item mb-0" name="sidebar-dashboard" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" role="button" aria-expanded="true" aria-controls="dashboard-collapse">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-pie-chart-fill fs-4"></i>
+                    <span class="ms-3">대시보드</span>
+                </span>
+                <i class="bi bi-chevron-down text-white opacity-50"></i>
+            </div>
+        </li>
+        <div class="collapse show" id="dashboard-collapse">
+            <ul class="list-unstyled text-white small">
+                <li>
+                    <a class="d-block" id="microservice" href="../microservice.html">
+                        <span>Microservice</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block mb-1" id="admin-dashboard" href="../admin-dashboard.html">
+                        <span>관리자 대시보드</span>
+                    </a>
+                    <ul class="list-unstyled text-white mb-0">
+                        <li id="setting-ai">
+                            <a href="../setting-ai.html">
+                                <span>AI 서비스 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-user">
+                            <a href="../setting-user.html">
+                                <span>사용자 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-request">
+                            <a href="../setting-request.html">
+                                <span>요청 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-board">
+                            <a href="../setting-board.html">
+                                <span>게시판 관리</span>
+                            </a>
+                        </li>
+                        <li id="setting-system">
+                            <a href="../setting-system.html">
+                                <span>시스템 관리</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <li class="list-group-item mb-0" name="sidebar-ai" name="sidebar-aiservice" data-bs-toggle="collapse" data-bs-target="#aiservice-collapse" role="button" aria-expanded="true" aria-controls="aiservice-collapse">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-robot fs-4"></i>
+                    <span class="ms-3">AI 서비스</span>
+                </span>
+                <i class="bi bi-chevron-down text-white opacity-50"></i>
+            </div>
+        </li>
+        <div class="collapse show" id="aiservice-collapse">
+            <ul class="list-unstyled text-white small">
+                <li>
+                    <a class="d-block" id="ai-demo" href="../ai-demo.html">
+                        <span>서비스 체험</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="ai-list" href="../ai-list.html">
+                        <span>서비스 목록</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <li class="list-group-item mb-0" name="sidebar-contents" data-bs-toggle="collapse" data-bs-target="#contents-collapse" role="button"
+                    aria-expanded="true" aria-controls="contents-collapse">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-chat-square-dots-fill fs-4"></i>
+                    <span class="ms-3">컨텐츠</span>
+                </span>
+                <i class="bi bi-chevron-down text-white opacity-50"></i>
+            </div>
+        </li>
+        <div class="collapse show" id="contents-collapse">
+            <ul class="list-unstyled text-white small">
+                <li>
+                    <a class="d-block" id="notice" href="../notice.html">
+                        <span>공지사항</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="ai-story" href="../ai-story.html">
+                        <span>AI 스토리</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="ai-lecture" href="../ai-lecture.html">
+                        <span>AI 강의</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-block" id="qna" href="../qna.html">
+                        <span>질문과 답변</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <li class="list-group-item" name="sidebar-issue">
+            <a class="d-flex align-items-center w-100" href="../issue.html">
+                <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+                <span class="ms-3 flex-grow-1">이슈</span>
+            </a>
+        </li>
+        <li class="list-group-item" name="sidebar-help">
+            <i class="bi bi-file-earmark-text-fill fs-4"></i>
+            <span class="ms-3">도움말</span>
+        </li>
+    </ul>
+</div>
+            <div class="content">
+                <div class="content-nav">
+    <div class="d-flex align-items-center">
+        <span id="toggle-bar" class="me-2">
+            <i class="bi bi-list fs-3"></i>
+        </span>
+        <span class="fw-bold fs-3 me-2" id="page-title">-</span>
+        <div class="dropdown d-block d-lg-none">
+            <span id="breadcrumb" class="dropdown-toggle" id="breadcrumb-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-chevron-down"></i>
+            </span>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-btn" id="breadcrumb-list">
+            </ul>
+        </div>
+    </div>
+    <div id="user-info" class="d-flex justify-content-end align-items-center">
+        <div id="clock" class="d-flex me-4">
+            <div class="date-wrap">
+                <i class="bi bi-calendar3 me-2"></i>
+                <span id="dates"></span>
+            </div>
+        </div>
+        <!-- <span id="search" class="me-4" data-bs-toggle="modal" data-bs-target="#search-modal">
+            <i class="bi bi-search fs-4"></i>
+        </span> -->
+        <a href="../alert.html">
+            <span id="user-alert" class="position-relative me-4">
+                <i class="bi bi-bell-fill fs-4"></i>
+                <!-- <span id="alert-count" class="position-absolute top-0 start-100 translate-middle p-1 rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                </span> -->
+            </span>
+        </a>
+        <a href="../mypage.html">
+            <span id="user-setting" class="me-4">
+                <i class="bi bi-gear-fill fs-4"></i>
+            </span>
+        </a>
+        <span id="user-detail" class="d-flex align-items-center">
+            <span id="user-picture" class="me-2">
+                <img src="assets/images/publisher.png" alt="user-picture">
+            </span>
+            <span id="user-name" class="fw-bold me-2">
+                관리자
+            </span>
+            <div class="dropdown">
+                <span id="user-more" class="dropdown-toggle" id="dropdown-btn" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="dropdown-btn">
+                    <!-- <li>
+                        <hr class="dropdown-divider">
+                    </li> -->
+                    <li><a class="dropdown-item" href="../index.html">로그아웃</a></li>
+                </ul>
+            </div>
+        </span>
+    </div>
+</div>
+                <div class="content-wrapper db-wrapper">
+                    <div class="d-flex flex-column align-items-center bg-white mb-4 p-4">
+                        <div class="row row-cols-1 row-cols-lg-2 g-0 w-100">
+                            <div class="col">
+                                <p class="fw-bold fs-3 mb-0">SERVICE#001</p>
+                            </div>
+                            <div class="col mt-3 mt-lg-0">
+                                <div class="d-flex align-items-center">
+                                    <select class="form-select" id="model-select" aria-label="model-select">
+                                        <option value="service01">INSTANCE#001</option>
+                                        <option value="service02">INSTANCE#002</option>
+                                        <option value="service03">INSTANCE#003</option>
+                                    </select>
+                                    <button class="btn btn-custom ms-3">
+                                        <span class="text-nowrap">선택</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start w-100 mt-2">
+                            <p class="opacity-50 mb-0">나랏말이 중국과 달라 문자와 서로 통하지 아니하므로 이런 까닭으로 어리석은 백성이 이르고자 하는 바가 있어도 마침내 제 뜻을 능히 펴지 못하는 사람이 많다.</p>
+                        </div>
+                        <div class="border-top mt-3 pt-3 w-100">
+                            <ul class="d-flex align-items-center ps-0 mb-0">
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-success me-2"></span>
+                                    <span class="index-text me-2">정상</span>
+                                    <span class="index-count">40</span>
+                                </li>
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-danger me-2"></span>
+                                    <span class="index-text me-2">에러</span>
+                                    <span class="index-count">7</span>
+                                </li>
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-warning me-2"></span>
+                                    <span class="index-text me-2">대체</span>
+                                    <span class="index-count">18</span>
+                                </li>
+                                <li class="index-list-item ms-0 me-3">
+                                    <span class="index-circle bg-secondary me-2"></span>
+                                    <span class="index-text me-2">폐기</span>
+                                    <span class="index-count">6</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="instance-wrapper">
+                        <div id="instance-info" class="d-flex flex-column w-100 bg-white p-4 mb-4">
+                            <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
+                                <span class="badge rounded-pill bg-success me-2">정상</span>
+                                <p class="fw-bold mb-0">INSTANCE#001</p>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <span id="instance-modify" class="col d-flex align-items-center">
+                                    <span class="badge rounded-pill bg-secondary me-2">수정일</span>
+                                    <span>2022/03/22 17:50:00</span>
+                                </span>
+                                <span id="instance-check" class="col d-flex align-items-center">
+                                    <span class="badge rounded-pill bg-secondary me-2">체크일</span>
+                                    <span>2022/03/22 17:50:00</span>
+                                </span>
+                                <span id="instance-register" class="col d-flex align-items-center">
+                                    <span class="badge rounded-pill bg-secondary me-2">등록일</span>
+                                    <span>2022/03/22 17:50:00</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="sub-card">
+                            <div class="row row-cols-1 row-cols-lg-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">정보</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="mb-3">
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold small">설명</label>
+                                                <textarea class="form-control" id="info-explain" rows="3" disabled>그러나 별들을 별 계십니다. 라이너 풀이 어머니, 이름과 까닭이요, 하나에 봄이 언덕 무성할 봅니다.</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold small">INPUT</label>
+                                                <textarea class="form-control" id="info-explain" rows="2" disabled>시와 이름과 무덤 청춘이 쉬이 불러 한 거외다. 아직 하나에 이름과, 동경과 것은 경, 하나의 이런 거외다.</textarea>
+                                            </div>
+                                            <div>
+                                                <label for="info-explain" class="form-label opacity-50 fw-bold small">OUTPUT</label>
+                                                <textarea class="form-control" id="info-explain" rows="2" disabled>별들을 멀리 무덤 하나에 까닭이요, 헤일 사랑과 동경과 버리었습니다.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">상태</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="row row-cols-1 row-cols-lg-2">
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Instance</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Hystrix</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Ping</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row row-cols-1 row-cols-lg-3">
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row row-cols-1 row-cols-lg-2">
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="info-explain" class="form-label opacity-50 fw-bold small">Refresh Scope</label>
+                                                    <input type="text" class="form-control" id="stat-instance" value="-" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">프로세스</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <table class="table table-custom table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">프로세스 CPU 사용량</th>
+                                                        <th class="text-center">시스템 CPU 사용량</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">-%</td>
+                                                        <td class="text-center">-%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">가비지 컬렉션 유휴기간</span>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <table class="table table-custom table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">횟수</th>
+                                                        <th class="text-center">전체 소요 시간</th>
+                                                        <th class="text-center">최대 소요 시간</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">-회</td>
+                                                        <td class="text-center">-시간</td>
+                                                        <td class="text-center">-시간</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-3" id="service-charts">
+                                <div class="col mb-4 mb-lg-0">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">Thread</span>
+                                        </div>
+                                        <div class="card-body pt-4">
+                                            <div class="w-100 h-100">
+                                                <canvas id="chart-thread" style="width: 100%; height: 100%;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4 mb-lg-0">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">Memory Heap</span>
+                                        </div>
+                                        <div class="card-body pt-4">
+                                            <div class="w-100 h-100">
+                                                <canvas id="chart-heap" style="width: 100%; height: 100%;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header border-bottom">
+                                            <span class="card-header-text fw-bold d-block">Memory Non-Heap</span>
+                                        </div>
+                                        <div class="card-body pt-4">
+                                            <div class="w-100 h-100">
+                                                <canvas id="chart-nonheap" style="width: 100%; height: 100%;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-bar">
+    <ul class="row w-100 mb-0 ps-0 g-0 dropup">
+        <li class="mb-item col" name="mbar-dashboard">
+            <a href="#" class="mb-link ">
+                <i class="bi bi-pie-chart-fill"></i>
+                <span class="ms-3">대시보드</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-ai">
+            <a href="#" class="mb-link">
+                <i class="bi bi-robot"></i>
+                <span class="ms-3">AI 서비스</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-contents">
+            <a href="#" class="mb-link">
+                <i class="bi bi-chat-square-dots-fill"></i>
+                <span class="ms-3">컨텐츠</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-issue">
+            <a href="#" class="mb-link">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <span class="ms-3">이슈</span>
+            </a>
+        </li>
+        <li class="mb-item col" name="mbar-help">
+            <a href="#" class="mb-link">
+                <i class="bi bi-file-earmark-text-fill"></i>
+                <span class="ms-3">도움말</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </section>
+        <div class="modal" id="search-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex align-items-center w-100">
+                    <form class="w-100" action="#">
+                        <div class="input-group" id="search-box">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text ps-0" id="search-left">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="search-right" placeholder="검색">
+                        </div>
+                    </form>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0">...</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+    <script src="assets/script/jquery.min.js"></script>
+<script src="assets/script/master.js"></script>
+<script src="assets/script/summernote-bs5.js"></script>
+<script src="assets/script/Chart.bundle.min.js"></script>
+<script>
+    if (!(window.MSInputMethodContext && document.documentMode)) {
+        document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
+    }
+</script>
+<!-- <script src="assets/script/common.js"></script> -->
+<script>
+    $(function () {
+        if (!String.prototype.padStart) {
+            String.prototype.padStart = function padStart(targetLength, padString) {
+                if (this.length >= targetLength) {
+                    return String(this);
+                } else {
+                    if (padString == null || padString == " ") {
+                        padString = " ";
+                    } else if (padString.length > 1) {
+                        padString = padString.substring(0, 1);
+                    }
+                    targetLength = targetLength - this.length;
+                    var prefix = "";
+                    for (var i = 0; i < targetLength; i++) {
+                        prefix += padString;
+                    }
+                    return prefix + String(this);
+                }
+            };
+        }
+
+        const mainSection = document.getElementById("main");
+        const toggleBar = document.getElementById("toggle-bar");
+
+        toggleBar.addEventListener('click', function () {
+            if (!mainSection.classList.contains('active')) {
+                mainSection.classList.add("active");
+            } else {
+                mainSection.classList.remove("active");
+            }
+        });
+
+        const deleteBar = $("div.progress-delete");
+        const activeBar = $("div.progress-active");
+        const deactiveBar = $("div.progress-deactive");
+        const adminBar = $("div.progress-admin");
+        const userBar = $("div.progress-user");
+
+        const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
+        const activeNum = parseInt($("div.progress-active span.progress-num").html());
+        const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
+        const adminNum = parseInt($("div.progress-admin span.progress-num").html());
+        const userNum = parseInt($("div.progress-user span.progress-num").html());
+
+        const allUsers = deleteNum + activeNum + deactiveNum;
+
+        // console.log(`${deleteNum},${activeNum},${deactiveNum}`);
+
+        deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
+        activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
+        deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
+        adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
+        userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
+
+        const fullDate = document.querySelector("#dates");
+
+        function getDate() {
+            const date = new Date();
+
+            let years = date.getFullYear();
+            let months = String(date.getMonth()).padStart(2, "0");
+            let dates = String(date.getDate()).padStart(2, "0");
+
+            fullDate.innerText = years + "년 " + months + "월 " + dates + "일"
+        }
+
+        getDate();
+        setInterval(getDate, 300000);
+    });
+</script>
+    <script>
+        const threadConfig = {
+            type: 'bar',
+            data: {
+                labels: [
+                    'DEMON',
+                    'LIVE',
+                    'PEAK'
+                ],
+                datasets: [{
+                    label: [
+                        'Thread'
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 123, 255, 0.75)',
+                        'rgba(47, 177, 130, 0.75)',
+                        'rgba(220, 53, 69, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgb(0, 123, 255)',
+                        'rgb(47, 177, 130)',
+                        'rgb(220, 53, 69)'
+                    ],
+                    borderWidth: '1',
+                    data: ['12','19','3']
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        };
+
+        const threadChart = new Chart(
+            document.getElementById('chart-thread'),
+            threadConfig
+        );
+    </script>
+    <script>
+        const heapConfig = {
+            type: 'bar',
+            data: {
+                labels: [
+                    '사용됨',
+                    '사이즈',
+                    '최대'
+                ],
+                datasets: [{
+                    label: [
+                        'Heap'
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 123, 255, 0.75)',
+                        'rgba(47, 177, 130, 0.75)',
+                        'rgba(220, 53, 69, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgb(0, 123, 255)',
+                        'rgb(47, 177, 130)',
+                        'rgb(220, 53, 69)'
+                    ],
+                    borderWidth: '1',
+                    data: ['19', '3', '12']
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        };
+
+        const heapChart = new Chart(
+            document.getElementById('chart-heap'),
+            heapConfig
+        );
+    </script>
+    <script>
+        const nonheapConfig = {
+            type: 'bar',
+            data: {
+                labels: [
+                    '메타스페이스',
+                    '사용됨',
+                    '사이즈',
+                    '최대'
+                ],
+                datasets: [{
+                    label: [
+                        'NonHeap'
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 193, 7 , 0.75)',
+                        'rgba(0, 123, 255, 0.75)',
+                        'rgba(47, 177, 130, 0.75)',
+                        'rgba(220, 53, 69, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 193, 7)',
+                        'rgb(0, 123, 255)',
+                        'rgb(47, 177, 130)',
+                        'rgb(220, 53, 69)'
+                    ],
+                    borderWidth: '1',
+                    data: ['2', '3', '12', '15']
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        };
+
+        const nonheapChart = new Chart(
+            document.getElementById('chart-nonheap'),
+            nonheapConfig
+        );
+    </script>
+    <script>
+        document.getElementsByName("sidebar-ai")[0].classList.add("active");
+        document.getElementsByName("mbar-ai")[0].classList.add("active");
+        document.getElementById("ai-list").classList.add("active");
+        document.getElementById("page-title").innerHTML = "서비스 목록";
+    </script>
+</body>
+</html>

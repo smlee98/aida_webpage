@@ -13,7 +13,7 @@ import postCss from "gulp-postcss";
 // JS
 import { src, dest, series, watch } from "gulp";
 import gutil from "gulp-util";
-// import concat from "gulp-concat";
+import concat from "gulp-concat";
 import uglify from "gulp-uglify";
 import rename from "gulp-rename";
 
@@ -46,12 +46,17 @@ const DEST_PATH = {
     },
 };
 
-const bootstrapPath = "node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+const bootstrapPath = "node_modules/bootstrap/dist/";
 const bootstrapFontPath = "node_modules/bootstrap-icons/font/fonts/";
 const pretendardPath = "node_modules/pretendard/dist/web/static/";
+const summernotePath = "node_modules/summernote/dist/";
 
-const library = async () =>
-    await src(bootstrapPath).pipe(dest(DEST_PATH.ASSETS.SCRIPT));
+const library = async () => {
+    await src([
+        bootstrapPath + "js/bootstrap.bundle.js",
+        summernotePath + "summernote-bs5.js",
+    ]).pipe(dest(DEST_PATH.ASSETS.SCRIPT));
+};
 
 const video = async () =>
     await src(PATH.ASSETS.VIDEO + "/*")
@@ -78,13 +83,14 @@ const clean = async () => await del.sync(DEST_PATH.HTML);
 const build = async () =>
     await src(PATH.ASSETS.SCRIPT + "/*.js")
         // .pipe(concat("common.js"))
-        .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
+        // .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
         // .pipe(
         //     uglify({
         //         mangle: true, // 알파벳 한글자 압축
         //     })
         // )
         // .pipe(rename("common.min.js"))
+        .pipe(dest(DEST_PATH.ASSETS.SCRIPT))
         .pipe(browserSync.stream());
 
 const scssCompile = async () =>
@@ -110,25 +116,37 @@ const html = async () =>
         .pipe(dest(DEST_PATH.HTML))
         .pipe(browserSync.stream());
 
+const maps = {
+    css: async () =>
+        await src([summernotePath + "summernote-bs5.css.map"]).pipe(
+            dest(DEST_PATH.ASSETS.STYLE)
+        ),
+
+    script: async () =>
+        await src([
+            summernotePath + "summernote-bs5.js.map",
+            bootstrapPath + "js/bootstrap.bundle.js.map",
+        ]).pipe(dest(DEST_PATH.ASSETS.SCRIPT)),
+};
+
 const fonts = {
-    publicCss: async () =>
-        await src(pretendardPath + "pretendard.css")
-            .pipe(
-                urlAdjuster({
-                    replace: ["./woff2", "./fonts"],
-                })
-            )
-            .pipe(
-                urlAdjuster({
-                    replace: ["./woff", "./fonts"],
-                })
-            )
+    pretendard: async () =>
+        await src([pretendardPath + "pretendard.css"])
+            .pipe(urlAdjuster({ replace: ["./woff2", "./fonts"] }))
+            .pipe(urlAdjuster({ replace: ["./woff", "./fonts"] }))
             .pipe(dest(DEST_PATH.ASSETS.STYLE)),
+
+    summernote: async () =>
+        await src([summernotePath + "summernote-bs5.css"])
+            .pipe(urlAdjuster({ replace: ["./font", "./fonts"] }))
+            .pipe(dest(DEST_PATH.ASSETS.STYLE)),
+
     publicFonts: async () =>
         await src([
             bootstrapFontPath + "*",
             pretendardPath + "woff2/*",
             pretendardPath + "woff/*",
+            summernotePath + "font/*",
         ]).pipe(dest(DEST_PATH.ASSETS.FONTS)),
 };
 
@@ -162,8 +180,11 @@ const tasks = series(
     [scssCompile],
     [html],
     [build],
-    [fonts.publicCss],
+    [fonts.pretendard],
+    [fonts.summernote],
     [fonts.publicFonts],
+    [maps.css],
+    [maps.script],
     [image],
     [video],
     [library],

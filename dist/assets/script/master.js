@@ -117,7 +117,7 @@ function fileDelete(fileNum) {
     $("span#nowsize").html((totalSize / 1024 / 1024).toFixed(2) + "MB");
 
     fileCount--;
-    // console.log(content_files);
+    console.log(content_files);
 }
 
 function numberWithCommas(x) {

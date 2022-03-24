@@ -342,8 +342,7 @@ div.login-wrapper {
     transform: translate(-50%, -50%);
 }
 
-div.login-inner input,
-div.login-inner button {
+div.login-inner {
     width: 22rem;
 }
 
@@ -627,4 +626,30 @@ span.index-circle {
 
 span.index-count {
     font-weight: bold;
+}
+
+#title-wrap .title {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 !important;
+}
+
+#title-wrap .title:focus,
+#title-wrap .title:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #6c63ff;
+    border-radius: 0 !important;
+}
+
+#title-wrap .form-select:focus,
+#title-wrap .form-select:active {
+    border: 1px solid #6c63ff;
+    box-shadow: none;
+}
+
+ul#dropbox {
+    list-style: none;
+    min-height: 360px;
 }
