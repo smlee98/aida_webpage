@@ -1,7 +1,9 @@
-<script src="assets/script/jquery.min.js"></script>
-<script src="assets/script/master.js"></script>
-<script src="assets/script/summernote-bs5.js"></script>
-<script src="assets/script/Chart.bundle.min.js"></script>
+<script src="../assets/script/jquery.min.js"></script>
+<script src="../assets/script/master.js"></script>
+<script type="module" src="../assets/script/bootstrap-select.min.js"></script>
+<script type="module" src="../assets/script/defaults-ko_KR.min.js"></script>
+<script src="../assets/script/summernote-bs5.js"></script>
+<script src="../assets/script/Chart.bundle.min.js"></script>
 <script>
     if (!(window.MSInputMethodContext && document.documentMode)) {
         document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
@@ -69,7 +71,7 @@
             const date = new Date();
 
             let years = date.getFullYear();
-            let months = String(date.getMonth()).padStart(2, "0");
+            let months = String(date.getMonth() + 1).padStart(2, "0");
             let dates = String(date.getDate()).padStart(2, "0");
 
             fullDate.innerText = years + "년 " + months + "월 " + dates + "일"

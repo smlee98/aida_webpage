@@ -85,7 +85,7 @@
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
                                         <div class="calendar">
-                                            <select class="form-select" id="yearpicker" aria-label="yearpicker"></select>
+                                            <select class="selectpicker" id="yearpicker" data-live-search="true" title="연도 선택"></select>
                                         </div>
                                     </div>
                                     <div class="card-body d-flex flex-column">
@@ -722,6 +722,12 @@
             dateDropdown.add(dateOption);
             currentYear -= 1;
         }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#yearpicker').selectpicker();
+        });
     </script>
     <script>
         document.getElementsByName("sidebar-dashboard")[0].classList.add("active");

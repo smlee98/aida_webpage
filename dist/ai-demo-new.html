@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gridone - AI Portal</title>
 
-    <link rel="stylesheet" href="assets/style/master.css">
-    <link rel="stylesheet" href="assets/style/bootstrap-treeview.css">
-    <link rel="stylesheet" href="assets/style/summernote-bs5.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css">
+    <link rel="stylesheet" href="../assets/style/master.css">
+    <link rel="stylesheet" href="../assets/style/bootstrap-treeview.css">
+    <link rel="stylesheet" href="../assets/style/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../assets/style/summernote-bs5.css">
+    <link rel="stylesheet" href="../assets/style/Chart.min.css">
     <script>
         if (window.MSInputMethodContext && document.documentMode) {
             document.write('<script src="assets/script/polyfill.opt.min.js"><\/script>');
@@ -80,7 +81,7 @@
                 </li>
             </ul>
         </div>
-        <li class="list-group-item mb-0" name="sidebar-ai" name="sidebar-aiservice" data-bs-toggle="collapse" data-bs-target="#aiservice-collapse" role="button" aria-expanded="true" aria-controls="aiservice-collapse">
+        <li class="list-group-item mb-0" name="sidebar-ai" data-bs-toggle="collapse" data-bs-target="#aiservice-collapse" role="button" aria-expanded="true" aria-controls="aiservice-collapse">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <span class="d-flex align-items-center">
                     <i class="bi bi-robot fs-4"></i>
@@ -157,7 +158,7 @@
         </span>
         <span class="fw-bold fs-3 me-2" id="page-title">-</span>
         <div class="dropdown d-block d-lg-none">
-            <span id="breadcrumb" class="dropdown-toggle" id="breadcrumb-btn" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="dropdown-toggle" id="breadcrumb-btn" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-chevron-down"></i>
             </span>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-btn" id="breadcrumb-list">
@@ -195,7 +196,7 @@
                 관리자
             </span>
             <div class="dropdown">
-                <span id="user-more" class="dropdown-toggle" id="dropdown-btn" data-bs-toggle="dropdown"
+                <span id="user-more" class="dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="bi bi-chevron-down"></i>
                 </span>
@@ -226,14 +227,12 @@
                     </div>
                     <div class="d-flex flex-column align-items-center bg-white mb-4 p-4" id="title-wrap">
                         <div class="d-flex align-items-center w-100 mb-3">
-                            <select class="form-select me-3" id="select-group">
-                                <option selected>그룹 선택</option>
+                            <select class="selectpicker w-100 me-3" id="select-group" data-live-search="true" title="그룹 선택">
                                 <option value="1">Group#001</option>
                                 <option value="2">Group#002</option>
                                 <option value="3">Group#003</option>
                             </select>
-                            <select class="form-select" id="select-instance">
-                                <option selected>인스턴스 선택</option>
+                            <select class="selectpicker w-100" id="select-instance" data-live-search="true" title="인스턴스 선택">
                                 <option value="1">Instance#001</option>
                                 <option value="2">Instance#002</option>
                                 <option value="3">Instance#003</option>
@@ -242,7 +241,7 @@
                         <input type="text" id="title" name="title" class="form-control title" maxlength="250" tabindex="1" placeholder="제목"
                             autocomplete="off">
                     </div>
-                    <div id="main-card" class="flex-grow-1">
+                    <div id="main-card" class="flex-grow-1 board-wrapper">
                         <div class="row row-cols-1 row-cols-lg-2 gx-4 h-100">
                             <div class="col mb-4 mb-lg-0">
                                 <div id="summernote"></div>
@@ -250,13 +249,13 @@
                             <div class="col">
                                 <div class="card dropbox h-100">
                                     <div class="card-header">
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center w-100">
                                             <span class="fw-bold me-2">첨부파일</span>
                                             <span class="filesize">
                                                 <span id="nowsize">0.00MB</span>
                                                 <span>/ 100MB</span>
                                             </span>
-                                            <button type="button" class="btn btn-secondary ms-auto" id="button-attach">
+                                            <button type="button" class="btn btn-secondary btn-sm ms-auto" id="button-attach">
                                                 파일첨부
                                             </button>
                                             <input class="d-none" type="file" name="file" id="input-attach" accept="text/html,.css,.js">
@@ -317,7 +316,7 @@
 </div>
             </div>
         </section>
-        <div class="modal" id="search-modal" tabindex="-1">
+        <div class="modal fade" id="search-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -341,11 +340,27 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="loadingmodal" tabindex="-1" aria-labelledby="loadingmodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="width: 15rem;">
+        <div class="modal-content" style="height: 15rem;">
+            <div class="modal-body">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <span class="text-dark mt-3">처리 중...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     </main>
-    <script src="assets/script/jquery.min.js"></script>
-<script src="assets/script/master.js"></script>
-<script src="assets/script/summernote-bs5.js"></script>
-<script src="assets/script/Chart.bundle.min.js"></script>
+    <script src="../assets/script/jquery.min.js"></script>
+<script src="../assets/script/master.js"></script>
+<script type="module" src="../assets/script/bootstrap-select.min.js"></script>
+<script type="module" src="../assets/script/defaults-ko_KR.min.js"></script>
+<script src="../assets/script/summernote-bs5.js"></script>
+<script src="../assets/script/Chart.bundle.min.js"></script>
 <script>
     if (!(window.MSInputMethodContext && document.documentMode)) {
         document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
@@ -413,7 +428,7 @@
             const date = new Date();
 
             let years = date.getFullYear();
-            let months = String(date.getMonth()).padStart(2, "0");
+            let months = String(date.getMonth() + 1).padStart(2, "0");
             let dates = String(date.getDate()).padStart(2, "0");
 
             fullDate.innerText = years + "년 " + months + "월 " + dates + "일"
@@ -425,6 +440,9 @@
 </script>
     <script>
         $(document).ready(function () {
+            $('#select-group').selectpicker();
+            $('#select-instance').selectpicker();
+
             var summernoteOptions = {
                 placeholder: '설명을 입력해주세요.',
                 focus: true, // auto focus
@@ -436,13 +454,14 @@
                     // ['fontname', ['fontname']], // 폰트 지정
                     // ['color', ['color']], // 색상
                     ['para', ['ul', 'ol', 'paragraph']], // 리스트 스타일, 정렬
-                    ['table', ['table']], // 표
-                    ['insert', ['link', 'picture', 'video']], // 삽입 (링크, 이미지)
-                    ['view', ['codeview']], // 보기 모드 (전체, 코드 뷰, 도움말)
+                    // ['table', ['table']], // 표
+                    // ['insert', ['link', 'picture', 'video']], // 삽입 (링크, 이미지)
+                    // ['view', ['codeview']], // 보기 모드 (전체, 코드 뷰, 도움말)
                 ],
             };
 
             $('#summernote').summernote(summernoteOptions);
+            $('.note-statusbar').hide();
 
             $('#button-attach').click(function (e) {
                 e.preventDefault();

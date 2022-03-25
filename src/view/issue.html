@@ -20,13 +20,25 @@
                             </li>
                         </ul>
                         <div class="tab-content py-4" id="pills-tabContent">
-                            <div class="d-flex align-items-center justify-content-end mt-3 mt-lg-0">
-                                <form class="ms-3" action="#">
+                            <div class="d-flex align-items-center justify-content-end mt-3 mt-lg-0 pb-2">
+                                <select class="selectpicker me-3" id="select-service" data-live-search="true" title="서비스 선택">
+                                    <option>서비스#001</option>
+                                    <option>서비스#002</option>
+                                    <option>서비스#003</option>
+                                </select>
+                                <select class="selectpicker me-3" id="select-person" data-live-search="true" title="담당자 선택">
+                                    <option>담당자#001</option>
+                                    <option>담당자#002</option>
+                                    <option>담당자#003</option>
+                                </select>
+                                <form class="d-flex align-items-center" action="#">
                                     <input type="text" class="form-control" placeholder="검색">
                                 </form>
-                                <button class="btn btn-custom ms-3 w-auto">
-                                    <span class="text-nowrap">새 이슈 등록</span>
-                                </button>
+                                <a href="../issue-new.html">
+                                    <button class="btn btn-custom ms-3 w-auto">
+                                        <span class="text-nowrap">새 이슈 등록</span>
+                                    </button>
+                                </a>
                             </div>
                             <div class="tab-pane fade show active overflow-auto" id="pills-opened" role="tabpanel"
                                 aria-labelledby="pills-opened-tab">
@@ -42,15 +54,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -64,15 +74,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -86,15 +94,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -108,15 +114,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -130,15 +134,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                 </ul>
@@ -179,15 +181,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -201,15 +201,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -223,15 +221,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -245,15 +241,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
@@ -267,15 +261,13 @@
                                             </a>
                                         </div>
                                         <div class="issue-info">
-                                            <span class="issue-writer small opacity-50 me-1">
+                                            <span class="issue-writer small opacity-50">
                                                 이승민
                                             </span>
-                                            <span class="issue-date small opacity-50 me-1">
+                                            <span class="opacity-50">&middot;</span>
+                                            <span class="issue-date small opacity-50">
                                                 03-17
                                             </span>
-                                            <a href="#" class="post-group text-info small">
-                                                마일스톤 롱스톤
-                                            </a>
                                         </div>
                                     </li>
                                 </ul>
@@ -312,6 +304,12 @@
         @gridone-include('../include/modal.html')
     </main>
     @gridone-include('../include/script.html')
+    <script>
+            $(document).ready(function () {
+                $('#select-service').selectpicker();
+                $('#select-person').selectpicker();
+            });
+    </script>
     <script>
         document.getElementsByName("sidebar-issue")[0].classList.add("active");
         document.getElementsByName("mbar-issue")[0].classList.add("active");

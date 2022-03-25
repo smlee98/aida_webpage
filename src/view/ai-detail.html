@@ -15,7 +15,7 @@
                             </div>
                             <div class="col mt-3 mt-lg-0">
                                 <div class="d-flex align-items-center">
-                                    <select class="form-select" id="model-select" aria-label="model-select">
+                                    <select class="selectpicker w-100" id="model-select" data-live-search="true" title="인스턴스 선택">
                                         <option value="service01">INSTANCE#001</option>
                                         <option value="service02">INSTANCE#002</option>
                                         <option value="service03">INSTANCE#003</option>
@@ -393,6 +393,11 @@
             document.getElementById('chart-nonheap'),
             nonheapConfig
         );
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#select-group').selectpicker();
+        });
     </script>
     <script>
         document.getElementsByName("sidebar-ai")[0].classList.add("active");
