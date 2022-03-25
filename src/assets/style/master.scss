@@ -377,6 +377,14 @@ li a.find_text {
     color: #888;
 }
 
+#pw-tostring,
+#pwcheck-tostring {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
 div.brand-logo {
     display: flex;
     justify-content: center;
