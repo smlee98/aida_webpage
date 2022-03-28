@@ -138,7 +138,7 @@
                 </li>
             </ul>
         </div>
-        <li class="list-group-item" name="sidebar-issue">
+        <li class="list-group-item mb-0" name="sidebar-issue">
             <a class="d-flex align-items-center w-100" href="../issue.html">
                 <i class="bi bi-exclamation-triangle-fill fs-4"></i>
                 <span class="ms-3 flex-grow-1">이슈</span>
@@ -633,6 +633,42 @@
                     </div>
                     <span class="text-dark mt-3">처리 중...</span>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="history-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">업데이트 내역</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-outline-custom">
+                        <i class="bi bi-file-earmark-spreadsheet"></i>
+                        <span>엑셀파일로 저장</span>
+                    </button>
+                </div>
+                <table class="table table-custom table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Instance</th>
+                            <th scope="col">State</th>
+                            <th scope="col">End</th>
+                            <th scope="col">Regist</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

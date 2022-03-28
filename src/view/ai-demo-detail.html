@@ -9,17 +9,20 @@
                 @gridone-include('../include/nav.html')
                 <div class="content-wrapper">
                     <div class="d-flex flex-column align-items-center bg-white mb-4 p-4">
-                        <div class="row row-cols-1 row-cols-lg-2 g-0 w-100">
+                        <div class="row row-cols-2 g-0 w-100 align-items-center mb-3 mb-lg-0">
                             <div class="col">
-                                <p class="fw-bold fs-3 mb-0">체험하기</p>
+                                <p class="fw-bold fs-3 mb-0">SERVICE#001</p>
                             </div>
-                            <div class="col mt-3 mt-lg-0">
-                                <div class="d-flex justify-content-end align-items-center">
+                            <div class="col">
+                                <div class="d-flex justify-content-end align-items-center h-100">
                                     <button class="btn btn-custom" id="button-img">
                                         <span class="text-nowrap">이미지 업로드</span>
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-start w-100">
+                            <p class="opacity-50 mb-0">나랏말이 중국과 달라 문자와 서로 통하지 아니하므로 이런 까닭으로 어리석은 백성이 이르고자 하는 바가 있어도 마침내 제 뜻을 능히 펴지 못하는 사람이 많다.</p>
                         </div>
                     </div>
                     <div id="main-card" class="flex-grow-1 bg-white">
@@ -42,7 +45,7 @@
     @gridone-include('../include/script.html')
     <script>
         $(document).ready(function () {
-            $("#result").css("display", "none");
+            // $("#result").css("display", "none");
 
             var summernoteOptions = {
                 placeholder: '설명을 입력해주세요.',
