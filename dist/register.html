@@ -23,8 +23,14 @@
     <main>     
         <div class="d-flex flex-column align-items-center justify-content-center login-inner py-5 mx-auto">
             <div class="brand-logo mb-4">
-                <img class="w-100 h-100" src="assets/images/logo-symbol.svg" alt="logo">
+                <img class="w-100 h-100" src="assets/images/logo-symbol.svg" alt="logo">                
             </div>
+            <a href="../index.html" class="d-block w-100 mb-3">
+                <button class="btn btn-lg btn-outline-custom w-100" type="button">
+                    <i class="bi bi-chevron-left"></i>
+                    <span>로그인</span>
+                </button>
+            </a>
             <div class="mb-4 w-100">
                 <form action="#">
                     <div class="d-flex flex-column align-items-start mb-3">
@@ -84,7 +90,7 @@
                         </select>
                         <input type="text" class="form-control mt-3" id="user-position-input" autocomplete="off">
                     </div>
-                    <button class="btn btn-lg btn-primary bg-info w-100" type="submit" onclick="validate();">
+                    <button class="btn btn-lg btn-custom w-100" type="submit" onclick="validate();">
                         <span>가입하기</span>
                     </button>
                 </form>
