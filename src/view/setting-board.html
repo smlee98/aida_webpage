@@ -14,6 +14,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">공지사항</span>
+                                        <a href="../notice.html" class="text-info">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="card-info d-flex align-items-center">
@@ -35,6 +38,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">AI 스토리</span>
+                                        <a href="../ai-story.html" class="text-info">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="card-info d-flex align-items-center">
@@ -56,6 +62,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">AI 강의</span>
+                                        <a href="../ai-lecture.html" class="text-info">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="card-info d-flex align-items-center">
@@ -77,6 +86,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">질문과 답변</span>
+                                        <a href="../qna.html" class="text-info">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="card-info d-flex align-items-center">
@@ -98,6 +110,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">이슈</span>
+                                        <a href="../issue.html" class="text-info">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="card-info d-flex align-items-center">
@@ -158,8 +173,8 @@
                                         <tr>
                                             <th scope="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden d-none" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="notice-check-all" name="notice-check" onclick="selectAll(this)">
+                                                    <label class="form-check-label visually-hidden d-none" for="notice-check-all">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -175,8 +190,38 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden d-none" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="notice-check-001" name="notice-check">
+                                                    <label class="form-check-label visually-hidden d-none" for="notice-check-001">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="notice-check-002" name="notice-check">
+                                                    <label class="form-check-label visually-hidden d-none" for="notice-check-002">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="notice-check-003" name="notice-check">
+                                                    <label class="form-check-label visually-hidden d-none" for="notice-check-003">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -219,8 +264,8 @@
                                         <tr>
                                             <th scope="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="aistory-check-all" name="aistory-check" onclick="selectAll(this)">
+                                                    <label class="form-check-label visually-hidden" for="aistory-check-all">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -236,8 +281,38 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="aistory-check-001" name="aistory-check">
+                                                    <label class="form-check-label visually-hidden" for="aistory-check-001">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="aistory-check-002" name="aistory-check">
+                                                    <label class="form-check-label visually-hidden" for="aistory-check-002">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="aistory-check-003" name="aistory-check">
+                                                    <label class="form-check-label visually-hidden" for="aistory-check-003">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -280,8 +355,8 @@
                                         <tr>
                                             <th scope="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="ailecture-check-all" name="ailecture-check" onclick="selectAll(this)">
+                                                    <label class="form-check-label visually-hidden" for="ailecture-check-all">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -297,8 +372,38 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="ailecture-check-001" name="ailecture-check">
+                                                    <label class="form-check-label visually-hidden" for="ailecture-check-001">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="ailecture-check-002" name="ailecture-check">
+                                                    <label class="form-check-label visually-hidden" for="ailecture-check-002">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="ailecture-check-003" name="ailecture-check">
+                                                    <label class="form-check-label visually-hidden" for="ailecture-check-003">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -341,8 +446,8 @@
                                         <tr>
                                             <th scope="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="qna-check-all" name="qna-check" onclick="selectAll(this)">
+                                                    <label class="form-check-label visually-hidden" for="qna-check-all">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -358,8 +463,38 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="qna-check-001" name="qna-check">
+                                                    <label class="form-check-label visually-hidden" for="qna-check-001">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="qna-check-002" name="qna-check">
+                                                    <label class="form-check-label visually-hidden" for="qna-check-002">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="qna-check-003" name="qna-check">
+                                                    <label class="form-check-label visually-hidden" for="qna-check-003">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -402,8 +537,8 @@
                                         <tr>
                                             <th scope="col">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="issue-check-all" name="issue-check" onclick="selectAll(this)">
+                                                    <label class="form-check-label visually-hidden" for="issue-check-all">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -419,8 +554,38 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label visually-hidden" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox" value="" id="issue-check-001" name="issue-check">
+                                                    <label class="form-check-label visually-hidden" for="issue-check-001">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="issue-check-002" name="issue-check">
+                                                    <label class="form-check-label visually-hidden" for="issue-check-002">
+                                                        Default checkbox
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="issue-check-003" name="issue-check">
+                                                    <label class="form-check-label visually-hidden" for="issue-check-003">
                                                         Default checkbox
                                                     </label>
                                                 </div>
@@ -466,6 +631,16 @@
         @gridone-include('../include/modal.html')
     </main>
     @gridone-include('../include/script.html')
+    <script>
+        function selectAll(selectAll) {
+                const target = selectAll.name;
+                const checkboxes = document.getElementsByName(target);
+
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = selectAll.checked;
+                })
+            }
+    </script>
     <script>
         document.getElementsByName("sidebar-dashboard")[0].classList.add("active");
         document.getElementsByName("mbar-dashboard")[0].classList.add("active");
