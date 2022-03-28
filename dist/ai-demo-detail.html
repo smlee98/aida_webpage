@@ -166,12 +166,12 @@
         </div>
     </div>
     <div id="user-info" class="d-flex justify-content-end align-items-center">
-        <div id="clock" class="d-flex me-4">
+        <!-- <div id="clock" class="d-flex me-4">
             <div class="date-wrap">
                 <i class="bi bi-calendar3 me-2"></i>
                 <span id="dates"></span>
             </div>
-        </div>
+        </div> -->
         <!-- <span id="search" class="me-4" data-bs-toggle="modal" data-bs-target="#search-modal">
             <i class="bi bi-search fs-4"></i>
         </span> -->
@@ -379,20 +379,20 @@
         adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
         userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
 
-        const fullDate = document.querySelector("#dates");
+        // const fullDate = document.querySelector("#dates");
 
-        function getDate() {
-            const date = new Date();
+        // function getDate() {
+        //     const date = new Date();
 
-            let years = date.getFullYear();
-            let months = String(date.getMonth() + 1).padStart(2, "0");
-            let dates = String(date.getDate()).padStart(2, "0");
+        //     let years = date.getFullYear();
+        //     let months = String(date.getMonth() + 1).padStart(2, "0");
+        //     let dates = String(date.getDate()).padStart(2, "0");
 
-            fullDate.innerText = years + "년 " + months + "월 " + dates + "일"
-        }
+        //     fullDate.innerText = years + "년 " + months + "월 " + dates + "일"
+        // }
 
-        getDate();
-        setInterval(getDate, 300000);
+        // getDate();
+        // setInterval(getDate, 300000);
     });
 </script>
     <script>

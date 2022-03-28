@@ -190,8 +190,7 @@ select::-ms-expand {
 
 @media only screen and (max-width: 990px) {
     div.sidebar,
-    span#toggle-bar,
-    div#clock {
+    span#toggle-bar {
         display: none !important;
     }
 
@@ -210,6 +209,10 @@ select::-ms-expand {
 
     div.mobile-bar {
         display: flex !important;
+    }
+
+    ul#dropbox {
+        min-height: 240px !important;
     }
 }
 
@@ -671,7 +674,7 @@ div.board-wrapper div.card-header {
 
 ul#dropbox {
     list-style: none;
-    min-height: 240px;
+    min-height: 120px;
 }
 
 li.answer {

@@ -21527,8 +21527,7 @@ div#service-charts {
 }
 @media only screen and (max-width: 990px) {
   div.sidebar,
-span#toggle-bar,
-div#clock {
+span#toggle-bar {
     display: none !important;
   }
 
@@ -21549,6 +21548,10 @@ div#clock {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
+  }
+
+  ul#dropbox {
+    min-height: 240px !important;
   }
 }
 section#main {
@@ -22124,7 +22127,7 @@ div.board-wrapper div.card-header {
 
 ul#dropbox {
   list-style: none;
-  min-height: 240px;
+  min-height: 120px;
 }
 
 li.answer {

@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div id="sub-card">
-                        <div class="row row-cols-1 row-cols-lg-2 g-4">
+                        <div class="row row-cols-1 row-cols-lg-3 g-4 mb-4">
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-header">
@@ -100,15 +100,22 @@
                                                 <span class="info-num">1</span>
                                                 <span>명</span>
                                             </span>
-                                            <span class="info-badge">
-                                                <span class="badge rounded-pill bg-success">
-                                                    <i class="bi bi-arrow-up-right me-1"></i>
-                                                    <span class="badge-num">1</span>
-                                                </span>
-                                            </span>
                                         </div>
                                         <div class="flex-grow-1">
                                             <canvas id="myChart" style="width: 100%; height: 9.375rem;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center pt-3">
+                                        <div id="clock" class="text-center">
+                                            <span id="dates" class="d-block fs-2 fw-bold"></span>
+                                            <span id="time" class="d-block fs-2 fw-bold">
+                                                <span id="amPm" class="fs-5 me-1"></span>
+                                                <span id="nowTime"></span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -132,12 +139,6 @@
                                                         <span class="info-num">2</span>
                                                         <span>개</span>
                                                     </span>
-                                                    <span class="info-badge">
-                                                        <span class="badge rounded-pill bg-success">
-                                                            <i class="bi bi-arrow-up-right me-1"></i>
-                                                            <span class="badge-num">2</span>
-                                                        </span>
-                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,12 +159,6 @@
                                                         <span class="me-2">신규</span>
                                                         <span class="info-num">1</span>
                                                         <span>개</span>
-                                                    </span>
-                                                    <span class="info-badge">
-                                                        <span class="badge rounded-pill bg-success">
-                                                            <i class="bi bi-arrow-up-right me-1"></i>
-                                                            <span class="badge-num">1</span>
-                                                        </span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -186,12 +181,6 @@
                                                         <span class="info-num">0</span>
                                                         <span>개</span>
                                                     </span>
-                                                    <span class="info-badge">
-                                                        <span class="badge rounded-pill bg-secondary">
-                                                            <i class="bi bi-dash-lg me-1"></i>
-                                                            <span class="badge-num">0</span>
-                                                        </span>
-                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,18 +202,14 @@
                                                         <span class="info-num">0</span>
                                                         <span>개</span>
                                                     </span>
-                                                    <span class="info-badge">
-                                                        <span class="badge rounded-pill bg-secondary">
-                                                            <i class="bi bi-dash-lg me-1"></i>
-                                                            <span class="badge-num">0</span>
-                                                        </span>
-                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4">
                             <div class="col">
                                 <div id="user-card" class="row row-cols-1 h-100">
                                     <div class="col mb-4">
@@ -242,13 +227,16 @@
                                             </div>
                                             <div class="card-body d-flex align-items-center">
                                                 <div class="progress-chart w-100">
-                                                    <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                                                    <div class="progress-delete" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="삭제">
                                                         <span class="progress-num">3</span>
                                                     </div>
-                                                    <div class="progress-active" data-bs-toggle="tooltip" data-bs-placement="top" title="활성화">
+                                                    <div class="progress-active" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="활성화">
                                                         <span class="progress-num">11</span>
                                                     </div>
-                                                    <div class="progress-deactive" data-bs-toggle="tooltip" data-bs-placement="top" title="비활성화">
+                                                    <div class="progress-deactive" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="비활성화">
                                                         <span class="progress-num">2</span>
                                                     </div>
                                                 </div>
@@ -268,7 +256,8 @@
                                             </div>
                                             <div class="card-body d-flex align-items-center">
                                                 <div class="progress-chart w-100">
-                                                    <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top" title="관리자">
+                                                    <div class="progress-admin" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="관리자">
                                                         <span class="progress-num">1</span>
                                                     </div>
                                                     <div class="progress-user" data-bs-toggle="tooltip" data-bs-placement="top" title="사용자">
@@ -294,12 +283,6 @@
                                                 <span class="me-2">신규</span>
                                                 <span class="info-num">0</span>
                                                 <span>개</span>
-                                            </span>
-                                            <span class="info-badge">
-                                                <span class="badge rounded-pill bg-secondary">
-                                                    <i class="bi bi-dash-lg me-1"></i>
-                                                    <span class="badge-num">0</span>
-                                                </span>
                                             </span>
                                         </div>
                                     </div>
@@ -388,7 +371,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <span class="fs-5 fw-bold">처리 대상</span>
                                                     <div class="d-flex">
-                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt1" role="button" aria-expanded="false" aria-controls="issue-opt1">
+                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt1"
+                                                            role="button" aria-expanded="false" aria-controls="issue-opt1">
                                                             <i class="bi bi-chevron-down opacity-50"></i>
                                                         </span>
                                                         <span class="more-task">
@@ -488,7 +472,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <span class="fs-5 fw-bold">처리 진행중</span>
                                                     <div class="d-flex">
-                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt2" role="button" aria-expanded="false" aria-controls="issue-opt2">
+                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt2"
+                                                            role="button" aria-expanded="false" aria-controls="issue-opt2">
                                                             <i class="bi bi-chevron-down opacity-50"></i>
                                                         </span>
                                                         <span class="more-task">
@@ -556,7 +541,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <span class="fs-5 fw-bold">처리 완료</span>
                                                     <div class="d-flex">
-                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt3" role="button" aria-expanded="false" aria-controls="issue-opt3">
+                                                        <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt3"
+                                                            role="button" aria-expanded="false" aria-controls="issue-opt3">
                                                             <i class="bi bi-chevron-down opacity-50"></i>
                                                         </span>
                                                         <span class="more-task">
@@ -615,6 +601,54 @@
         @gridone-include('../include/modal.html')
     </main>
     @gridone-include('../include/script.html')
+    <script>
+        const fullDate = document.querySelector("#dates");
+            const amPm = document.querySelector("#amPm");
+            const clock = document.querySelector("#nowTime");
+
+            Date.prototype.amPm = function () {
+                let h = this.getHours() < 12 ? "오전" : "오후";
+                return h;
+            }
+
+            function getDate() {
+                const date = new Date();
+
+                let years = date.getFullYear();
+                let months = String(date.getMonth() + 1).padStart(2, "0");
+                let dates = String(date.getDate()).padStart(2, "0");
+
+                fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            }
+
+            function getAmPm() {
+                const date = new Date();
+                const nowStat = date.amPm();
+
+                amPm.innerText = `${nowStat} `;
+            }
+
+            function getTime() {
+                const date = new Date();
+                let hours = "";
+                if (date.getHours() > 12) {
+                    hours = String(date.getHours() - 12).padStart(2, "0");
+                } else {
+                    hours = String(date.getHours()).padStart(2, "0");
+                }
+                let minutes = String(date.getMinutes()).padStart(2, "0");
+                let seconds = String(date.getSeconds()).padStart(2, "0");
+
+                clock.innerText = `${hours}:${minutes}:${seconds}`;
+            }
+
+            getDate();
+            getAmPm();
+            getTime();
+            setInterval(getDate, 1000);
+            setInterval(getAmPm, 1000);
+            setInterval(getTime, 1000);
+    </script>
     <script>
         // 전체 가입 현황 그래프
         const labels = [
