@@ -165,7 +165,9 @@
             const posInput = $("#user-position-input").val();
 
             var pwReg = RegExp(/^[!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?](?=.*[a-zA-Z])(?=.*[0-9]).{8,12}$/);
-            var phoneReg = RegExp(/^[0-9].{9,20}/)
+            var phoneReg = RegExp(/^[0-9].{9,20}/);
+
+            init();
 
             // ID Validation
             if (uid.length < 8) {
@@ -219,6 +221,28 @@
             if (bResult > 0){
                 return false;
             }
+        }
+
+        function init(){
+            // danger class delete
+            $("#user-email").removeClass("border-danger");
+            $("#danger-id").removeClass("text-danger");
+            $("#user-pw").removeClass("border-danger");
+            $("#danger-pw").removeClass("text-danger");
+            $("#user-name").removeClass("border-danger");
+            $("#danger-name").removeClass("text-danger");
+            $("#user-phone").removeClass("border-danger");
+            $("#danger-phone").removeClass("text-danger");
+
+            // success class delete
+            $("#user-email").removeClass("border-success");
+            $("#danger-id").removeClass("text-success");
+            $("#user-pw").removeClass("border-success");
+            $("#danger-pw").removeClass("text-success");
+            $("#user-name").removeClass("border-success");
+            $("#danger-name").removeClass("text-success");
+            $("#user-phone").removeClass("border-success");
+            $("#danger-phone").removeClass("text-success");
         }
     </script>
 </body>
