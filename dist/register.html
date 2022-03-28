@@ -35,9 +35,17 @@
                 <form action="#">
                     <div class="d-flex flex-column align-items-start mb-3">
                         <label for="user-email" class="form-label fw-bold">이메일(아이디)</label>
-                        <input type="email" class="form-control" id="user-email" required autocomplete="off">
+                        <div class="d-flex align-items-center w-100">
+                            <input type="email" class="form-control" id="user-email" required autocomplete="off">
+                            <button class="btn btn-custom ms-3" type="button" id="check-id-button" onclick="idOverlap()">
+                                <span class="text-nowrap">중복확인</span>
+                            </button>
+                        </div>
                         <small class="d-flex align-items-center mt-1" id="danger-id">
-                            <span>아이디는 최소 8자리이고, 이메일 형식입니다.</span>
+                            <span>아이디는 최소 8자리이고, <strong>이메일 형식</strong>입니다.</span>
+                        </small>
+                        <small class="align-items-center mt-1" id="check-id">
+                            <span id="check-id-text">-</span>
                         </small>
                     </div>
                     <div class="d-flex flex-column align-items-start mb-3">
@@ -47,7 +55,7 @@
                             <i class="bi bi-eye-fill opacity-50" id="pw-tostring"></i>
                         </div>
                         <small class="d-flex align-items-center mt-1" id="danger-pw">
-                            <span>비밀번호는 8~16자리이고, 특수문자를 포함해야 합니다.</span>
+                            <span>비밀번호는 8~16자리이고, <strong>특수문자를 포함</strong>해야 합니다.</span>
                         </small>
                     </div>
                     <div class="d-flex flex-column align-items-start mb-3">
@@ -71,7 +79,7 @@
                         <label for="user-phone" class="form-label fw-bold">전화번호</label>
                         <input type="text" class="form-control" id="user-phone" required autocomplete="off">
                         <small class="d-flex align-items-center mt-1" id="danger-phone">
-                            <span>전화번호는 9~20자리이고, 숫자만 입력 가능합니다.</span>
+                            <span>전화번호는 9~20자리이고, <strong>숫자만 입력</strong> 가능합니다.</span>
                         </small>
                     </div>
                     <div class="d-flex flex-column align-items-start mb-3">
@@ -105,6 +113,7 @@
             $("#user-dept-input").css("display", "none"); //비활성화
             $("#user-position-input").css("display", "none"); //비활성화
             $("#danger-pwcheck").css("display", "none");
+            $("#check-id").css("display", "none");
     })
 
     $('#pw-tostring').click(function(){
@@ -156,6 +165,8 @@
         });
     </script>
     <script>
+        let idCheck = false;
+
         // 회원가입 Validation
         function validate() {
             let bResult = 0;
@@ -183,7 +194,7 @@
             } else {
                 $("#user-email").addClass("border-success");
                 $("#danger-id").addClass("text-success");
-            }
+            }            
 
             // PW Validation
             if (pwReg.test(pw)) {
@@ -224,7 +235,7 @@
             }
 
             // Result
-            if (bResult > 0){
+            if (bResult > 0 || idCheck == false){
                 return false;
             }
         }
@@ -249,6 +260,24 @@
             $("#danger-name").removeClass("text-success");
             $("#user-phone").removeClass("border-success");
             $("#danger-phone").removeClass("text-success");
+        }
+
+        function idOverlap(){
+            const checkID = $("#check-id");
+            const checkButton = $("#check-id-button");
+            const checkText = $("#check-id-text");
+
+            checkID.css("display", "flex");
+
+            if(true){
+                checkText.html("사용가능한 아이디입니다.")
+                checkID.addClass("text-success");
+                idCheck = true;
+            } else {
+                checkText.html("중복된 아이디입니다.")
+                checkID.addClass("text-danger");
+                idCheck = false;
+            }
         }
     </script>
 </body>

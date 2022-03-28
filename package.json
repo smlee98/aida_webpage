@@ -35,7 +35,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "gulp": "nodemon --watch ./gulpfile.js --exec babel-node ./node_modules/.bin/gulp"
+    "gulp": "nodemon --watch ./gulpfile.js --exec babel-node ./node_modules/.bin/gulp",
+    "dploy": "dploy jenkins"
   },
   "repository": {
     "type": "git",

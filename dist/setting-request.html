@@ -144,10 +144,10 @@
                 <span class="ms-3 flex-grow-1">이슈</span>
             </a>
         </li>
-        <li class="list-group-item" name="sidebar-help">
+        <!-- <li class="list-group-item" name="sidebar-help">
             <i class="bi bi-file-earmark-text-fill fs-4"></i>
-            <span class="ms-3">도움말</span>
-        </li>
+            <span class="ms-3">서비스 발굴</span>
+        </li> -->
     </ul>
 </div>
             <div class="content">
@@ -454,7 +454,45 @@
 </div>
             </div>
         </section>
-        <div class="modal fade" id="search-modal" tabindex="-1">
+        <!-- Manual Start -->
+<div class="dropup">
+    <span class="bg-info text-white dropdown-toggle" id="manual" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-journals fs-3"></i>
+    </span>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item" href="#">
+                <span>Learner 매뉴얼</span>
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                <span>A2O Microservice<br>개발 가이드</span>
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                <span>A2O Client Application<br>개발 가이드</span>
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                <span>AO 서비스 스크립트<br>퍼블리싱 가이드</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- Manual End -->
+<div class="modal fade" id="search-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -530,6 +568,7 @@
 </div>
     </main>
     <script src="../assets/script/jquery.min.js"></script>
+<script src="../assets/script/jquery.mCustomScrollbar.min.js"></script>
 <script src="../assets/script/master.js"></script>
 <script type="module" src="../assets/script/bootstrap-select.min.js"></script>
 <script type="module" src="../assets/script/defaults-ko_KR.min.js"></script>

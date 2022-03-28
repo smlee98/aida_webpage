@@ -147,6 +147,22 @@ select::-ms-expand {
     display: none;
 }
 
+#manual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#manual::after {
+    display: none;
+}
+
 @keyframes elevate {
     to {
         transform: translate(-50%, 0);
@@ -213,6 +229,10 @@ select::-ms-expand {
 
     ul#dropbox {
         min-height: 240px !important;
+    }
+
+    #manual {
+        bottom: 7.25rem !important;
     }
 }
 

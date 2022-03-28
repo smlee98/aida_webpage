@@ -1,0 +1,13 @@
+jenkins:
+    scheme: ftp
+    host: 10.20.1.248
+    port: 21
+    user: aiportal
+    pass: grid8850
+    check: true
+    path:
+        local: dist/
+        remote: ROOT/
+    exclude: [".DS_Store"]
+    include:
+        "dist/**/*": "/"
