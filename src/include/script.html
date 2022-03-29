@@ -10,7 +10,6 @@
         document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
     }
 </script>
-<!-- <script src="assets/script/common.js"></script> -->
 <script>
     $(function () {
         const mainSection = document.getElementById("main");
@@ -23,42 +22,5 @@
                 mainSection.classList.remove("active");
             }
         });
-
-        const deleteBar = $("div.progress-delete");
-        const activeBar = $("div.progress-active");
-        const deactiveBar = $("div.progress-deactive");
-        const adminBar = $("div.progress-admin");
-        const userBar = $("div.progress-user");
-
-        const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
-        const activeNum = parseInt($("div.progress-active span.progress-num").html());
-        const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
-        const adminNum = parseInt($("div.progress-admin span.progress-num").html());
-        const userNum = parseInt($("div.progress-user span.progress-num").html());
-
-        const allUsers = deleteNum + activeNum + deactiveNum;
-
-        // console.log(`${deleteNum},${activeNum},${deactiveNum}`);
-
-        deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
-        activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
-        deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
-        adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
-        userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
-
-        // const fullDate = document.querySelector("#dates");
-
-        // function getDate() {
-        //     const date = new Date();
-
-        //     let years = date.getFullYear();
-        //     let months = String(date.getMonth() + 1).padStart(2, "0");
-        //     let dates = String(date.getDate()).padStart(2, "0");
-
-        //     fullDate.innerText = years + "년 " + months + "월 " + dates + "일"
-        // }
-
-        // getDate();
-        // setInterval(getDate, 300000);
     });
 </script>
