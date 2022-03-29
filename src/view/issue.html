@@ -20,25 +20,39 @@
                             </li>
                         </ul>
                         <div class="tab-content py-4" id="pills-tabContent">
-                            <div class="d-flex align-items-center justify-content-end mt-3 mt-lg-0 pb-2">
-                                <select class="selectpicker me-3" id="select-service" data-live-search="true" title="서비스 선택">
-                                    <option>서비스#001</option>
-                                    <option>서비스#002</option>
-                                    <option>서비스#003</option>
-                                </select>
-                                <select class="selectpicker me-3" id="select-person" data-live-search="true" title="담당자 선택">
-                                    <option>담당자#001</option>
-                                    <option>담당자#002</option>
-                                    <option>담당자#003</option>
-                                </select>
-                                <form class="d-flex align-items-center" action="#">
-                                    <input type="text" class="form-control" placeholder="검색">
-                                </form>
-                                <a href="../issue-new.html">
-                                    <button class="btn btn-custom ms-3 w-auto">
-                                        <span class="text-nowrap">새 이슈 등록</span>
-                                    </button>
-                                </a>
+                            <div class="row row-cols-1 row-cols-lg-2 gx-3 mb-3 mb-lg-0">
+                                <div class="col mb-3">
+                                    <div class="d-flex">
+                                        <div class="w-100 me-3">
+                                            <select class="form-select" id="select-service" data-placeholder="서비스 선택">
+                                                <option value=""></option>
+                                                <option value="1">서비스#001</option>
+                                                <option value="2">서비스#002</option>
+                                                <option value="3">서비스#003</option>
+                                            </select>
+                                        </div>
+                                        <div class="w-100">
+                                            <select class="form-select" id="select-person" data-placeholder="담당자 선택">
+                                                <option value=""></option>
+                                                <option value="1">담당자#001</option>
+                                                <option value="2">담당자#002</option>
+                                                <option value="3">담당자#003</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <form class="d-flex align-items-center w-100" action="#">
+                                            <input type="text" class="form-control" placeholder="검색">
+                                        </form>
+                                        <a href="../issue-new.html">
+                                            <button class="btn btn-custom ms-3 w-auto">
+                                                <span class="text-nowrap">새 이슈 등록</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane fade show active overflow-auto" id="pills-opened" role="tabpanel"
                                 aria-labelledby="pills-opened-tab">
@@ -306,8 +320,17 @@
     @gridone-include('../include/script.html')
     <script>
             $(document).ready(function () {
-                $('#select-service').selectpicker();
-                $('#select-person').selectpicker();
+                $('#select-service').select2({
+                    theme: "bootstrap-5",
+                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                    placeholder: $(this).data('placeholder'),
+                });
+
+                $('#select-person').select2({
+                    theme: "bootstrap-5",
+                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                    placeholder: $(this).data('placeholder'),
+                });
             });
     </script>
     <script>

@@ -24,16 +24,22 @@
                     </div>
                     <div class="d-flex flex-column align-items-center bg-white mb-4 p-4" id="title-wrap">
                         <div class="d-flex align-items-center w-100 mb-3">
-                            <select class="selectpicker w-100 me-3" id="select-service" data-live-search="true" title="서비스">
-                                <option value="1">Group#001</option>
-                                <option value="2">Group#002</option>
-                                <option value="3">Group#003</option>
-                            </select>
-                            <select class="selectpicker w-100" id="select-person" data-live-search="true" title="담당자">
-                                <option value="1">Instance#001</option>
-                                <option value="2">Instance#002</option>
-                                <option value="3">Instance#003</option>
-                            </select>
+                            <div class="w-100 me-3">
+                                <select class="selectpicker" id="select-service" data-placeholder="서비스">
+                                    <option value=""></option>
+                                    <option value="1">Service#001</option>
+                                    <option value="2">Service#002</option>
+                                    <option value="3">Service#003</option>
+                                </select>
+                            </div>
+                            <div class="w-100">
+                                <select class="selectpicker" id="select-person" data-placeholder="담당자">
+                                    <option value=""></option>
+                                    <option value="1">Person#001</option>
+                                    <option value="2">Person#002</option>
+                                    <option value="3">Person#003</option>
+                                </select>
+                            </div>
                         </div>
                         <input type="text" id="title" name="title" class="form-control title" maxlength="250" tabindex="1" placeholder="제목"
                             autocomplete="off">
@@ -75,8 +81,6 @@
     @gridone-include('../include/script.html')
     <script>
         $(document).ready(function () {
-            $('#select-group').selectpicker();
-            $('#select-instance').selectpicker();
 
             var summernoteOptions = {
                 placeholder: '설명을 입력해주세요.',
@@ -108,8 +112,16 @@
     </script>
     <script>
         $(document).ready(function () {
-            $('#select-service').selectpicker();
-            $('#select-person').selectpicker();
+            $('#select-service').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).attr('placeholder')
+            });
+            $('#select-person').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+            });
         });
     </script>
     <script>

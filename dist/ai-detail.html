@@ -7,9 +7,10 @@
     <title>Gridone - AI Portal</title>
 
     <link rel="stylesheet" href="../assets/style/master.css">
+    <link rel="stylesheet" href="../assets/style/select2.css">
+    <link rel="stylesheet" href="../assets/style/select2-bootstrap-5-theme.css">
     <link rel="stylesheet" href="../assets/style/bootstrap-treeview.css">
-    <link rel="stylesheet" href="../assets/style/bootstrap-select.min.css">
-    <link rel="stylesheet" href="../assets/style/summernote-bs5.css">
+    <!-- <link rel="stylesheet" href="../assets/style/summernote-bs5.css"> -->
     <link rel="stylesheet" href="../assets/style/Chart.min.css">
     <script>
         if (window.MSInputMethodContext && document.documentMode) {
@@ -218,11 +219,14 @@
                             </div>
                             <div class="col mt-3 mt-lg-0">
                                 <div class="d-flex align-items-center">
-                                    <select class="selectpicker w-100" id="model-select" data-live-search="true" title="인스턴스 선택">
-                                        <option value="service01">INSTANCE#001</option>
-                                        <option value="service02">INSTANCE#002</option>
-                                        <option value="service03">INSTANCE#003</option>
-                                    </select>
+                                    <div class="w-100">
+                                        <select class="form-select" id="model-select" data-placeholder="인스턴스 선택">
+                                            <option value=""></option>
+                                            <option value="service01">INSTANCE#001</option>
+                                            <option value="service02">INSTANCE#002</option>
+                                            <option value="service03">INSTANCE#003</option>
+                                        </select>
+                                    </div>
                                     <button class="btn btn-custom ms-3">
                                         <span class="text-nowrap">선택</span>
                                     </button>
@@ -594,12 +598,12 @@
 </div>
     </main>
     <script src="../assets/script/jquery.min.js"></script>
-<script src="../assets/script/jquery.mCustomScrollbar.min.js"></script>
 <script src="../assets/script/master.js"></script>
-<script type="module" src="../assets/script/bootstrap-select.min.js"></script>
-<script type="module" src="../assets/script/defaults-ko_KR.min.js"></script>
-<script src="../assets/script/summernote-bs5.js"></script>
+<script src="../assets/script/select2.js"></script>
+<script src="../assets/script/ko.js"></script>
+<!-- <script src="../assets/script/summernote-bs5.js"></script> -->
 <script src="../assets/script/Chart.bundle.min.js"></script>
+<script src="../assets/script/ckeditor/ckeditor.js"></script>
 <script>
     if (!(window.MSInputMethodContext && document.documentMode)) {
         document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
@@ -608,26 +612,6 @@
 <!-- <script src="assets/script/common.js"></script> -->
 <script>
     $(function () {
-        if (!String.prototype.padStart) {
-            String.prototype.padStart = function padStart(targetLength, padString) {
-                if (this.length >= targetLength) {
-                    return String(this);
-                } else {
-                    if (padString == null || padString == " ") {
-                        padString = " ";
-                    } else if (padString.length > 1) {
-                        padString = padString.substring(0, 1);
-                    }
-                    targetLength = targetLength - this.length;
-                    var prefix = "";
-                    for (var i = 0; i < targetLength; i++) {
-                        prefix += padString;
-                    }
-                    return prefix + String(this);
-                }
-            };
-        }
-
         const mainSection = document.getElementById("main");
         const toggleBar = document.getElementById("toggle-bar");
 
@@ -826,7 +810,11 @@
     </script>
     <script>
         $(document).ready(function () {
-            $('#select-group').selectpicker();
+            $('#model-select').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+            });
         });
     </script>
     <script>

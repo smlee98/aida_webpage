@@ -289,9 +289,8 @@ div.content-nav .dropdown-item:active {
   color: #6c63ff !important;
 }
 
-.note-editor,
-.note-editing-area {
-  height: 100%;
+.text-info {
+  color: #6c63ff !important;
 }
 
 /*!
@@ -21621,7 +21620,7 @@ div.sidebar {
           flex-direction: column;
   -webkit-transition: left 0.2s;
   transition: left 0.2s;
-  z-index: 9999;
+  z-index: 999;
   -ms-overflow-style: none;
 }
 

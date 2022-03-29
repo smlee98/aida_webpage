@@ -24,16 +24,22 @@
                     </div>
                     <div class="d-flex flex-column align-items-center bg-white mb-4 p-4" id="title-wrap">
                         <div class="d-flex align-items-center w-100 mb-3">
-                            <select class="selectpicker w-100 me-3" id="select-group" data-live-search="true" title="그룹 선택">
-                                <option value="1">Group#001</option>
-                                <option value="2">Group#002</option>
-                                <option value="3">Group#003</option>
-                            </select>
-                            <select class="selectpicker w-100" id="select-instance" data-live-search="true" title="인스턴스 선택">
-                                <option value="1">Instance#001</option>
-                                <option value="2">Instance#002</option>
-                                <option value="3">Instance#003</option>
-                            </select>
+                            <div class="w-100 me-3">
+                                <select class="form-select w-100" id="select-group" data-placeholder="그룹 선택">
+                                    <option value=""></option>
+                                    <option value="1">Group#001</option>
+                                    <option value="2">Group#002</option>
+                                    <option value="3">Group#003</option>
+                                </select>
+                            </div>
+                            <div class="w-100">
+                                <select class="form-select w-100" id="select-instance" data-placeholder="인스턴스 선택">
+                                    <option value=""></option>
+                                    <option value="1">Instance#001</option>
+                                    <option value="2">Instance#002</option>
+                                    <option value="3">Instance#003</option>
+                                </select>
+                            </div>
                         </div>
                         <input type="text" id="title" name="title" class="form-control title" maxlength="250" tabindex="1" placeholder="제목"
                             autocomplete="off">
@@ -41,7 +47,9 @@
                     <div id="main-card" class="flex-grow-1 board-wrapper">
                         <div class="row row-cols-1 row-cols-lg-2 gx-4 h-100">
                             <div class="col mb-4 mb-lg-0">
-                                <div id="summernote"></div>
+                                <div class="d-flex flex-column h-100" id="editor-wrapper">
+                                    <textarea name="content" id="editor" class="flex-grow-1"></textarea>
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="card dropbox h-100">
@@ -85,28 +93,24 @@
     @gridone-include('../include/script.html')
     <script>
         $(document).ready(function () {
-            $('#select-group').selectpicker();
-            $('#select-instance').selectpicker();
+            $('#select-group').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).attr('placeholder')
+            });
+            $('#select-instance').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+            });
 
-            var summernoteOptions = {
-                placeholder: '설명을 입력해주세요.',
-                focus: true, // auto focus
-                minHeight: 360,
-                disableResizeEditor: true,
-                toolbar: [
-                    // ['style', ['style']], // 폰트 스타일
-                    ['font', ['bold', 'underline', 'clear']], // 강조 스타일
-                    // ['fontname', ['fontname']], // 폰트 지정
-                    // ['color', ['color']], // 색상
-                    ['para', ['ul', 'ol', 'paragraph']], // 리스트 스타일, 정렬
-                    // ['table', ['table']], // 표
-                    // ['insert', ['link', 'picture', 'video']], // 삽입 (링크, 이미지)
-                    // ['view', ['codeview']], // 보기 모드 (전체, 코드 뷰, 도움말)
-                ],
-            };
-
-            $('#summernote').summernote(summernoteOptions);
-            $('.note-statusbar').hide();
+            CKEDITOR.replace('editor', {
+                on: {
+                    'instanceReady': function (evt) {
+                        evt.editor.resize("100%", $("#editor-wrapper").height());
+                    }
+                }
+            });
 
             $('#button-attach').click(function (e) {
                 e.preventDefault();

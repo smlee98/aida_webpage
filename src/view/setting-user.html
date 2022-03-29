@@ -15,7 +15,9 @@
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
                                         <div class="calendar">
-                                            <select class="selectpicker" id="yearpicker" data-live-search="true" title="연도 선택"></select>
+                                            <select class="form-select" id="yearpicker" data-live-search="true" data-placeholder="연도 선택">
+                                                <option value=""></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="card-body d-flex flex-column">
@@ -185,7 +187,12 @@
     </script>
     <script>
         $(document).ready(function () {
-            $('#yearpicker').selectpicker();
+            $('#yearpicker').select2({
+                minimumResultsForSearch: -1,
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+            });
         });
     </script>
     <script>

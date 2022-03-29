@@ -30,6 +30,7 @@ const PATH = {
         VIDEO: "./src/assets/videos",
         STYLE: "./src/assets/style",
         SCRIPT: "./src/assets/script",
+        EDITOR: "./src/assets/script/ckeditor",
         LIB: "./src/assets/lib",
     },
 };
@@ -42,6 +43,7 @@ const DEST_PATH = {
         VIDEO: "./dist/assets/videos",
         STYLE: "./dist/assets/style",
         SCRIPT: "./dist/assets/script",
+        EDITOR: "./dist/assets/script/ckeditor",
         LIB: "./dist/assets/lib",
     },
 };
@@ -51,11 +53,14 @@ const bootstrapFontPath = "node_modules/bootstrap-icons/font/fonts/";
 const pretendardPath = "node_modules/pretendard/dist/web/static/";
 const summernotePath = "node_modules/summernote/dist/";
 
-const library = async () => {
-    await src([
-        bootstrapPath + "js/bootstrap.bundle.js",
-        summernotePath + "summernote-bs5.js",
-    ]).pipe(dest(DEST_PATH.ASSETS.SCRIPT));
+const library = {
+    bootstrap: async () =>
+        src([bootstrapPath + "js/bootstrap.bundle.js"]).pipe(
+            dest(DEST_PATH.ASSETS.SCRIPT)
+        ),
+
+    ckeditor: async () =>
+        src(PATH.ASSETS.EDITOR + "/**/*").pipe(dest(DEST_PATH.ASSETS.EDITOR)),
 };
 
 const video = async () =>
@@ -164,7 +169,8 @@ const watcher = () => {
         gutil.log(`Source Changed: ${e}`);
     });
     watch(PATH.ASSETS.SCRIPT).on("change", (e) => {
-        library();
+        library.bootstrap();
+        library.ckeditor();
         gutil.log(`Source Changed: ${e}`);
     });
     watch(DEST_PATH.HTML).on("add", () => browserSync.reload());
@@ -187,7 +193,8 @@ const tasks = series(
     [maps.script],
     [image],
     [video],
-    [library],
+    [library.bootstrap],
+    [library.ckeditor],
     [server],
     [watcher]
 );

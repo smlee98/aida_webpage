@@ -85,7 +85,9 @@
                                     <div class="card-header">
                                         <span class="card-header-text fw-bold opacity-50 d-block">전체 가입현황</span>
                                         <div class="calendar">
-                                            <select class="selectpicker" id="yearpicker" data-live-search="true" title="연도 선택"></select>
+                                            <select class="form-select" id="yearpicker" data-placeholder="연도 선택">
+                                                <option value=""></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="card-body d-flex flex-column">
@@ -611,6 +613,26 @@
             return h;
         }
 
+        if (!String.prototype.padStart) {
+            String.prototype.padStart = function padStart(targetLength, padString) {
+                if (this.length >= targetLength) {
+                    return String(this);
+                } else {
+                    if (padString == null || padString == " ") {
+                        padString = " ";
+                    } else if (padString.length > 1) {
+                        padString = padString.substring(0, 1);
+                    }
+                    targetLength = targetLength - this.length;
+                    var prefix = "";
+                    for (var i = 0; i < targetLength; i++) {
+                        prefix += padString;
+                    }
+                    return prefix + String(this);
+                }
+            };
+        }
+
         function getDate() {
             const date = new Date();
 
@@ -618,14 +640,16 @@
             let months = String(date.getMonth() + 1).padStart(2, "0");
             let dates = String(date.getDate()).padStart(2, "0");
 
-            fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            // fullDate.innerText = `${years}년 ${months}월 ${dates}일`;
+            fullDate.innerText = years + "년 " + months + "월 " + dates + "일";
         }
 
         function getAmPm() {
             const date = new Date();
             const nowStat = date.amPm();
 
-            amPm.innerText = `${nowStat} `;
+            // amPm.innerText = `${nowStat} `;
+            amPm.innerText = nowStat + " "
         }
 
         function getTime() {
@@ -639,7 +663,8 @@
             let minutes = String(date.getMinutes()).padStart(2, "0");
             let seconds = String(date.getSeconds()).padStart(2, "0");
 
-            clock.innerText = `${hours}:${minutes}:${seconds}`;
+            // clock.innerText = `${hours}:${minutes}:${seconds}`;
+            clock.innerText = hours + ":" + minutes + ":" + seconds;
         }
 
         getDate();
@@ -746,7 +771,12 @@
 
     <script>
         $(document).ready(function () {
-            $('#yearpicker').selectpicker();
+            $('#yearpicker').select2({
+                minimumResultsForSearch: -1,
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+            });
         });
     </script>
     <script>

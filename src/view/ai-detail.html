@@ -15,11 +15,14 @@
                             </div>
                             <div class="col mt-3 mt-lg-0">
                                 <div class="d-flex align-items-center">
-                                    <select class="selectpicker w-100" id="model-select" data-live-search="true" title="인스턴스 선택">
-                                        <option value="service01">INSTANCE#001</option>
-                                        <option value="service02">INSTANCE#002</option>
-                                        <option value="service03">INSTANCE#003</option>
-                                    </select>
+                                    <div class="w-100">
+                                        <select class="form-select" id="model-select" data-placeholder="인스턴스 선택">
+                                            <option value=""></option>
+                                            <option value="service01">INSTANCE#001</option>
+                                            <option value="service02">INSTANCE#002</option>
+                                            <option value="service03">INSTANCE#003</option>
+                                        </select>
+                                    </div>
                                     <button class="btn btn-custom ms-3">
                                         <span class="text-nowrap">선택</span>
                                     </button>
@@ -396,7 +399,11 @@
     </script>
     <script>
         $(document).ready(function () {
-            $('#select-group').selectpicker();
+            $('#model-select').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+            });
         });
     </script>
     <script>

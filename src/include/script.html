@@ -1,10 +1,10 @@
 <script src="../assets/script/jquery.min.js"></script>
-<script src="../assets/script/jquery.mCustomScrollbar.min.js"></script>
 <script src="../assets/script/master.js"></script>
-<script type="module" src="../assets/script/bootstrap-select.min.js"></script>
-<script type="module" src="../assets/script/defaults-ko_KR.min.js"></script>
-<script src="../assets/script/summernote-bs5.js"></script>
+<script src="../assets/script/select2.js"></script>
+<script src="../assets/script/ko.js"></script>
+<!-- <script src="../assets/script/summernote-bs5.js"></script> -->
 <script src="../assets/script/Chart.bundle.min.js"></script>
+<script src="../assets/script/ckeditor/ckeditor.js"></script>
 <script>
     if (!(window.MSInputMethodContext && document.documentMode)) {
         document.write('<script src="assets/script/bootstrap.bundle.js"><\/script>');
@@ -13,26 +13,6 @@
 <!-- <script src="assets/script/common.js"></script> -->
 <script>
     $(function () {
-        if (!String.prototype.padStart) {
-            String.prototype.padStart = function padStart(targetLength, padString) {
-                if (this.length >= targetLength) {
-                    return String(this);
-                } else {
-                    if (padString == null || padString == " ") {
-                        padString = " ";
-                    } else if (padString.length > 1) {
-                        padString = padString.substring(0, 1);
-                    }
-                    targetLength = targetLength - this.length;
-                    var prefix = "";
-                    for (var i = 0; i < targetLength; i++) {
-                        prefix += padString;
-                    }
-                    return prefix + String(this);
-                }
-            };
-        }
-
         const mainSection = document.getElementById("main");
         const toggleBar = document.getElementById("toggle-bar");
 
