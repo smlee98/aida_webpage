@@ -90,29 +90,6 @@ div.mobile-bar li.mb-item.active i[class*=bi] {
   color: #6c63ff;
 }
 
-div#search-box input:hover,
-div#search-box input:active,
-div#search-box input:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-}
-
-#search-left {
-  border: none;
-  background-color: #fff;
-}
-
-#search-right {
-  border-radius: 5px;
-  border: none;
-  background-color: #fff;
-}
-
-div#search-box input:-internal-autofill-selected {
-  background-color: #fff !important;
-}
-
 div#main-card div.card:not(.note-editor, .dropbox),
 div#sub-card div.card {
   border: none;
@@ -235,8 +212,6 @@ div.content-nav .dropdown-item:active {
   color: #fff;
   background-color: #0b5ed7;
   border-color: #0a58ca;
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
-          box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
 }
 
 .btn-outline-custom {
@@ -248,12 +223,6 @@ div.content-nav .dropdown-item:active {
   color: #fff !important;
   background-color: #6c63ff !important;
   border-color: #6c63ff !important;
-}
-
-.btn-check:focus + .btn-outline-custom,
-.btn-outline-custom:focus {
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.5) !important;
-          box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.5) !important;
 }
 
 .btn-check:checked + .btn-outline-custom,
@@ -280,8 +249,6 @@ div.content-nav .dropdown-item:active {
 .form-check-input:focus {
   border-color: #86b7fe;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25);
-  box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25);
 }
 
 .issue-title .text-info,

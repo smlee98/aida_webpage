@@ -127,6 +127,27 @@
         @gridone-include('../include/modal.html')
     </main>
     @gridone-include('../include/script.html')
+        <script>
+            const deleteBar = $("div.progress-delete");
+            const activeBar = $("div.progress-active");
+            const deactiveBar = $("div.progress-deactive");
+            const adminBar = $("div.progress-admin");
+            const userBar = $("div.progress-user");
+
+            const deleteNum = parseInt($("div.progress-delete span.progress-num").html());
+            const activeNum = parseInt($("div.progress-active span.progress-num").html());
+            const deactiveNum = parseInt($("div.progress-deactive span.progress-num").html());
+            const adminNum = parseInt($("div.progress-admin span.progress-num").html());
+            const userNum = parseInt($("div.progress-user span.progress-num").html());
+
+            const allUsers = deleteNum + activeNum + deactiveNum;
+
+            deleteBar.css("width", Math.ceil((deleteNum / allUsers) * 100) + "%");
+            activeBar.css("width", Math.ceil((activeNum / allUsers) * 100) + "%");
+            deactiveBar.css("width", Math.ceil((deactiveNum / allUsers) * 100) + "%");
+            adminBar.css("width", Math.ceil((adminNum / allUsers) * 100) + "%");
+            userBar.css("width", Math.ceil((userNum / allUsers) * 100) + "%");
+        </script>
     <script>
         // 전체 가입 현황 그래프
         const labels = [

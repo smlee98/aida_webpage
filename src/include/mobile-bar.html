@@ -1,4 +1,4 @@
-<div class="mbar-detail">
+<div class="mbar-detail" style="margin-bottom: -1px;">
     <ul class="list-unstyled list-group list-group-horizontal text-white small mbar-group" id="mbar-dashboard">
         <li id="microservice-mobile" class="text-center small">
             <a href="../microservice.html">
@@ -137,6 +137,12 @@ $(document).ready(function () {
             mbarInit();
         }
     });
+
+    window.onresize = function (event) {
+        if (window.innerWidth > 990) {
+            mbarInit();
+        }
+    }
 });
 
 function mbarInit() {

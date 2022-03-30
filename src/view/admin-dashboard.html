@@ -8,6 +8,12 @@
             <div class="content">
                 @gridone-include('../include/nav.html')
                 <div class="content-wrapper db-wrapper">
+                    <div class="d-flex justify-content-end align-items-center mb-4">
+                        <button class="btn btn-custom" name="reloading">
+                            <i class="bi bi-arrow-clockwise lh-normal"></i>
+                            <span">새로고침</span>
+                        </button>
+                    </div>
                     <div id="main-card" class="mb-4">
                         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 h-100 g-4">
                             <div class="col">
@@ -374,7 +380,7 @@
                                                     <span class="fs-5 fw-bold">처리 대상</span>
                                                     <div class="d-flex">
                                                         <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt1"
-                                                            role="button" aria-expanded="false" aria-controls="issue-opt1">
+                                                            role="button" aria-expanded="true" aria-controls="issue-opt1">
                                                             <i class="bi bi-chevron-down opacity-50"></i>
                                                         </span>
                                                         <span class="more-task">
@@ -385,7 +391,7 @@
                                                 <small class="opacity-50">5개의 태스크</small>
                                             </div>
                                             <div class="issue-body">
-                                                <div class="collapse" id="issue-opt1">
+                                                <div class="collapse show" id="issue-opt1">
                                                     <div class="issue-item">
                                                         <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
                                                         <span class="issue-info">Seungmin Lee, 2시간 전</span>
@@ -475,7 +481,7 @@
                                                     <span class="fs-5 fw-bold">처리 진행중</span>
                                                     <div class="d-flex">
                                                         <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt2"
-                                                            role="button" aria-expanded="false" aria-controls="issue-opt2">
+                                                            role="button" aria-expanded="true" aria-controls="issue-opt2">
                                                             <i class="bi bi-chevron-down opacity-50"></i>
                                                         </span>
                                                         <span class="more-task">
@@ -486,7 +492,7 @@
                                                 <small class="opacity-50">5개의 태스크</small>
                                             </div>
                                             <div class="issue-body">
-                                                <div class="collapse" id="issue-opt2">
+                                                <div class="collapse show" id="issue-opt2">
                                                     <div class="issue-item">
                                                         <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
                                                         <span class="issue-info">Seungmin Lee, 2시간 전</span>
@@ -544,7 +550,7 @@
                                                     <span class="fs-5 fw-bold">처리 완료</span>
                                                     <div class="d-flex">
                                                         <span class="collapse-task" data-bs-toggle="collapse" data-bs-target="#issue-opt3"
-                                                            role="button" aria-expanded="false" aria-controls="issue-opt3">
+                                                            role="button" aria-expanded="true" aria-controls="issue-opt3">
                                                             <i class="bi bi-chevron-down opacity-50"></i>
                                                         </span>
                                                         <span class="more-task">
@@ -555,7 +561,7 @@
                                                 <small class="opacity-50">10개의 태스크</small>
                                             </div>
                                             <div class="issue-body">
-                                                <div class="collapse" id="issue-opt3">
+                                                <div class="collapse show" id="issue-opt3">
                                                     <div class="issue-item">
                                                         <h6 class="fw-bold mb-0">Model 103 작동오류</h6>
                                                         <span class="issue-info">Seungmin Lee, 2시간 전</span>
