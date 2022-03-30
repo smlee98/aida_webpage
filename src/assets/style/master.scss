@@ -157,6 +157,11 @@ select::-ms-expand {
     border-radius: 50%;
     bottom: 1rem;
     right: 1rem;
+    transition: bottom 0.2s;
+}
+
+#manual.active {
+    bottom: 13.5rem !important;
 }
 
 #manual::after {
@@ -223,7 +228,8 @@ select::-ms-expand {
         display: block !important;
     }
 
-    div.mobile-bar {
+    div.mobile-bar,
+    div.mbar-detail {
         display: flex !important;
     }
 
@@ -338,8 +344,39 @@ div.mobile-bar {
     left: 0;
     width: 100%;
     background: #202124;
-    border-top: 1px solid #ced4d9;
     z-index: 9999;
+}
+
+div.mbar-detail {
+    height: 100px;
+    padding: 0.75rem 0.5rem;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #202124;
+    z-index: 9999;
+    transition: bottom 0.2s;
+}
+
+div.mbar-detail.active {
+    bottom: 100px !important;
+}
+
+.mbar-detail .mbar-group li {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mbar-detail .mbar-group {
+    display: none;
+}
+
+.mbar-detail .mbar-group.active {
+    display: flex !important;
 }
 
 span#theme-select {

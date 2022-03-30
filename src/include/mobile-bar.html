@@ -1,10 +1,83 @@
+<div class="mbar-detail">
+    <ul class="list-unstyled list-group list-group-horizontal text-white small mbar-group" id="mbar-dashboard">
+        <li id="microservice-mobile" class="text-center small">
+            <a href="../microservice.html">
+                <span>Micro<br>service</span>
+            </a>
+        </li>
+        <li id="admin-dashboard-mobile" class="text-center small">
+            <a href="../admin-dashboard.html">
+                <span>관리자<br>대시보드</span>
+            </a>
+        </li>
+        <li id="setting-ai-mobile" class="text-center small">
+            <a href="../setting-ai.html">
+                <span>AI서비스<br>관리</span>
+            </a>
+        </li>
+        <li id="setting-user-mobile" class="text-center small">
+            <a href="../setting-user.html">
+                <span>사용자<br>관리</span>
+            </a>
+        </li>
+        <li id="setting-request-mobile" class="text-center small">
+            <a href="../setting-request.html">
+                <span>요청<br>관리</span>
+            </a>
+        </li>
+        <li id="setting-board-mobile" class="text-center small">
+            <a href="../setting-board.html">
+                <span>게시판<br>관리</span>
+            </a>
+        </li>
+        <li id="setting-system-mobile" class="text-center small">
+            <a href="../setting-system.html">
+                <span>시스템<br>관리</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="list-unstyled list-group list-group-horizontal text-white small mbar-group" id="mbar-ai">
+        <li id="ai-demo-mobile" class="text-center small">
+            <a href="../ai-demo.html">
+                <span>서비스<br>체험</span>
+            </a>
+        </li>
+        <li id="ai-list-mobile" class="text-center small">
+            <a href="../ai-list.html">
+                <span>서비스<br>목록</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="list-unstyled list-group list-group-horizontal text-white small mbar-group" id="mbar-contents">
+        <li id="notice-mobile" class="text-center small">
+            <a href="../notice.html">
+                <span>공지<br>사항</span>
+            </a>
+        </li>
+        <li id="ai-story-mobile" class="text-center small">
+            <a href="../ai-story.html">
+                <span>AI<br>스토리</span>
+            </a>
+        </li>
+        <li id="ai-lecture-mobile" class="text-center small">
+            <a href="../ai-lecture.html">
+                <span>AI<br>강의</span>
+            </a>
+        </li>
+        <li id="qna-mobile" class="text-center small">
+            <a href="../qna.html">
+                <span>질문과<br>답변</span>
+            </a>
+        </li>
+    </ul>
+</div>
 <div class="mobile-bar">
     <ul class="row w-100 mb-0 ps-0 g-0 dropup">
         <li class="mb-item col" name="mbar-dashboard">
-            <a href="#" class="mb-link ">
+            <a href="#" class="mb-link">
                 <i class="bi bi-pie-chart-fill"></i>
                 <span class="ms-3">대시보드</span>
-            </a>
+            </a>      
         </li>
         <li class="mb-item col" name="mbar-ai">
             <a href="#" class="mb-link">
@@ -19,16 +92,58 @@
             </a>
         </li>
         <li class="mb-item col" name="mbar-issue">
-            <a href="#" class="mb-link">
+            <a href="../issue.html" class="mb-link">
                 <i class="bi bi-exclamation-triangle-fill"></i>
                 <span class="ms-3">이슈</span>
             </a>
         </li>
-        <li class="mb-item col" name="mbar-help">
-            <a href="#" class="mb-link">
-                <i class="bi bi-file-earmark-text-fill"></i>
-                <span class="ms-3">도움말</span>
-            </a>
-        </li>
     </ul>
 </div>
+<script src="../assets/script/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    var beforeChoice = "";
+    var nowChoice = "";
+    mbarInit();
+
+    $(".mobile-bar ul li").click(function(){
+        const target = $(this).attr("name");
+
+        if(target != "mbar-issue"){
+            if (mbarCount != 0) {
+                beforeChoice = nowChoice;
+            } else {
+                $("#manual").addClass("active");
+                $(".mbar-detail").addClass("active");
+            }
+
+            nowChoice = $(this).attr("name");
+
+            if ((nowChoice == beforeChoice) && (mbarCount > 0)) {
+                mbarInit();
+            } else {
+                mbarCount++;
+            }
+
+            const group = $(".mbar-group");
+
+            for (let i = 0; i < group.length; i++) {
+                group.eq(i).removeClass("active");
+            }
+
+            $("#" + target).toggleClass("active");
+
+        } else {
+            mbarInit();
+        }
+    });
+});
+
+function mbarInit() {
+    $("#manual").removeClass("active");
+    $(".mbar-detail").removeClass("active");
+    beforeChoice = "";
+    nowChoice = "";
+    mbarCount = 0;
+}
+</script>

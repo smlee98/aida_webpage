@@ -47,7 +47,8 @@ div.collapsing ul.list-unstyled li {
 }
 
 ul.list-unstyled li a.active,
-ul.list-unstyled li ul.list-unstyled li.active {
+ul.list-unstyled li ul.list-unstyled li.active,
+ul.mbar-group li.active span {
   font-weight: bold;
   color: #6768ab;
 }
@@ -84,7 +85,8 @@ div.mobile-bar li.mb-item.active {
   border: none;
 }
 
-div.sidebar ul.list-group-flush li.list-group-item.active i[class*=bi] {
+div.sidebar ul.list-group-flush li.list-group-item.active i[class*=bi],
+div.mobile-bar li.mb-item.active i[class*=bi] {
   color: #6c63ff;
 }
 
