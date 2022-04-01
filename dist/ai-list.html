@@ -758,6 +758,12 @@ $(document).ready(function () {
             mbarInit();
         }
     });
+
+    window.onresize = function (event) {
+        if (window.innerWidth > 990) {
+            mbarInit();
+        }
+    }
 });
 
 function mbarInit() {
@@ -808,6 +814,57 @@ function mbarInit() {
     </ul>
 </div>
 <!-- Manual End -->
+<div class="modal fade" id="dept-change-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">부서 변경</h5>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">기존 부서</span>
+                    <input type="text" class="form-control" id="dept-before" value="Team Web" disabled>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">변경 부서</span>
+                    <select class="form-select" id="dept-after">
+                        <option value="team-window">Team Window</option>
+                        <option value="team-aida">Team AIDA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-custom">변경</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="pos-change-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">직급 변경</h5>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">기존 직급</span>
+                    <input type="text" class="form-control" id="pos-before" value="개발" disabled>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">변경 직급</span>
+                    <select class="form-select" id="pos-after">
+                        <option value="pos-business">영업</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-custom">변경</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="search-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -882,6 +939,21 @@ function mbarInit() {
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#dept-after').select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#pos-after').select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+    });
+</script>
     </main>
     <script src="../assets/script/jquery.min.js"></script>
 <script src="../assets/script/master.js"></script>

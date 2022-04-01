@@ -746,3 +746,44 @@ li.answer:before {
     left: 1.5rem;
     top: 0.65rem;
 }
+
+.node-tree {
+    display: flex !important;
+    align-items: center;
+}
+
+.node-tree input,
+.list-wrapper input,
+.node-tree input:disabled,
+.list-wrapper input:disabled {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none;
+}
+
+.node-tree .active input::placeholder,
+.list-wrapper .active input::placeholder {
+    color: rgba(255, 255, 255, 0.75)
+}
+
+.node-tree.node-selected input {
+    color: #fff;
+}
+
+.node-tree input {
+    color: #000;
+}
+
+.list-wrapper {
+    height: 12.875rem;
+    overflow-y: auto;
+}
+
+div.list-wrapper div.list-group .list-group-item.active {
+    background-color: #6c63ff !important;
+    border-color: #6c63ff !important;
+}
+
+div.list-wrapper div.list-group .list-group-item.active input {
+    color: #fff;
+}

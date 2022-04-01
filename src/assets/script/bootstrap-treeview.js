@@ -48,7 +48,7 @@
         searchResultColor: "#D9534F",
         searchResultBackColor: undefined, //'#FFFFFF',
 
-        enableLinks: false,
+        enableLinks: true,
         highlightSelected: true,
         highlightSearchResults: true,
         showBorder: true,
@@ -563,7 +563,8 @@
                 // Add hyperlink
                 treeItem.append(
                     $(_this.template.link)
-                        .attr("href", node.href)
+                        // .attr("href", node.href)
+                        .attr("value", node.text)
                         .append(node.text)
                 );
             } else {
@@ -676,7 +677,7 @@
         item: '<li class="list-group-item"></li>',
         indent: '<span class="indent"></span>',
         icon: '<span class="icon"></span>',
-        link: '<a href="#" style="color:inherit;"></a>',
+        link: '<input class="form-control" value="" disabled>',
         badge: '<span class="badge"></span>',
     };
 
