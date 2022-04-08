@@ -51,7 +51,6 @@ const DEST_PATH = {
 const bootstrapPath = "node_modules/bootstrap/dist/";
 const bootstrapFontPath = "node_modules/bootstrap-icons/font/fonts/";
 const pretendardPath = "node_modules/pretendard/dist/web/static/";
-const summernotePath = "node_modules/summernote/dist/";
 
 const library = {
     bootstrap: async () =>
@@ -70,16 +69,16 @@ const video = async () =>
 
 const image = async () =>
     await src(PATH.ASSETS.IMAGES + "/*.*")
-        .pipe(
-            imagemin([
-                imagemin.gifsicle({ interlaced: false }),
-                imagemin.mozjpeg({ progressive: true }),
-                imagemin.optipng({ optimizationLevel: 5 }),
-                imagemin.svgo({
-                    plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-                }),
-            ])
-        )
+        // .pipe(
+        //     imagemin([
+        //         imagemin.gifsicle({ interlaced: false }),
+        //         imagemin.mozjpeg({ progressive: true }),
+        //         imagemin.optipng({ optimizationLevel: 5 }),
+        //         imagemin.svgo({
+        //             plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+        //         }),
+        //     ])
+        // )
         .pipe(dest(DEST_PATH.ASSETS.IMAGES))
         .pipe(browserSync.stream());
 
@@ -122,16 +121,10 @@ const html = async () =>
         .pipe(browserSync.stream());
 
 const maps = {
-    css: async () =>
-        await src([summernotePath + "summernote-bs5.css.map"]).pipe(
-            dest(DEST_PATH.ASSETS.STYLE)
-        ),
-
     script: async () =>
-        await src([
-            summernotePath + "summernote-bs5.js.map",
-            bootstrapPath + "js/bootstrap.bundle.js.map",
-        ]).pipe(dest(DEST_PATH.ASSETS.SCRIPT)),
+        await src([bootstrapPath + "js/bootstrap.bundle.js.map"]).pipe(
+            dest(DEST_PATH.ASSETS.SCRIPT)
+        ),
 };
 
 const fonts = {
@@ -141,17 +134,11 @@ const fonts = {
             .pipe(urlAdjuster({ replace: ["./woff", "./fonts"] }))
             .pipe(dest(DEST_PATH.ASSETS.STYLE)),
 
-    summernote: async () =>
-        await src([summernotePath + "summernote-bs5.css"])
-            .pipe(urlAdjuster({ replace: ["./font", "./fonts"] }))
-            .pipe(dest(DEST_PATH.ASSETS.STYLE)),
-
     publicFonts: async () =>
         await src([
             bootstrapFontPath + "*",
             pretendardPath + "woff2/*",
             pretendardPath + "woff/*",
-            summernotePath + "font/*",
         ]).pipe(dest(DEST_PATH.ASSETS.FONTS)),
 };
 
@@ -179,6 +166,7 @@ const watcher = () => {
 const server = async () =>
     await browserSync.init({
         server: { baseDir: "./dist", index: "index.html" },
+        port: 4000,
     });
 
 const tasks = series(
@@ -187,9 +175,7 @@ const tasks = series(
     [html],
     [build],
     [fonts.pretendard],
-    [fonts.summernote],
     [fonts.publicFonts],
-    [maps.css],
     [maps.script],
     [image],
     [video],

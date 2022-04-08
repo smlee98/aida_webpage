@@ -31,7 +31,7 @@
     "nodemon": "^2.0.15",
     "sass": "^1.49.9"
   },
-  "name": "aiportal_webpage",
+  "name": "aida_webpage",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -40,14 +40,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smlee98/aiportal_webpage.git"
+    "url": "git+https://github.com/smlee98/aida_webpage.git"
   },
   "author": "Seungmin Lee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/smlee98/aiportal_webpage/issues"
+    "url": "https://github.com/smlee98/aida_webpage/issues"
   },
-  "homepage": "https://github.com/smlee98/aiportal_webpage#readme",
+  "homepage": "https://github.com/smlee98/aida_webpage#readme",
   "description": "",
   "browserslist": "last 2 versions"
 }
