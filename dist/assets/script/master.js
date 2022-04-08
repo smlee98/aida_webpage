@@ -1,3 +1,17 @@
+$(document).ready(function () {
+    $("#alert-test").click(function () {
+        $("#right-popup").addClass("active");
+
+        setTimeout(function () {
+            $("#right-popup").removeClass("active");
+        }, 5000);
+    });
+
+    $("#right-popup-close").click(function () {
+        $("#right-popup").removeClass("active");
+    });
+});
+
 // 파일 현재 필드 숫자 totalCount랑 비교값
 var fileCount = 0;
 // 해당 숫자를 수정하여 전체 업로드 갯수를 정한다.

@@ -169,6 +169,9 @@
         <!-- <span id="search" class="me-4" data-bs-toggle="modal" data-bs-target="#search-modal">
             <i class="bi bi-search fs-4"></i>
         </span> -->
+        <span id="alert-test" class="me-4">
+            <i class="bi bi-chevron-double-left fs-4"></i>
+        </span>
         <a href="../alert.html">
             <span id="user-alert" class="position-relative me-4">
                 <i class="bi bi-bell-fill fs-4"></i>
@@ -428,7 +431,16 @@ function mbarInit() {
 </script>
             </div>
         </section>
-        <!-- Manual Start -->
+        <div id="right-popup">
+    <div class="d-flex justify-content-end mb-2">
+        <button type="button" class="btn-close small" id="right-popup-close"></button>
+    </div>
+    <span class="d-block w-100 text-center mb-4">새로운 알림이 있습니다</span>
+    <button class="d-block btn btn-light btn-sm p-2 fw-bold fs-6 w-100">
+        <span>자세히 보기</span>
+    </button>
+</div>
+<!-- Manual Start -->
 <div class="dropup">
     <span class="bg-info text-white dropdown-toggle" id="manual" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-journals fs-3"></i>
@@ -466,6 +478,443 @@ function mbarInit() {
     </ul>
 </div>
 <!-- Manual End -->
+<div class="modal fade" id="instanceDetail-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">10.30.1.205:yb-ocr:10103</h5>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header bg-info">
+                        <span class="fw-bold text-white">PORTAL MS 정보</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row row-cols-1 row-cols-lg-4 g-0 instanceWrapper">
+                            <div class="col">
+                                <div class="p-3">
+                                    <span class="d-block fw-bold mb-3">VERSION</span>
+                                    <input class="form-control mb-3" id="msinfo-version" value="Version #001" disabled>
+                                    <input class="form-control" type="file" id="msinfo-version-file">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <span class="d-block fw-bold mb-3">INSTANCE</span>
+                                    <input class="form-control mb-3" id="msinfo-instance"
+                                        value="10.30.1.205:yb-ocr:10103" disabled>
+                                    <div class="input-group">
+                                        <span class="input-group-text">한글명</span>
+                                        <input class="form-control" id="msinfo-instance-kor">
+                                        <button class="btn btn-secondary" type="button">변경</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <span class="d-block fw-bold mb-3">SERVICE</span>
+                                    <input class="form-control mb-3" id="msinfo-service" value="yb-ocr" disabled>
+                                    <div class="input-group">
+                                        <span class="input-group-text">한글명</span>
+                                        <input class="form-control" id="msinfo-service-kor">
+                                        <button class="btn btn-secondary" type="button">변경</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <span class="d-block fw-bold mb-3">GROUP</span>
+                                    <input class="form-control mb-3" id="msinfo-group" value="-" disabled>
+                                    <div class="input-group">
+                                        <span class="input-group-text">한글명</span>
+                                        <input class="form-control" id="msinfo-group-kor">
+                                        <button class="btn btn-secondary" type="button">변경</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-1 row-cols-lg-3 g-0 instanceWrapper">
+                            <div class="col">
+                                <div class="p-3">
+                                    <div class="mb-3">
+                                        <span class="d-block fw-bold mb-3">STATE</span>
+                                        <select class="form-select" id="msinfo-state" data-placeholder="STATE">
+                                            <option value="NORMAL">NORMAL</option>
+                                            <option value="ABNORMAL">ABNORMAL</option>
+                                            <option value="ALTERED">ALTERED</option>
+                                            <option value="DISCARDED">DISCARDED</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="d-block fw-bold mb-3">STATE</span>
+                                        <select class="form-select mb-3" id="msinfo-deploy" data-placeholder="DEPLOY">
+                                            <option value="DEVELOPMENT">DEVELOPMENT</option>
+                                            <option value="OPERATION">OPERATION</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <span class="d-block fw-bold mb-3">STATE</span>
+                                        <select class="form-select" id="msinfo-upstate" data-placeholder="UPDATE STATE">
+                                            <option value="POSSIBLE">POSSIBLE</option>
+                                            <option value="PROGRESS">PROGRESS</option>
+                                            <option value="ERROR">ERROR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <div class="mb-3">
+                                        <span class="d-block fw-bold mb-3">업데이트 날짜</span>
+                                        <input class="form-control mb-3 border-0 bg-transparent ps-0"
+                                            id="msinfo-update-date" value="21-07-30 10:27:36" disabled>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="d-block fw-bold mb-3">상태확인 날짜</span>
+                                        <input class="form-control mb-3 border-0 bg-transparent ps-0"
+                                            id="msinfo-statcheck-date" value="21-07-30 10:27:36" disabled>
+                                    </div>
+                                    <div>
+                                        <span class="d-block fw-bold mb-3">등록 날짜</span>
+                                        <input class="form-control border-0 bg-transparent ps-0" id="msinfo-regist-date"
+                                            value="21-07-30 10:27:36" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <span class="d-block fw-bold mb-3">설명</span>
+                                    <textarea class="form-control" rows="9"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header bg-info">
+                        <span class="fw-bold text-white">MS 정보</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="p-3">
+                            <div class="d-flex justify-content-between">
+                                <span class="d-block fw-bold mb-3">상태</span>
+                                <div>
+                                    <i class=">bi bi-circle-fill text-success"></i>
+                                    <span class="small fw-bold me-2">UP</span>
+                                    <i class=">bi bi-circle-fill text-danger"></i>
+                                    <span class="small fw-bold">DOWN</span>
+                                </div>
+                            </div>
+                            <div class="row row-cols-2 row-cols-lg-4 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">INSTANCE</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">HYSTRIX</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">PING</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">REFRESH SCOPE</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">DISK SPACE</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">DISCOVERY COMP.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">DISCOVERY CLIENT</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <i class=">bi bi-circle-fill me-2 text-success"></i>
+                                                <span class="small fw-bold">EUREKA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-3 instanceWrapper">
+                                <div class="col">
+                                    <div class="p-3">
+                                        <span class="d-block fw-bold mb-3">프로세스</span>
+                                        <table class="table table-custom table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">프로세스 CPU 사용량</th>
+                                                    <th class="text-center">시스템 CPU 사용량</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">-%</td>
+                                                    <td class="text-center">-%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="p-3">
+                                        <span class="d-block fw-bold mb-3">가비지 컬렉션 유휴시간</span>
+                                        <table class="table table-custom table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">횟수</th>
+                                                    <th class="text-center">전체 소요 시간</th>
+                                                    <th class="text-center">최대 소요 시간</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">-회</td>
+                                                    <td class="text-center">-시간</td>
+                                                    <td class="text-center">-시간</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="p-3">
+                                        <span class="d-block fw-bold mb-3">디스크 정보</span>
+                                        <table class="table table-custom table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">총 디스크</th>
+                                                    <th class="text-center">여유 디스크</th>
+                                                    <th class="text-center">THRESHOLD</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">-TB</td>
+                                                    <td class="text-center">-TB</td>
+                                                    <td class="text-center">-MB</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header bg-info">
+                        <span class="fw-bold text-white">차트</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="p-3">
+                            <div class="row row-cols-1 row-cols-lg-3 instanceWrapper">
+                                <div class="col">
+                                    <div class="p-3">
+                                        <span class="d-block fw-bold opacity-50">Thread</span>
+                                        <div class="w-100 h-100">
+                                            <canvas id="chart-thread" style="width: 100%; height: 100%;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="p-3">
+                                        <span class="d-block fw-bold opacity-50">Memory Heap</span>
+                                        <div class="w-100 h-100">
+                                            <canvas id="chart-heap" style="width: 100%; height: 100%;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="p-3">
+                                        <span class="d-block fw-bold opacity-50">Memory Non-Heap</span>
+                                        <div class="w-100 h-100">
+                                            <canvas id="chart-nonheap" style="width: 100%; height: 100%;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header bg-info">
+                        <span class="fw-bold text-white">실시간 로그</span>
+                    </div>
+                    <div class="card-body">
+                        <pre id="log">
+g.springframework.web.client.HttpServerErrorException$InternalServerError: 500 INTERNAL SERVER ERROR: [&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;
+&lt;title&gt;500 Internal Server Error&lt;/title&gt;
+&lt;h1&gt;Internal Server Error&lt;/h1&gt;
+&lt;p&gt;The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.&lt;/p&gt;
+]
+2022-04-06 04:20:00 [ForkJoinPool-1686745-worker-29] ERROR com.a2omsp.utils.RequestService [RequestService.java:132] - org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://10.10.1.60:0/actuator/metrics/jvm.memory.max": Connect to 10.10.1.60:80 [/10.10.1.60] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to 10.10.1.60:80 [/10.10.1.60] failed: Connection refused (Connection refused)
+2022-04-06 04:20:00 [ForkJoinPool-1686743-worker-12] ERROR com.a2omsp.utils.RequestService [RequestService.java:122] - org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 INTERNAL SERVER ERROR: [&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;
+&lt;title&gt;500 Internal Server Error&lt;/title&gt;
+&lt;h1&gt;Internal Server Error&lt;/h1&gt;
+&lt;p&gt;The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.&lt;/p&gt;
+]
+2022-04-06 04:20:00 [ForkJoinPool-1686745-worker-26] ERROR com.a2omsp.utils.RequestService [RequestService.java:132] - org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://10.10.1.60:0/actuator/metrics/jvm.gc.pause": Connect to 10.10.1.60:80 [/10.10.1.60] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to 10.10.1.60:80 [/10.10.1.60] failed: Connection refused (Connection refused)
+2022-04-06 04:20:00 [ForkJoinPool-1686743-worker-5] ERROR com.a2omsp.utils.RequestService [RequestService.java:122] - org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 INTERNAL SERVER ERROR: [&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;
+&lt;title&gt;500 Internal Server Error&lt;/title&gt;
+&lt;h1&gt;Internal Server Error&lt;/h1&gt;
+&lt;p&gt;The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.&lt;/p&gt;
+]
+2022-04-06 04:20:00 [ForkJoinPool-1686741-worker-29] ERROR com.a2omsp.utils.RequestService [RequestService.java:127] - org.springframework.web.client.HttpClientErrorException$NotFound: 404 : [{"timestamp":"2022-04-06T04:20:01.340+0000","status":404,"error":"Not Found","message":"No message available","path":"/actuator/metrics/jvm.gc.pause"}]
+2022-04-06 04:20:00 [ForkJoinPool-1686743-worker-15] ERROR com.a2omsp.utils.RequestService [RequestService.java:122] - org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 INTERNAL SERVER ERROR: [&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;
+&lt;title&gt;500 Internal Server Error&lt;/title&gt;
+&lt;h1&gt;Internal Server Error&lt;/h1&gt;
+&lt;p&gt;The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.&lt;/p&gt;
+]
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="userDetail-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">사용자 정보</h5>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="user-name" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="user-name" placeholder="" value="어드민" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="user-id" class="form-label">아이디(E-mail)</label>
+                    <input type="text" class="form-control" id="user-id" placeholder="" value="admin@gridone.co.kr"
+                        readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="userDetail-status" class="form-label">상태</label>
+                    <div class="w-100 me-3">
+                        <select class="form-select" id="userDetail-status" data-placeholder="상태">
+                            <option value="ACTIVE">활성화</option>
+                            <option value="INACTIVE">비활성화</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="userDetail-dept" class="form-label">부서</label>
+                    <div class="w-100 me-3">
+                        <select class="form-select" id="userDetail-dept" data-placeholder="부서">
+                            <option value="solution">솔루션개발본부</option>
+                            <option value="business">영업본부</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="userDetail-pos" class="form-label">직급</label>
+                    <div class="w-100 me-3">
+                        <select class="form-select" id="userDetail-pos" data-placeholder="직급">
+                            <option value="employee">사원</option>
+                            <option value="foreman">주임</option>
+                            <option value="dsc">대리</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="userDetail-auth" class="form-label">권한</label>
+                    <div class="w-100 me-3">
+                        <select class="form-select" id="userDetail-auth" data-placeholder="권한">
+                            <option value="USER">USER</option>
+                            <option value="ADMIN">ADMIN</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="user-apikey" class="form-label">API 발급현황</label>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <input type="text" class="form-control" id="user-apikey" placeholder="" value="발급" readonly>
+                        <button class="btn btn-custom ms-3" disabled>요청</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-custom">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="alert-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">알림</h5>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-bold">비밀번호 초기화 요청</span>
+                    <span class="opacity-50">2022-03-16</span>
+                </div>
+                <p class="mb-0">
+                    비밀번호 초기화 요청합니다.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-custom">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="dept-change-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -555,6 +1004,7 @@ function mbarInit() {
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="history-modal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
         <div class="modal-content">
@@ -562,30 +1012,24 @@ function mbarInit() {
                 <h5 class="modal-title fw-bold">업데이트 내역</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4">
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-outline-custom">
-                        <i class="bi bi-file-earmark-spreadsheet"></i>
-                        <span>엑셀파일로 저장</span>
+                    <button type="button" class="btn btn-outline-custom" onclick="onWaitingUpdateList();">
+                        <i class="bi bi-arrow-clockwise infinity-rotate"></i>
+                        <span>업데이트</span>
                     </button>
                 </div>
-                <table class="table table-custom table-hover mb-0">
+                <table class="table table-custom table-hover mt-4">
                     <thead>
                         <tr>
-                            <th scope="col">Instance</th>
-                            <th scope="col">State</th>
-                            <th scope="col">End</th>
-                            <th scope="col">Regist</th>
+                            <th>Service Name</th>
+                            <th>Instance</th>
+                            <th>State</th>
+                            <th>End</th>
+                            <th>Regist</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="aiHistoryArea"></tbody>
                 </table>
             </div>
         </div>
@@ -604,6 +1048,56 @@ function mbarInit() {
             width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
             placeholder: $(this).attr('placeholder')
         });
+
+        $('#userDetail-status').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#userDetail-dept').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#userDetail-pos').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#userDetail-auth').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#msinfo-state').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#msinfo-deploy').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
+        $('#msinfo-upstate').select2({
+            minimumResultsForSearch: -1,
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).attr('placeholder')
+        });
+
     });
 </script>
     </main>

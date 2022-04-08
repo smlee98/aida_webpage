@@ -21554,6 +21554,14 @@ div.mbar-detail {
   #manual {
     bottom: 7.25rem !important;
   }
+
+  #table-responsive {
+    display: block !important;
+  }
+
+  #table-static {
+    display: none !important;
+  }
 }
 section#main {
   display: -webkit-box;
@@ -22240,4 +22248,53 @@ div.list-wrapper div.list-group .list-group-item.active {
 
 div.list-wrapper div.list-group .list-group-item.active input {
   color: #fff;
+}
+
+.infinity-rotate::before {
+  -webkit-animation: rotate 3s linear infinite;
+          animation: rotate 3s linear infinite;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+#right-popup {
+  position: fixed;
+  top: 6.5rem;
+  right: -300px;
+  width: 300px;
+  height: 150px;
+  background: #fff;
+  z-index: 2022;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5) !important;
+          box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5) !important;
+  -webkit-transition: right 0.5s;
+  transition: right 0.5s;
+}
+
+#right-popup.active {
+  right: 2rem;
+}
+
+#table-responsive {
+  display: none;
+}
+
+#table-responsive .card:not(:last-child) {
+  border-radius: 0;
+  border-bottom: 1px solid #dee2e6 !important;
 }
