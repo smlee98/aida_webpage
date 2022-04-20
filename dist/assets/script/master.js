@@ -15,6 +15,8 @@ const actionList = [
     "Page Indexer",
 ];
 
+const keyTarget = document.querySelectorAll(".key-option");
+
 let isClicked = false;
 let isFunction = false;
 
@@ -151,6 +153,7 @@ function actionSelect(text) {
 function actionTemplate(idx) {
     const select = document.createElement("select");
     select.classList.add("form-select");
+    select.id = "item-select-" + idx;
     select.setAttribute("data-target", idx);
 
     actionList.forEach(function (v, i) {
@@ -168,6 +171,7 @@ function actionTemplate(idx) {
 
         select.appendChild(option);
     });
+
     return select.outerHTML;
 }
 
@@ -219,6 +223,9 @@ function redraw() {
             idx +
             "</td>" +
             "<td>" +
+            "Empty" +
+            "</td>" +
+            "<td>" +
             loc[0] +
             "," +
             loc[1] +
@@ -226,8 +233,14 @@ function redraw() {
             loc[2] +
             "," +
             loc[3] +
-            "</td>";
-        "<td>" + actionTemplate(idx) + "</td>" + "</tr>";
+            "</td>" +
+            "<td>" +
+            actionTemplate(idx) +
+            "</td>" +
+            "<td>" +
+            "<button class='btn btn-secondary w-100 h-100'>실시간 테스트</button>" +
+            "</td>" +
+            "</tr>";
     });
 }
 
@@ -263,6 +276,7 @@ function draw(e, isEnd) {
 
         backupCtx.fillStyle = randomColor;
         backupCtx.fillRect(startX, startY, width, height);
+
         if (isEnd) {
             canvasRects.push(
                 JSON.parse(
@@ -281,9 +295,14 @@ function draw(e, isEnd) {
             );
             alreadyUsedColors.splice(currentWorkingIndex, 0, randomColor);
             document.getElementById("draw-object").innerHTML +=
-                "<tr><td>" +
+                "<tr>" +
+                "<td>" +
                 (canvasRects.length - 1) +
-                "</td><td>" +
+                "</td>" +
+                "<td>" +
+                "Empty" +
+                "</td>" +
+                "<td>" +
                 startX +
                 "," +
                 startY +
@@ -291,9 +310,14 @@ function draw(e, isEnd) {
                 width +
                 "," +
                 height +
-                "</td><td>" +
+                "</td>" +
+                "<td>" +
                 actionTemplate(canvasRects.length - 1) +
-                "</td></tr>";
+                "</td>" +
+                "<td>" +
+                "<button class='btn btn-secondary w-100 h-100'>실시간 테스트</button>" +
+                "</td>";
+            +"</tr>";
             rectActions.push(actionList[0]);
         }
     } else {
@@ -317,6 +341,10 @@ function addWorkingHistories() {
 }
 
 function clearFunctionKeyHandler(e) {
+    for (let i = 0; i < keyTarget.length; i++) {
+        keyTarget[i].classList.remove("active");
+    }
+
     if (e.key.toUpperCase() == "CONTROL") {
         isFunction = false;
     } else if (e.key.toUpperCase() == "A") {
@@ -497,8 +525,6 @@ function wheelHandler(e) {
 }
 
 function upHandler(e) {
-    console.log(selectedObject);
-
     let endX = e.offsetX;
     let endY = e.offsetY;
 
@@ -649,6 +675,7 @@ function canvasHandler() {
     canvas.addEventListener("mouseup", upHandler);
     canvas.addEventListener("wheel", wheelHandler);
     document.addEventListener("keydown", functionKeyHandler);
+    document.addEventListener("keydown", keyHelpEvent);
     document.addEventListener("keyup", clearFunctionKeyHandler);
     canvasObjects.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
     backupCanvasObjects.push(
@@ -677,6 +704,30 @@ function srcImage() {
 
 function render() {
     srcImage();
+}
+
+function keyHelpEvent(e) {
+    for (let i = 0; i < keyTarget.length; i++) {
+        keyTarget[i].classList.remove("active");
+    }
+
+    if (e.key.toUpperCase() == "Q") {
+        keyTarget[0].classList.add("active");
+    } else if (e.key.toUpperCase() == "W") {
+        keyTarget[1].classList.add("active");
+    } else if (e.key.toUpperCase() == "E") {
+        keyTarget[2].classList.add("active");
+    } else if (e.key.toUpperCase() == "R") {
+        keyTarget[3].classList.add("active");
+    } else if (e.key.toUpperCase() == "T") {
+        keyTarget[4].classList.add("active");
+    } else if (e.key.toUpperCase() == "Y") {
+        keyTarget[5].classList.add("active");
+    } else if (e.key.toUpperCase() == "U") {
+        keyTarget[6].classList.add("active");
+    } else if (e.key.toUpperCase() == "P") {
+        keyTarget[7].classList.add("active");
+    }
 }
 
 window.onload = function () {

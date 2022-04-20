@@ -4,80 +4,734 @@
     <body>
         <section id="main">
             <div class="d-flex flex-column w-100 h-100">
-                <div class="alert alert-danger mb-0" role="alert">
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">Q</span>
-                            <span class="fw-bold text-muted">Checkbox</span>
+                <nav class="navbar navbar-light bg-aida">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fw-bold text-white fs-5" href="#">AIDA DESIGNER WEB</a>
+                        <span id="project-setting" data-bs-toggle="modal" data-bs-target="#modal-project-setting">
+                            <i class="bi bi-gear-fill text-white fs-5"></i>
+                        </span>
+                    </div>
+                </nav>
+                <div class="d-flex" id="wrapper">
+                    <div id="image-list" class="d-flex flex-column border-end">
+                        <div class="list-header">
+                            <div class="d-flex justify-content-between align-items-center p-4 border-bottom">
+                                <span class="fw-bold fs-5">클래스 트리</span>
+                                <div class="d-flex list-button">
+                                    <button class="btn btn-secondary btn-sm me-2">
+                                        <i class="bi bi-plus-lg"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="bi bi-x-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">W</span>
-                            <span class="fw-bold text-muted">HandWrite</span>
-                        </div>
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">E</span>
-                            <span class="fw-bold text-muted">CropImage</span>
-                        </div>
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">R</span>
-                            <span class="fw-bold text-muted">Match Template</span>
-                        </div>
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">T</span>
-                            <span class="fw-bold text-muted">Data Exist</span>
-                        </div>
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">Y</span>
-                            <span class="fw-bold text-muted">Table</span>
-                        </div>
-                        <div class="d-flex align-items-center me-4">
-                            <span class="badge bg-secondary me-2">U</span>
-                            <span class="fw-bold text-muted">Text Extractor</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <span class="badge bg-secondary me-2">P</span>
-                            <span class="fw-bold text-muted">Page Indexer</span>
-                        </div>
-                        <div id="alert-button" class="ms-auto">
-                            <button class="btn btn-secondary">이미지 업로드</button>
+                        <div class="list-body overflow-auto">
+                            <div class="row row-cols-2">
+                                <div class="col">
+                                    <div class="image-item">
+                                        <div class="ratio ratio-3x4">
+                                            <img src="../assets/images/01.png" alt="images">
+                                        </div>
+                                        <span class="d-block fw-bold mt-2 text-center">01.png</span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-item">
+                                        <div class="ratio ratio-3x4">
+                                            <img src="../assets/images/01.png" alt="images">
+                                        </div>
+                                        <span class="d-block fw-bold mt-2 text-center">02.png</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex h-100">
-                    <div class="canvas-group flex-grow-1">
-                        <div class="position-relative overflow-auto w-100 h-100">
-                            <canvas class="abs-0-0" id="canvas" style="z-index: 0"></canvas>
-                            <canvas class="abs-0-0" id="image-canvas" style="z-index: -1"></canvas>
-                            <canvas class="abs-0-0" id="backup-canvas" style="z-index: -2; display: none"></canvas>
+                    <div id="design-box" class="flex-grow-1">
+                        <div class="d-flex flex-column h-100">
+                            <div class="d-flex align-items-center p-4 mb-0" id="key-help">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">Q</span>
+                                        <span class="fw-bold">Checkbox</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">W</span>
+                                        <span class="fw-bold">HandWrite</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">E</span>
+                                        <span class="fw-bold">CropImage</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">R</span>
+                                        <span class="fw-bold">Match Template</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">T</span>
+                                        <span class="fw-bold">Data Exist</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">Y</span>
+                                        <span class="fw-bold">Table</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option me-4">
+                                        <span class="badge bg-secondary me-2">U</span>
+                                        <span class="fw-bold">Text Extractor</span>
+                                    </div>
+                                    <div class="d-flex align-items-center key-option">
+                                        <span class="badge bg-secondary me-2">P</span>
+                                        <span class="fw-bold">Page Indexer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="canvas-group flex-grow-1">
+                                <div class="position-relative overflow-auto w-100 h-100">
+                                    <canvas class="abs-0-0" id="canvas" style="z-index: 0"></canvas>
+                                    <canvas class="abs-0-0" id="image-canvas" style="z-index: -1"></canvas>
+                                    <canvas class="abs-0-0" id="backup-canvas" style="z-index: -2; display: none"></canvas>
+                                </div>
+                            </div>
+                            <div id="item-list">
+                                <div class="list-header">
+                                    <div class="d-flex justify-content-between align-items-center p-4 border-bottom">
+                                        <span class="fw-bold fs-5">아이템 목록</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id="scrolled-thead">
+                                        <table class="table table-hover mb-0">
+                                            <colgroup>
+                                                <col width="10%">
+                                                <col width="20%">
+                                                <col width="30%">
+                                                <col width="30%">
+                                                <col width="10%">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <span>인덱스 번호</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>템플릿 검색 영역</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>아이템 영역</span>
+                                                        <i class="bi bi-info-circle-fill opacity-50" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="x-axis, y-axis, width, height"></i>
+                                                    </th>
+                                                    <th>
+                                                        <span>아이템 종류</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>실시간 테스트</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <div id="scrolled-tbody" class="overflow-auto">
+                                        <table class="table table-hover mb-0">
+                                            <colgroup>
+                                                <col width="10%">
+                                                <col width="20%">
+                                                <col width="30%">
+                                                <col width="30%">
+                                                <col width="10%">
+                                            </colgroup>
+                                            <tbody id="draw-object"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="itembox">
-                        <!-- <h3>현재 클릭 좌표 객체 (x, y, w, h) : <span id="current-location"></span></h3> -->
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span>인덱스 번호</span>
-                                    </th>
-                                    <th>
-                                        <span>아이템 영역</span>
-                                        <i class="bi bi-info-circle-fill opacity-50" data-bs-toggle="tooltip" data-bs-placement="top" title="x-axis, y-axis, width, height"></i>
-                                    </th>
-                                    <th>
-                                        <span>아이템 종류</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="draw-object"></tbody>
-                        </table>
+                    <div id="attr-list" class="border-start d-flex flex-column">
+                        <div class="list-header">
+                            <div class="d-flex justify-content-between align-items-center p-4 border-bottom">
+                                <span class="fw-bold fs-5">아이템 속성</span>
+                            </div>
+                        </div>
+                        <ul class="nav nav-pills nav-pills-custom row row-cols-3 g-0" role="tablist">
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="attr-project-tab" data-bs-toggle="tab" data-bs-target="#attr-project" type="button"
+                                    role="tab" aria-controls="attr-project" aria-selected="false">프로젝트 속성</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100" id="attr-page-tab" data-bs-toggle="tab" data-bs-target="#attr-page" type="button"
+                                    role="tab" aria-controls="attr-page" aria-selected="false">페이지 속성</button>
+                            </li>
+                            <li class="nav-item col d-flex justify-content-center" role="presentation">
+                                <button class="nav-link w-100 active" id="attr-item-tab" data-bs-toggle="tab" data-bs-target="#attr-item" type="button"
+                                    role="tab" aria-controls="attr-item" aria-selected="true">아이템 속성</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content overflow-auto" id="attrTabContent">
+                            <div class="tab-pane fade" id="attr-project" role="tabpanel" aria-labelledby="attr-project-tab">
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-project-env"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        환경 - 실행
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-project-env">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>프로젝트 환경 설정</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-env-setting" class="form-control" value="ConfigModel">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-project-group"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        그룹 설정
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-project-group">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>그룹이름의 Prefix</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-group-prefix" class="form-control" value="Q_">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-project-a2o"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        A2O 설정
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-project-a2o">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>체크박스 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-checkbox" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>키워드 추출 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-keyword" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>OCR 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-ocr" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>데이터 유무 확인 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-dataExist" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>테이블 분석 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-table" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>문자열 추출 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-string" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>오브젝트 추출 서비스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-objectDetector" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-project-a2oAdd"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        A2O 설정 - 추가 서비스
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-project-a2oAdd">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>주소 정정기</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-project-a2o-address" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-project-basic"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        기본
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-project-basic">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>프로젝트 이름</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-basic-name" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-project-http"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        A2O 설정 - Http
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-project-http">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>서버 주소</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-http-address" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>Http 파라미터</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-http-param" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>Http 헤더</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-http-header" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>API Key</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-project-http-apikey" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="attr-page" role="tabpanel" aria-labelledby="attr-page-tab">
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-page-class"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        클래스 정의
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-page-class">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>페이지 분류 이름</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-page-class-name" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-page-option"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        옵션
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-page-option">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>페이지 내의 모든 영역을 이미지로 저장</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-page-option-image">
+                                                <label class="form-check-label" for="attr-page-option-image">False</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-page-basic"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        기본
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-page-basic">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>페이지 고유 키</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <input type="text" id="attr-page-basic-key" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>페이지 이름</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <input type="text" id="attr-page-basic-name" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>인덱스 표시 여부</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-page-basic-index">
+                                                <label class="form-check-label" for="attr-page-basic-index">False</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>페이지 내 아이템 수</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <input type="number" id="attr-page-basic-count" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>이미지 가로 크기</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <input type="number" id="attr-page-basic-width" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>이미지 세로 크기</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <input type="number" id="attr-page-basic-height" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="attr-item" role="tabpanel" aria-labelledby="attr-item-tab">
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-item-service" aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        서비스
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-item-service">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>서비스 종류</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-item-service-kind" data-placeholder="서비스 종류">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>서비스 모델</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-item-service-model" data-placeholder="서비스 모델">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-item-basic" aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        기본
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-item-basic">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>아이템 영역을 이미지로 저장</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-item-basic-image">
+                                                <label class="form-check-label" for="attr-item-basic-image">False</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>인덱스</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="number" id="attr-item-basic-index" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>아이템 영역</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-basic-itemarea" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>설명</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-basic-itemarea" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-item-findme" aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        나를 찾아주세요
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-item-findme">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>검색영역의 패딩값</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="number" id="attr-item-findme-padding" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>검색영역 자동 생성</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-item-findme-auto">
+                                                <label class="form-check-label" for="attr-item-findme-auto">False</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-item-match"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        이미지 매치
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-item-match">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>매치 템플릿 수</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="number" id="attr-item-match-count" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>검색영역 정보</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-match-info" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>매치 필터</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-item-match-filter" data-placeholder="서비스 종류">
+                                                <option value="Default">Default</option>
+                                                <option value="H">H</option>
+                                                <option value="Brisk">Brisk</option>
+                                                <option value="HuMoment">HuMoment</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>매치 방법</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <select class="form-select" id="attr-item-match-method" data-placeholder="서비스 종류">
+                                                <option value="None">None</option>
+                                                <option value="Otsu">Otsu</option>
+                                                <option value="Sauvola">Sauvola</option>
+                                                <option value="32">32</option>
+                                                <option value="48">48</option>
+                                                <option value="64">64</option>
+                                                <option value="80">80</option>
+                                                <option value="96">96</option>
+                                                <option value="112">112</option>
+                                                <option value="128">128</option>
+                                                <option value="144">144</option>
+                                                <option value="160">160</option>
+                                                <option value="176">176</option>
+                                                <option value="192">192</option>
+                                                <option value="208">208</option>
+                                                <option value="224">224</option>
+                                                <option value="240">240</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>매치 임계값</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="number" id="attr-item-match-threshold" class="form-control" value="0.75">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-item-group"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        그룹
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-item-group">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>그룹이름 추가 문자열</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-group-string" class="form-control">
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>다중 선택 허용 여부</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-item-group-multiple">
+                                                <label class="form-check-label" for="attr-item-group-multiple">False</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>그룹영역 표시 여부</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-item-group-visible">
+                                                <label class="form-check-label" for="attr-item-group-visible">False</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold border-bottom py-2" data-bs-toggle="collapse" data-bs-target="#attr-item-result"
+                                    aria-expanded="true">
+                                    <i class="bi bi-caret-down-fill caret"></i>
+                                    <span>
+                                        결과
+                                    </span>
+                                </div>
+                                <div class="collapse show" id="attr-item-result">
+                                    <div class="row gx-0 gy-2">
+                                        <div class="col-4 item-key">
+                                            <span>이미지 매치 점수</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="number" id="attr-item-result-score" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>검증 결과</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-result-verify" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>서비스 결과</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-result-service" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>변환된 서비스 결과</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="text" id="attr-item-result-convertedService" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>정확도</span>
+                                        </div>
+                                        <div class="col-8 item-value">
+                                            <input type="number" id="attr-item-result-accuracy" class="form-control" disabled>
+                                        </div>
+                                        <div class="col-4 item-key">
+                                            <span>검증필요 여부</span>
+                                        </div>
+                                        <div class="col-8 item-value item-value-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="attr-item-result-check" disabled>
+                                                <label class="form-check-label" for="attr-item-result-check">False</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        @gridone-include('../include/modal.html')
         @gridone-include('../include/script.html')
         <script type="text/javascript">
             $(function () {
-                $("[data-bs-toggle ='tooltip']").tooltip();
+                const keyTitle = document.querySelectorAll(".item-key span");
+                for(let i = 0; i < keyTitle.length; i++){
+                    keyTitle[i].setAttribute("data-bs-toggle", "tooltip");
+                    keyTitle[i].setAttribute("data-bs-placement", "right");
+                    keyTitle[i].setAttribute("title", keyTitle[i].innerHTML);
+
+                    $("[data-bs-toggle ='tooltip']").tooltip();
+                }
+
+                $(".form-check-input").click(function(){
+                    if($(this).is(':checked')){
+                        $(this).siblings("label").html("True");
+                    } else {
+                        $(this).siblings("label").html("False");
+                    }
+                    
+                });
+
+                const imageTarget = document
+                    .querySelectorAll(".image-item");
+
+                $(".image-item").click(function() {
+                    for (let i = 0; i < imageTarget.length; i++) {
+                        imageTarget[i].classList.remove("active");
+                    }
+                    $(this).addClass("active");
+                });
+
+                const maxHeight = $("#item-list").height() - 122;
+                $("#scrolled-tbody").css("max-height", maxHeight + "px");
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('select[id*="item-select-"]').select2({
+                    theme: "bootstrap-5",
+                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                    placeholder: $(this).attr('placeholder')
+                });
+
+                $('select[id*="attr-"]').select2({
+                    theme: "bootstrap-5",
+                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                    placeholder: $(this).attr('placeholder')
+                });
+
+                $('select[id*="project-"]').select2({
+                    theme: "bootstrap-5",
+                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                    placeholder: $(this).attr('placeholder')
+                });
+                
             });
         </script>
     </body>

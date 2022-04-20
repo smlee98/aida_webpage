@@ -14,3 +14,16 @@
   --gridone-yellow: #ffc107 !important;
   --gridone-yellow-rgb: 255, 193, 7 !important;
 }
+
+.bg-aida {
+  background-color: #a4373a !important;
+}
+
+.text-aida {
+  color: #a4373a !important;
+}
+
+.tooltip-inner {
+  white-space: nowrap;
+  max-width: none !important;
+}

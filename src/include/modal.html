@@ -1,0 +1,79 @@
+<div class="modal fade" id="modal-project-setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">프로젝트 설정</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="project-name" class="form-label">프로젝트 이름</label>
+                    <input type="text" class="form-control" id="project-name" aria-describedby="projectName">
+                </div>
+                <div class="mb-3">
+                    <label for="project-aiio-address" class="form-label">AIIO 서버 주소</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="project-aiio-address" aria-describedby="projectAiioAddress">
+                        <button class="btn btn-secondary" type="button" id="address-check">
+                            <i class="bi bi-check-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="project-apikey" class="form-label">API 키</label>
+                    <input type="text" class="form-control" id="project-apikey" aria-describedby="projectName">
+                </div>
+                <div class="mb-3">
+                    <label for="project-http-header" class="form-label">사용자 정의 http 헤더</label>
+                    <input type="text" class="form-control" id="project-http-header" aria-describedby="projectHttpHeader">
+                </div>
+                <div class="mb-3">
+                    <label for="project-http-param" class="form-label">사용자 정의 http 파라미터</label>
+                    <input type="text" class="form-control" id="project-http-param" aria-describedby="projectHttpParam">
+                </div>
+                <div class="row row-cols-2 g-3">
+                    <div class="col">
+                        <label for="project-service-modal-checkbox" class="form-label">체크박스 확인용 기본 서비스</label>
+                        <select class="form-select" id="project-service-modal-checkbox" data-placeholder="서비스">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="project-service-modal-keyword" class="form-label">키워드 추출 기본 서비스</label>
+                        <select class="form-select" id="project-service-modal-keyword" data-placeholder="서비스">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="project-service-modal-ocr" class="form-label">기본 OCR 서비스</label>
+                        <select class="form-select" id="project-service-modal-ocr" data-placeholder="서비스">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="project-service-modal-objectDetector" class="form-label">기본 ObjectDetector 서비스</label>
+                        <select class="form-select" id="project-service-modal-objectDetector" data-placeholder="서비스">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="project-service-modal-table" class="form-label">기본 테이블 분석 서비스</label>
+                        <select class="form-select" id="project-service-modal-table" data-placeholder="서비스">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="project-service-modal-text" class="form-label">기본 텍스트 검출 서비스</label>
+                        <select class="form-select" id="project-service-modal-text" data-placeholder="서비스">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/script/jquery.min.js"></script>

@@ -109,6 +109,11 @@ const scssCompile = async () =>
         .pipe(dest(DEST_PATH.ASSETS.STYLE))
         .pipe(browserSync.stream());
 
+const favicon = async () =>
+    await src(PATH.ASSETS.STYLE + "/favicon.ico").pipe(
+        dest(DEST_PATH.ASSETS.STYLE)
+    );
+
 const html = async () =>
     await src(PATH.HTML + "/*.html")
         .pipe(
@@ -172,6 +177,7 @@ const server = async () =>
 const tasks = series(
     [clean],
     [scssCompile],
+    [favicon],
     [html],
     [build],
     [fonts.pretendard],

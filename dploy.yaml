@@ -2,7 +2,7 @@ jenkins:
     scheme: ftp
     host: 10.20.1.248
     port: 21
-    user: aiportal
+    user: aida
     pass: grid8850
     check: true
     path:

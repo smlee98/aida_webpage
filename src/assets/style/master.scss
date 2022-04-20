@@ -6,6 +6,33 @@
 @import "bootstrap-ie11/scss/bootstrap-ie11.scss";
 @import "bootstrap-icons/font/bootstrap-icons.scss";
 
+@media only screen and (min-width: 1900px) {
+    #image-list {
+        flex: 0 0 300px !important;
+    }
+
+    #item-list {
+        flex: 0 0 250px !important;
+    }
+
+    #attr-list {
+        flex: 0 0 400px !important;
+    }
+}
+
+@media only screen and (min-width: 2500px) {
+    #image-list {
+        flex: 0 0 400px !important;
+    }
+
+    #item-list {
+        flex: 0 0 350px !important;
+    }
+
+    #attr-list {
+        flex: 0 0 500px !important;
+    }
+}
 /* BASIC SETTING START */
 
 body {
@@ -75,15 +102,14 @@ section#main {
     height: 100%;
 }
 
-.canvas-group canvas {
-    border: 1px solid black;
-    // width: 100%;
-}
-
 .abs-0-0 {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#key-help{
+    height: 4.875rem !important;
 }
 
 #draw-object tr{
@@ -94,6 +120,109 @@ section#main {
     background-color: rgb(248, 215, 218) !important;
 }
 
-#itembox{
-    flex: 0 0 750px;
+.navbar{
+    height: 3.5rem;
+}
+
+#wrapper{
+    height: calc(100% - 3.5rem);
+}
+
+.image-item{
+    position: relative;
+    padding: 0.5rem;
+}
+
+.image-item span{
+    position: relative;
+    z-index: 1011;
+}
+
+.image-item.active::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(248, 215, 218) !important;
+}
+
+.image-item:hover::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 215, 218, 0.5) !important;
+}
+
+.key-option.active span:nth-child(1) {
+    background-color: #a4373a !important;
+}
+
+.key-option.active span:nth-child(2) {
+    color: #a4373a !important;
+}
+
+.list-body,
+.image-item{
+    padding: 1.5rem;
+}
+
+div[id *="attr-item"],
+div[id *="attr-page"],
+div[id *="attr-project"]{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+div#attrTabContent > div[id *="attr-"] > div.row {
+    padding-top: 1rem;
+}
+
+div#attrTabContent>div[id *="attr-"] div.item-key,
+div#attrTabContent>div[id *="attr-"] div.item-value.item-value-check{
+    display: flex;
+    align-items: center;
+}
+
+div[aria-expanded="false"] i.caret::before{
+    transform: rotate(-90deg);
+}
+
+div.item-key,
+div.item-value{
+    height: 2.375rem;
+}
+
+div.item-key span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.collapse[id *= "attr-"] > .row{
+    margin-top: 0.5rem;
+}
+
+ul.nav-pills-custom {
+    border: 1px solid rgba(164, 55, 58, 0.25);
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+}
+
+.nav-pills-custom .nav-link {
+    color: #a4373a !important;
+    background: none !important;
+    border: 0 !important;
+    border-radius: 0.25rem !important;
+}
+
+.nav-pills-custom .nav-link.active{
+    color: #fff !important;
+    background-color: #a4373a !important;
+    border-color: #a4373a !important;
 }
